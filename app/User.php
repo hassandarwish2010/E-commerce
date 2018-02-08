@@ -4,9 +4,11 @@ namespace App;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Zizaco\Entrust\Traits\EntrustUserTrait;
 
 class User extends Authenticatable
 {
+    use EntrustUserTrait;
     use Notifiable;
 
     /**
@@ -15,8 +17,12 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password','address','phone'
     ];
+    public function orders()
+    {
+        return $this->belongsTo('App\Order','user_id');
+    }
 
     /**
      * The attributes that should be hidden for arrays.
