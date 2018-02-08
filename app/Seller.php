@@ -4,11 +4,11 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Admin extends Model
+class Seller extends Model
 {
     //
     protected $fillable = [
-        'name', 'email', 'password','comp_id'
+        'name', 'email', 'password','comp_id','phone'
     ];
     public function companies()
     {
