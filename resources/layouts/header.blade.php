@@ -1,14 +1,14 @@
 <div class="container">
 	<div class="row">
 	        <div class="col-sm-4"> 
-	                <a class="logo" href="#"><img src="bootstrap/img/logo.jpg"></a>
+	                <a class="logo" href="#"><img src="img/logo.jpg"></a>
 	        </div>
 	        <div class="col-sm-2">
 	            <div class="check">
 	                <div><p>Check Rate</p></div>
 	                <div>
-	                <img src="bootstrap/img/flagus.jpg">
-	                <img src="bootstrap/img/flaguk.jpg">
+	                <img src="img/flagus.jpg">
+	                <img src="img/flaguk.jpg">
 	            </div>
 	            </div>
 	        </div>

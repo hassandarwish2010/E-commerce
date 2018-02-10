@@ -20,7 +20,7 @@
                     <div class="col-md-3 col-sm-3 col-xs-12">
                         <div class="slider-item">
                             <div class="slider-image">
-                                <img src="bootstrap/img/images.jpg" class="img-responsive" alt="a" />
+                                <img src="img/images.jpg" class="img-responsive" alt="a" />
                             </div>
                             <div class="slider-main-detail">
                                 <div class="slider-detail">
@@ -49,7 +49,7 @@
                     <div class="col-md-3 col-sm-3 col-xs-12">
                         <div class="slider-item">
                             <div class="slider-image">
-                                <img src="bootstrap/img/images (1).jpg" class="img-responsive" alt="a" />
+                                <img src="img/images (1).jpg" class="img-responsive" alt="a" />
                             </div>
                             <div class="slider-main-detail">
                                 <div class="slider-detail">
@@ -78,7 +78,7 @@
                     <div class="col-md-3 col-sm-3 col-xs-12">
                         <div class="slider-item">
                             <div class="slider-image">
-                                <img src="bootstrap/img/images (2).jpg" class="img-responsive" alt="a" />
+                                <img src="img/images (2).jpg" class="img-responsive" alt="a" />
                             </div>
                             <div class="slider-main-detail">
                                 <div class="slider-detail">
@@ -107,7 +107,7 @@
                     <div class="col-md-3 col-sm-3 col-xs-12">
                         <div class="slider-item">
                             <div class="slider-image">
-                                <img src="bootstrap/img/images (3).jpg" class="img-responsive" alt="a" />
+                                <img src="img/images (3).jpg" class="img-responsive" alt="a" />
                             </div>
                             <div class="slider-main-detail">
                                 <div class="slider-detail">
@@ -140,7 +140,7 @@
                     <div class="col-md-3 col-sm-3 col-xs-12">
                         <div class="slider-item">
                             <div class="slider-image">
-                                <img src="bootstrap/img/download (1).jpg" class="img-responsive" alt="a" />
+                                <img src="img/download (1).jpg" class="img-responsive" alt="a" />
                             </div>
                             <div class="slider-main-detail">
                                 <div class="slider-detail">
@@ -169,7 +169,7 @@
                     <div class="col-md-3 col-sm-3 col-xs-12">
                         <div class="slider-item">
                             <div class="slider-image">
-                                <img src="bootstrap/img/download.jpg" class="img-responsive" alt="a" />
+                                <img src="img/download.jpg" class="img-responsive" alt="a" />
                             </div>
                             <div class="slider-main-detail">
                                 <div class="slider-detail">
@@ -198,7 +198,7 @@
                     <div class="col-md-3 col-sm-3 col-xs-12">
                         <div class="slider-item">
                             <div class="slider-image">
-                                <img src="bootstrap/img/download(2).jpg" class="img-responsive" alt="a" />
+                                <img src="img/download(2).jpg" class="img-responsive" alt="a" />
                             </div>
                             <div class="slider-main-detail">
                                 <div class="slider-detail">
@@ -227,7 +227,7 @@
                    <div class="col-md-3 col-sm-3 col-xs-12">
                         <div class="slider-item">
                             <div class="slider-image">
-                                <img src="bootstrap/img/images (1).jpg" class="img-responsive" alt="a" />
+                                <img src="img/images (1).jpg" class="img-responsive" alt="a" />
                             </div>
                             <div class="slider-main-detail">
                                 <div class="slider-detail">

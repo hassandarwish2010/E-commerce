@@ -8,7 +8,7 @@
                     <div class="row">
                        <div class="container">
                         <div class="text-right">
-                            <img data-animation="animated zoomInLeft" src="bootstrap/img/main-banner3.jpg">
+                            <img data-animation="animated zoomInLeft" src="img/main-banner3.jpg">
                         </div>
                         </div>
                     </div>
@@ -18,7 +18,7 @@
                     <div class="row">
                        <div class="container">
                         <div class="text-right">
-                            <img data-animation="animated zoomInLeft" src="bootstrap/img/main-banner3.jpg">
+                            <img data-animation="animated zoomInLeft" src="img/main-banner3.jpg">
                         </div>
                        </div>
                     </div>
@@ -28,7 +28,7 @@
                     <div class="row">
                         <div class="container">
                             <div class="text-right">
-                                <img data-animation="animated zoomInLeft" src="bootstrap/img/main-banner3.jpg">
+                                <img data-animation="animated zoomInLeft" src="img/main-banner3.jpg">
                             </div>     
                         </div>
                     </div>
@@ -38,7 +38,7 @@
                     <div class="row">
                         <div class="container">
                             <div class="text-right">
-                                <img data-animation="animated zoomInLeft" src="bootstrap/img/main-banner3.jpg">
+                                <img data-animation="animated zoomInLeft" src="img/main-banner3.jpg">
                             </div>  
                         </div>
                     </div>
