@@ -1,0 +1,72 @@
+﻿.popup {
+  position:fixed; z-index:20; top:10px; left:50%;
+  width:70%; height:500px; background:#fff;
+    -moz-box-shadow:4px 4px 30px #130507;
+    -webkit-box-shadow:4px 4px 30px #130507;
+  box-shadow:4px 4px 30px #130507;
+    -moz-transition:top 800ms;
+    -o-transition:top 800ms;
+    -webkit-transition:top 800ms;
+  transition:top 800ms;
+}
+  .p_content { width:100%; text-align:center; font-size:23px;padding: 20px 30px; }
+
+  .p_close { position:absolute; top:0; right: 7px; width:16px; height:12px; padding:15px 11px 0 0; }
+  .p_close span { display:block; width:18px; height:5px; background:#333; }
+  .p_close span:first-child {
+      -ms-transform:rotate(45deg);
+      -webkit-transform:rotate(45deg);
+    transform:rotate(45deg);
+  }
+  .p_close span:last-child {
+    margin:-5px 0 0;
+      -ms-transform:rotate(135deg);
+      -webkit-transform:rotate(135deg);
+    transform:rotate(135deg);
+  }
+  .p_body {
+    position:fixed; top:0; left:0; width:100%; height:100%;
+    background:#000; opacity:0.7;
+      -moz-transition:opacity 800ms;
+      -o-transition:opacity 800ms;
+      -webkit-transition:opacity 800ms;
+    transition:opacity 800ms;
+  }
+
+
+/* JS-styles — declaratively */
+  .js__slide_top { height:0; overflow:hidden; top:0; }
+  .js__fadeout { height:0; overflow:hidden; opacity:0; }
+
+
+.size{width: 15%}
+
+.ctr{border-right: 1px solid #bababa;border-left: 1px solid #bababa;}
+
+.popprise{font-size: 14px;color: red;}
+
+.popdetails{font-size: 14px;color: #080;}
+
+.ulsize{font-size: 12px;}
+
+.redd{width: 15%;height: 30px;background-color: red;}
+
+.bluee{width: 15%;height: 30px;background-color: blue;}
+
+.colmain{color:#607080;}
+
+.place{
+  border: 1px solid #bababa;
+  padding: 0.2em;
+}
+
+.small{
+  font-size: 14px;
+}
+
+.addtocart{
+  margin-top: 20px;
+  background-color: #252934;
+  width:90%;
+  height: 40px;
+}
