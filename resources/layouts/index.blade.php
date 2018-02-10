@@ -9,7 +9,10 @@
         <link rel="stylesheet"  href="css/font-awesome.min.css">
         <link rel="stylesheet"  href="css/style.css">
         <link rel="stylesheet"  href="css/custom.css">
-      
+        <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+ 
 
         <title>
     Clothes

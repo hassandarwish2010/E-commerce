@@ -26,6 +26,7 @@ class LoginController extends Controller
      * @var string
      */
     protected $redirectTo = '/home';
+    //return redirect('home')->with('openLogin');
 
     /**
      * Create a new controller instance.
