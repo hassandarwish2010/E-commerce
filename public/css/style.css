@@ -359,4 +359,139 @@ input{
 /*end login form*/
 
 
+/* start section our team */
+.our_team{
+  background-image: url("../images/images (33).jpg");
+  background-size: 100% 100%;
+  min-height: 300px;
+  margin-top: 10px;
+}
+.our_team .team{
+  background: rgba(2, 2, 2, 0.7);
+  color: #fff;
+  min-height: 400px;
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+.our_team h1{
+  margin-bottom: 60px;
+}
+.our_team .person{
+  margin-bottom: 40px;
+}
+ /* end section our team */
+
+
+
+
+
+
+
+
+
+
+
+/* start section  our clients */
+ .our-clients{
+  margin-top: 20px;
+  margin-bottom: 20px;
+  background: #EEE;
+  padding-top: 20px;
+  padding-bottom: 20px;
+ }
+ .our-clients img
+ {
+ opacity: 0.4;
+ margin-top: 20px;
+ margin-bottom: 20px;
+ }
+ .our-clients img:hover{
+  opacity: 1;
+  -webkit-transition:all 0.5s ease-in-out;
+  -moz-transition:all 0.5s ease-in-out;
+  -o-transition:all 0.5s ease-in-out;
+   transition:all 0.5s ease-in-out;
+ }
+/* end section our clients */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* start section  footer */
+.footer{
+  background: #111;
+  color: #AAA;
+  padding-top: 10px;
+}
+.footer a{
+  color: #AAA;
+}
+.footer a:hover{
+  color: #FFF;
+}
+.footer h3{
+  letter-spacing: 1px;
+  margin: 30px 0 20px;
+}
+.footer .three-columns{
+  overflow: hidden;
+}
+.footer .three-columns li{
+  width: 33.33333%;
+  float: left;
+  padding: 5px 0;
+}
+.footer .social-list {
+  overflow: hidden;
+  margin: 20px 0 10px;
+}
+.footer .social-list li{
+ float: left;
+ margin-right: 3px;
+ opacity: 0.7;
+ -webkit-transition:all 0.7s ease-in-out;
+ -moz-transition:all 0.7s ease-in-out;
+ -o-transition:all 0.7s ease-in-out;
+  transition:all 0.7s ease-in-out;
+}
+.footer.social-list li:hover
+{
+  opacity: 1
+}
+.footer .img-thumbnail
+ {
+  background: rgba(0,0,0,0.4);
+  border: 1px solid #444;
+  margin-bottom: 5px;
+}
+.footer .copyright
+{
+background: #333;
+color: #AAA;
+position: 15px 0;
+margin-top: 30px;
+font-size: 18px;
+padding-top: 10px;
+padding-bottom: 10px;
+}
+
+/* end section  footer  */
+
+
+
+
 

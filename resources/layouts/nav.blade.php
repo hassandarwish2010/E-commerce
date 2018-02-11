@@ -66,16 +66,15 @@
                         @guest
       
                             <li><a class="" href="#" id="auth"
-                                onclick="document.getElementById('authentication').style.display='block'">Login</a></li>
-                            <li><a href="#">Register</a></li>
+                                onclick="document.getElementById('authentication').style.display='block'">Login Register</a></li>
                         @else
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                                     {{ Auth::user()->name }} <span class="caret"></span>
                                 </a>
-                                <ul class="dropdown-menu" role="menu">
-                                    <li>
-                                        <a href="{{ route('logout') }}"
+                                <ul style="background-color: #708090" class="dropdown-menu" role="menu">
+                                    <li >
+                                        <a href="{{ route('logout') }}">
                                                         <i class="fa fa-btn fa-sign-out"></i>Logout
                                         </a>
             
