@@ -148,7 +148,7 @@
               
                        </div>
                    </nav>
-              
+                </div>
               <!--Login Modal -->
               <div id="authentication" class="w3-modal">
                       <span
@@ -263,6 +263,7 @@
                   <div class="fluid-container"></div>
                   <script>	
               openForm("Login");
+             
               function openForm(formName) {
                   
                   var x = document.getElementsByClassName("form");
