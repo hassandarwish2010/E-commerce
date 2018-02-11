@@ -18,4 +18,8 @@ class Category extends Model
     {
         return $this->hasMany('App\Style','categ_id');
     }
+    public function products()
+    {
+        return $this->hasManyThrough('App\Product','App\Style');
+    }
 }

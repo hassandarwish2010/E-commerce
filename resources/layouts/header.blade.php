@@ -13,7 +13,7 @@
 	            </div>
 	        </div>
 	        <div class="col-sm-2">
-	                
+	            <span></span><a href="#" >Shoping Cart</a>
 	        </div>
 	        <div class="col-sm-4">
 	            <form class="search" action="#">

@@ -5,6 +5,12 @@
 @include('nav')
 @include('slider')
 @include('latest_broduct')
+<?Php
+//print_r($products);
+//print_r($lastproduct);
+
+?>
+
 
       <!--  <div class="flex-center position-ref full-height">
             @if (Route::has('login'))
