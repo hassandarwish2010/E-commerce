@@ -8,6 +8,8 @@
         <link rel="stylesheet" href="{{ asset('css/bootstrap.css') }}">
         <link rel="stylesheet"  href="{{ asset('css/font-awesome.min.css') }}">
         <link rel="stylesheet"  href="{{ asset('css/style.css') }}">
+        <link rel="stylesheet"  href="{{ asset('css/animate.min.css') }}">
+        
         <link rel="stylesheet"  href="{{ asset('css/custom.css') }}">
         <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
@@ -39,7 +41,9 @@
                             </div>
                         </div>
                         <div class="col-sm-2">
-                            <span></span><a href="#" >Shoping Cart</a>
+                            <div class="check">
+                                <span></span><a href="#" >Shoping Cart</a>
+                            </div>
                         </div>
                         <div class="col-sm-4">
                             <form class="search" action="#">
@@ -72,7 +76,7 @@
                              <li><a href="#">Home</a></li>
                              <li id="wm">
                                  <a href="#">Women
-                                     <div id="showwomen" style="width:300%;background-color:#575757; display:none; position:absolute;z-index:1 ;opacity:0.9;margin-left:17%;margin-top:-2%;">
+                                     <div id="showwomen" style="width:600%;background-color:#575757; display:none; position:absolute;z-index:1 ;opacity:0.9;margin-left:17%;margin-top:-2%;">
                                          <div class="row">
                                              <div class="col-md-6">
                                                  <ul id="submenu">
