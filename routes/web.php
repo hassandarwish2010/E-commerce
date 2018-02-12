@@ -27,3 +27,7 @@ Route::get ( '/', function () {
 Route::post ( '/login', 'MainController@login' )->name('login');
 Route::post ( '/register', 'MainController@register' )->name('register');
 Route::get ( '/logout', 'MainController@logout' )->name('logout');
+
+Route::get('seller', function () {
+    return view('seller.index');
+});
