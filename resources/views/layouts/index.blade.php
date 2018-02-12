@@ -8,6 +8,8 @@
         <link rel="stylesheet" href="{{ asset('css/bootstrap.css') }}">
         <link rel="stylesheet"  href="{{ asset('css/font-awesome.min.css') }}">
         <link rel="stylesheet"  href="{{ asset('css/style.css') }}">
+        <link rel="stylesheet"  href="{{ asset('css/animate.min.css') }}">
+        
         <link rel="stylesheet"  href="{{ asset('css/custom.css') }}">
         <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
