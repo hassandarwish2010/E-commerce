@@ -132,6 +132,10 @@
                 <div class="slider-item">
                     <div class="slider-image">
                         <img src="img/images.jpg" class="img-responsive" alt="a" />
+                        <div class="middle">
+                            <div class="text">John Doe</div>
+                        </div>
+                        
                     </div>
                     <div class="slider-main-detail">
                         <div class="slider-detail">
