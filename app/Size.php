@@ -7,12 +7,39 @@ use Illuminate\Database\Eloquent\Model;
 class Size extends Model
 {
     //
+    //protected $table='sizes';
     protected $fillable = [
         'size_name',
     ];
     public function productColors()
     {
-        return $this->belongsToMany('App\ProductColor','product_color_sizes','product_colors_id','size_id');
+        return $this->hasMany('App\Product_color_sizes');
 
     }
+     
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
