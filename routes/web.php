@@ -24,6 +24,20 @@ Route::get ( '/product', 'CartController@getIndex' )->name('product');
 Route::get ( '/',[
     'uses' => 'CartController@getIndex',
     'as' => 'product'] );
+
 Route::post ( '/login', 'MainController@login' )->name('login');
 Route::post ( '/register', 'MainController@register' )->name('register');
 Route::get ( '/logout', 'MainController@logout' )->name('logout');
+
+
+Route::get('seller', function () {
+    return view('seller.index');
+});
+Route::get ( '/seller/showproduct/{Categ_name}',[
+    'uses' => 'ProductsController@index',
+    'as' => 'showproduct'] );
+//Route::get ( '/seller/showproduct/{Categ_name}', 'ProductsController@index')->name('showproduct');
+//Route::get ('addproducts','ProductsController@store')->name('addproducts');
+Route::resource ('products','ProductsController');
+Route::delete ('products/{id}','ProductsController@destroy');
+

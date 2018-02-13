@@ -14,23 +14,24 @@ class Product extends Model
         'product_price_sale','product_quan',
         'mater_id','comp_id'
     ];
-    public function styles()
+    public function style()
     {
         return $this->belongsTo('App\Style','style_id');
     }
-    public function materials()
+    public function material()
     {
         return $this->belongsTo('App\Material','mater_id');
     }
-    public function companies()
+    public function company()
     {
         return $this->belongsTo('App\Company','comp_id');
     }
     public function colors()
     {
-        return $this->belongsToMany('App\Color','productColors','product_id','color_id');
+        return $this->belongsToMany('App\Color','product_colors','product_id','color_id');
 
     }
+
     public function styleDetails()
     {
         return $this->belongsToMany('App\StyleDetails','product_style_details','product_id','style_details_id');
@@ -39,4 +40,5 @@ class Product extends Model
     {
         return $this->hasMany('App\OrderDetails','product_id');
     }
+   
 }

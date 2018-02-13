@@ -12,7 +12,7 @@ class Style extends Model
         'style_name','style_desc','style_active','categ_id'
     ];
     
-    public function categories()
+    public function category()
     {
         return $this->belongsTo('App\Category','categ_id');
     }
