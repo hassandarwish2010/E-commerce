@@ -38,6 +38,6 @@ Route::get ( '/seller/showproduct/{Categ_name}',[
     'as' => 'showproduct'] );
 //Route::get ( '/seller/showproduct/{Categ_name}', 'ProductsController@index')->name('showproduct');
 //Route::get ('addproducts','ProductsController@store')->name('addproducts');
-Route::resource ('products','ProductsController');
+Route::resource ('/products','ProductsController');
 Route::delete ('products/{id}','ProductsController@destroy');
 
