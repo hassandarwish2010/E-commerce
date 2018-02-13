@@ -2,6 +2,7 @@
 
 namespace App;
 
+
 use Illuminate\Database\Eloquent\Model;
 
 class Color extends Model
@@ -9,9 +10,8 @@ class Color extends Model
     //
     protected $fillable=
     ['color_name','color_active'];
-    public function products()
+    public function sizes()
     {
-        return $this->belongsToMany('App\Product','productColors','product_id','color_id');
-
+        return $this->hasMany('App\Size');
     }
 }

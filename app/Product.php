@@ -1,6 +1,7 @@
 <?php
 
 namespace App;
+use App\Size;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -18,7 +19,7 @@ class Product extends Model
     {
         return $this->belongsTo('App\Style','style_id');
     }
-    public function materials()
+    public function material()
     {
         return $this->belongsTo('App\Material','mater_id');
     }
@@ -28,7 +29,7 @@ class Product extends Model
     }
     public function colors()
     {
-        return $this->belongsToMany('App\Color','productColors','product_id','color_id');
+        return $this->belongsToMany('App\Color','product_colors','product_id','color_id');
 
     }
     public function styleDetails()
@@ -39,4 +40,5 @@ class Product extends Model
     {
         return $this->hasMany('App\OrderDetails','product_id');
     }
+    
 }
