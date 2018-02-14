@@ -1,14 +1,9 @@
+@extends('layouts.index')
+@section('content')
 <?php
-foreach($colors as $color)
-{
-    echo $color->col;
-    echo $color->si;
-    echo $color->pro;
-    echo $color->sty;
-    echo "<br>";
-  
 
-    
-}
 
+//echo $min_price;
+echo $max_prices;
 ?>
+@endsection

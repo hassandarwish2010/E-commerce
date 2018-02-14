@@ -9,6 +9,7 @@
         <link rel="stylesheet"  href="{{ asset('css/font-awesome.min.css') }}">
         <link rel="stylesheet"  href="{{ asset('css/style.css') }}">
         <link rel="stylesheet"  href="{{ asset('css/animate.min.css') }}">
+        <link rel="stylesheet"  href="{{ asset('css/show.css') }}">
         
         <link rel="stylesheet"  href="{{ asset('css/custom.css') }}">
         <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
@@ -80,7 +81,7 @@
                                          <div class="row">
                                              <div class="col-md-6">
                                                  <ul id="submenu">
-                                                     <li><a href="">Dresses</a></li>
+                                                     <li><a href="{{ route('test',array('categ_name'=>'Dresses','group_name'=>'Woman')) }}">Dresses</a></li>
                                                      <li><a href="">Tops &amp; T-Shirts</a></li>
                                                      <li><a href="">Shirts &amp; Blouses</a></li>
                                                      <li><a href="">Skirts</a></li>

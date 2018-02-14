@@ -20,8 +20,6 @@
   <!-- AdminLTE Skins. Choose a skin from the css/skins
        folder instead of downloading all of them to reduce the load. -->
   <link rel="stylesheet" href="{{ asset('css/skins/_all-skins.min.css') }}">
-<<<<<<< HEAD
-=======
   <!-- Morris chart -->
   <link rel="stylesheet" href="{{ asset('morris.js/morris.css') }}">
   <!-- jvectormap -->
@@ -42,7 +40,6 @@
   <![endif]-->
 
 
->>>>>>> 84c11d2c81513f5b101551d04005838ce6177ae4
   @yield('header')
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
@@ -75,11 +72,7 @@
       <!-- Sidebar user panel -->
       <div class="user-panel">
         <div class="pull-left image">
-<<<<<<< HEAD
-          <img src="" class="img-circle" alt="User Image">
-=======
           <img src="{{ asset('admin/dist/img/user2-160x160.jpg')}}" class="img-circle" alt="User Image">
->>>>>>> 84c11d2c81513f5b101551d04005838ce6177ae4
         </div>
         <div class="pull-left info">
           <p>Alexander Pierce</p>
@@ -114,19 +107,11 @@
             </span>
           </a>
           <ul class="treeview-menu">
-<<<<<<< HEAD
-            <li><a href="{{route('showproduct',array('Categ_name'=>'Shirts'))}}"><i class="fa fa-circle-o"></i> Shirts</a></li>
-            <li><a href="#"><i class="fa fa-circle-o"></i> Polos</a></li
-            <li><a href="#"><i class="fa fa-circle-o"></i> T-Shirts</a></li>
-            <li><a href="#"><i class="fa fa-circle-o"></i> jeans&Pants</a></li>
-            <li><a href="#"><i class="fa fa-circle-o"></i> shorts</a></li>
-=======
             <li><a href="#"><i class="fa fa-circle-o"></i> Shirts</a></li>
             <li><a href="#"><i class="fa fa-circle-o"></i> Polos</a></li>
             <li><a href="#"><i class="fa fa-circle-o"></i> T-Shirts</a></li>
             <li><a href="#"><i class="fa fa-circle-o"></i> jeans&Pants</a></li>
             <li><a href="#"><i class="fa fa-circle-o"></i>shorts</a></li>
->>>>>>> 84c11d2c81513f5b101551d04005838ce6177ae4
             <li><a href="#"><i class="fa fa-circle-o"></i> Swimwear</a></li>
             <li><a href="#"><i class="fa fa-circle-o"></i> Underwear</a></li>
             <li><a href="#"><i class="fa fa-circle-o"></i> Sleepwear</a></li>
@@ -381,13 +366,9 @@
 @yield('content')
 
 
-<<<<<<< HEAD
-</div>
-=======
   </div>
 
 
->>>>>>> 84c11d2c81513f5b101551d04005838ce6177ae4
 
 <footer class="main-footer">
     <div class="pull-right hidden-xs">
@@ -397,8 +378,6 @@
     reserved.
   </footer>
 
-<<<<<<< HEAD
-=======
   <!-- Control Sidebar -->
   <aside class="control-sidebar control-sidebar-dark">
     <!-- Create the tabs -->
@@ -541,7 +520,6 @@
 
 
 
->>>>>>> 84c11d2c81513f5b101551d04005838ce6177ae4
   <!-- /.control-sidebar -->
   <!-- Add the sidebar's background. This div must be placed
        immediately after the control sidebar -->
@@ -556,8 +534,6 @@
 </script>
 <!-- Bootstrap 3.3.7 -->
 <script src="{{ asset('js/bootstrap.min.js') }}"></script>
-<<<<<<< HEAD
-=======
 <!-- Morris.js charts -->
 <script src="{{ asset('raphael/raphael.min.js') }}"></script>
 <script src="{{ asset('morris.js/morris.min.js') }}"></script>
@@ -579,31 +555,13 @@
 <script src="{{ asset('jquery-slimscroll/jquery.slimscroll.min.js') }}"></script>
 <!-- FastClick -->
 <script src="{{ asset('fastclick/lib/fastclick.js') }}"></script>
->>>>>>> 84c11d2c81513f5b101551d04005838ce6177ae4
 <!-- AdminLTE App -->
 <script src="{{ asset('js/adminlte.min.js') }}"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="{{ asset('js/pages/dashboard.js') }}"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="{{ asset('js/demo.js') }}"></script>
-<<<<<<< HEAD
- <!-- jQuery -->
-{{-- <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script> --}}
-<script src="https://code.jquery.com/jquery-2.2.4.js" integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI=" crossorigin="anonymous"></script>
-<!-- Bootstrap JavaScript -->
-<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.0.1/js/bootstrap.min.js"></script>
-<!-- icheck checkboxes -->
-<script type="text/javascript" src="{{ asset('icheck/icheck.min.js') }}"></script>
-
-
-
-
-    <!-- Delay table load until everything else is loaded -->
 @yield('footer')
-@yield('script')
-=======
-@yield('footer')
->>>>>>> 84c11d2c81513f5b101551d04005838ce6177ae4
 
 </body>
 </html>

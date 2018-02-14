@@ -17,10 +17,10 @@ Route::get('/', function () {
 /*
 Auth::routes();
 */
-Route::get('test','SellerController@index');
+//Route::get('test','SellerController@index');
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get ( '/product', 'CartController@getIndex' )->name('product');
+//Route::get ( '/product', 'CartController@getIndex' )->name('product');
 
 Route::get ( '/',[
     'uses' => 'CartController@getIndex',
@@ -34,7 +34,6 @@ Route::get ( '/logout', 'MainController@logout' )->name('logout');
 Route::get('seller', function () {
     return view('seller.index');
 });
-<<<<<<< HEAD
 Route::get ( '/seller/showproduct/{Categ_name}',[
     'uses' => 'ProductsController@index',
     'as' => 'showproduct'] );
@@ -42,6 +41,10 @@ Route::get ( '/seller/showproduct/{Categ_name}',[
 //Route::get ('addproducts','ProductsController@store')->name('addproducts');
 Route::resource ('/products','ProductsController');
 Route::delete ('products/{id}','ProductsController@destroy');
-=======
->>>>>>> 84c11d2c81513f5b101551d04005838ce6177ae4
+Route::get('/test/{categ_name}/{group_name}',[
+    'as'=>'test',
+    'uses'=>'ProductController@index']);
 
+
+
+    

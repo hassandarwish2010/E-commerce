@@ -41,9 +41,5 @@ class Product extends Model
     {
         return $this->hasMany('App\OrderDetails','product_id');
     }
-<<<<<<< HEAD
-   
-=======
     
->>>>>>> 84c11d2c81513f5b101551d04005838ce6177ae4
 }
