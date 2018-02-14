@@ -532,6 +532,8 @@
 <!-- icheck checkboxes -->
 <script type="text/javascript" src="{{ asset('icheck/icheck.min.js') }}"></script>
     <!-- Delay table load until everything else is loaded -->
+  <script src="http://malsup.github.com/jquery.form.js"></script>
+    
 @yield('footer')
 @yield('script')
 

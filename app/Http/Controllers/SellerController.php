@@ -59,4 +59,7 @@ FROM sizes join product_color_sizes on product_color_sizes.size_id=sizes.id*/
         return view ('test',compact('colors'));
 
     }
+    public function test(Request $request){
+    return view('home',compact('request'));
+    }
 }

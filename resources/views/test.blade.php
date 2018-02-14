@@ -1,4 +1,4 @@
 <?php
-print_r($input);
+print_r($request);
 
 ?>

@@ -17,13 +17,10 @@ Route::get('/', function () {
 /*
 Auth::routes();
 */
-Route::get('test','SellerController@index');
+Route::post('/test','SellerController@test')->name('test');
 Route::get('/home', 'HomeController@index')->name('home');
-
 Route::get ( '/product', 'CartController@getIndex' )->name('product');
-
 Route::get ( '/',['uses' => 'CartController@getIndex','as' => 'product'] );
-
 Route::post ( '/login', 'MainController@login' )->name('login');
 Route::post ( '/register', 'MainController@register' )->name('register');
 Route::get ( '/logout', 'MainController@logout' )->name('logout');
@@ -32,19 +29,13 @@ Route::get ( '/logout', 'MainController@logout' )->name('logout');
 Route::get('seller', function () {
     return view('seller.index');
 });
-Route::get ( '/seller/showproduct/{Categ_name}',[
-    'uses' => 'ProductsController@index',
-    'as' => 'showproduct'] );
+Route::get ( '/seller/showproduct/{Categ_name}',['uses' => 'ProductsController@index','as' => 'showproduct'] );
 
-
-//Route::get ( '/seller/showproduct/{Categ_name}', 'ProductsController@index')->name('showproduct');
-//Route::get ('addproducts','ProductsController@store')->name('addproducts');
 
 
 Route::post ('/seller/showproduct/products',['uses'=>'ProductsController@store','as'=>'products']);
-Route::delete ('/products/{id}','ProductsController@destroy');
-
-
+Route::put ('/editproduct/{id}',['uses'=>'ProductsController@update','as'=>'editproduct']);
+Route::get ('/seller/showproduct/products/addproduct',['uses'=>'ProductsController@showadd','as'=>'addproduct']);
 
 
 
