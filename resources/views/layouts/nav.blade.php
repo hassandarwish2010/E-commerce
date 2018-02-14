@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container-fluid">
   <nav class="navbar navbar-default" style="z-index:2; background-color:#575757; ">
          <div class="navbar-header">
            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">

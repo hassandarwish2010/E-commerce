@@ -136,7 +136,8 @@
                     <h4 class="modal-title"></h4>
                 </div>
                 <div class="modal-body">
-                    <form class="form-horizontal" role="form">
+                    <form class="form-horizontal"  role="form">
+                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
                         <div class="form-group">
                             <label class="control-label col-sm-2" for="serial">serial:</label>
                             <div class="col-sm-10">
@@ -169,7 +170,7 @@
                                 <p class="errorQuantity text-center alert alert-danger hidden"></p>
                             </div>
                         </div>
-                        
+
                     </form>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-success add" data-dismiss="modal">
@@ -308,29 +309,40 @@
 
 @endsection
 @section('script')
-
-        <!-- AJAX CRUD operations -->
+           
+                    <!-- AJAX CRUD operations -->
         <script type="text/javascript">
+
             // add a new post
             $(document).on('click', '.add-modal', function() {
                 $('.modal-title').text('Add');
                 $('#addModal').modal('show');
               console.log("add product1");
-                
+ 
             });
+            $(function(){
+                $.ajaxSetup({
+                    headers: {
+                        'X-XSRF-Token': $('meta[name="_token"]').attr('content')
+                    }
+                })
+            })
             $('.modal-footer').on('click', '.add', function() {
               console.log("add product2");
               
                 $.ajax({
+                     headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
                     type: 'POST',
-                    url: ('products'),
+                    url:'products',
                     data: {
                         '_token': $('input[name=_token]').val(),
                         'product_serial_num': $('#serial').val(),
                         'product_price': $('#price').val(),
                         'product_desc': $('#desc').val(),
                         'product_quan': $('#Quantity').val()
-                    },
+                  },
                     success: function(data) {
                         $('.errorTitle').addClass('hidden');
                         $('.errorContent').addClass('hidden');

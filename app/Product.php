@@ -11,8 +11,7 @@ class Product extends Model
     protected $fillable=
     [
         'product_serial_num','style_id',
-        'product_price','product_desc',
-        'product_price_sale','product_quan',
+        'product_price','product_desc','product_quan',
         'mater_id','comp_id'
     ];
     public function style()
@@ -41,9 +40,5 @@ class Product extends Model
     {
         return $this->hasMany('App\OrderDetails','product_id');
     }
-<<<<<<< HEAD
-   
-=======
     
->>>>>>> 84c11d2c81513f5b101551d04005838ce6177ae4
 }

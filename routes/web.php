@@ -22,9 +22,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get ( '/product', 'CartController@getIndex' )->name('product');
 
-Route::get ( '/',[
-    'uses' => 'CartController@getIndex',
-    'as' => 'product'] );
+Route::get ( '/',['uses' => 'CartController@getIndex','as' => 'product'] );
 
 Route::post ( '/login', 'MainController@login' )->name('login');
 Route::post ( '/register', 'MainController@register' )->name('register');
@@ -34,14 +32,27 @@ Route::get ( '/logout', 'MainController@logout' )->name('logout');
 Route::get('seller', function () {
     return view('seller.index');
 });
-<<<<<<< HEAD
 Route::get ( '/seller/showproduct/{Categ_name}',[
     'uses' => 'ProductsController@index',
     'as' => 'showproduct'] );
+
+
 //Route::get ( '/seller/showproduct/{Categ_name}', 'ProductsController@index')->name('showproduct');
 //Route::get ('addproducts','ProductsController@store')->name('addproducts');
-Route::resource ('/products','ProductsController');
-Route::delete ('products/{id}','ProductsController@destroy');
-=======
->>>>>>> 84c11d2c81513f5b101551d04005838ce6177ae4
 
+
+Route::post ('/seller/showproduct/products',['uses'=>'ProductsController@store','as'=>'products']);
+Route::delete ('/products/{id}','ProductsController@destroy');
+
+
+
+
+
+/////////////////test//////////////////////////
+Route::get('ajaxImageUpload', ['uses'=>'AjaxImageUploadController@ajaxImageUpload']);
+Route::post('ajaxImageUpload', ['as'=>'ajaxImageUpload','uses'=>'AjaxImageUploadController@ajaxImageUploadPost']);
+
+
+Route::get('images-upload', 'HomeController@imagesUpload');
+
+Route::post('images-upload', 'HomeController@imagesUploadPost')->name('images.upload');

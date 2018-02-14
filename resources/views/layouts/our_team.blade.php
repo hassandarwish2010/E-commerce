@@ -1,5 +1,5 @@
 <!--start section our team-->
-<div class="container">
+<div class="container-fluid">
 <section class="our_team text-center">
     <div class="team">
       
@@ -7,7 +7,7 @@
             <div class="row">
                 <div class="col-lg-3 col-md-3">
                     <div class="person  wow pulse" data-wow-duration="1s"  data-wow-offset="400">
-                        <img class="img-circle" src="img/images (4).jpg">
+                        <img class="img-circle" src="{{asset('img/images (4).jpg')}}">
                         <h3> ola </h3>
                                 <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint </p>
                                 <li class="fa fa-google-plus fa-lg"></li>
@@ -18,7 +18,7 @@
                 </div>
                 <div class="col-lg-3">
                     <div class="person  wow pulse" data-wow-duration="1s"  data-wow-offset="400">
-                        <img class="img-circle" src="img/images (5).jpg">
+                        <img class="img-circle" src="{{asset('img/images (5).jpg')}}">
                         <h3> ola </h3>
                                 <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint </p>
                                 <li class="fa fa-google-plus fa-lg"></li>
@@ -29,7 +29,7 @@
                 </div>
                 <div class="col-lg-3">
                     <div class="person  wow pulse" data-wow-duration="1s"  data-wow-offset="400">
-                        <img class="img-circle" src="img/images (5).jpg">
+                        <img class="img-circle" src="{{asset('img/images (5).jpg')}}">
                         <h3> ola </h3>
                                 <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint </p>
                                 <li class="fa fa-google-plus fa-lg"></li>
@@ -40,7 +40,7 @@
                 </div>
                 <div class="col-lg-3">
                     <div class="person  wow pulse" data-wow-duration="1s"  data-wow-offset="400">
-                        <img class="img-circle" src="img/images (5).jpg">
+                        <img class="img-circle" src="{{asset('img/images (5).jpg')}}">
                         <h3> ola </h3>
                             <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint </p>
                             <li class="fa fa-google-plus fa-lg"></li>

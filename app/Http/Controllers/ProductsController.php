@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Product;
 use App\Category;
 use App\Style;
-
+use Validator;
 
 
 class ProductsController extends Controller
@@ -58,6 +58,9 @@ class ProductsController extends Controller
             $product->save();
             return response()->json($product);
         }
+
+     
+ 
     }
 
 
