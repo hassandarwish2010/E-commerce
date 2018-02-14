@@ -6,8 +6,8 @@ use Illuminate\Http\Request;
 use App\Product;
 use App\Category;
 use App\Style;
-
-
+use Validator;
+use Redirect;
 
 class ProductsController extends Controller
 {
@@ -43,7 +43,7 @@ class ProductsController extends Controller
      */
     public function store(Request $request)
     {
-        $validator = Validator::make(Input::all(), $this->rules);
+       /* $validator = Validator::make(Input::all(), $this->rules);
         if ($validator->fails()) {
             return Response::json(array('errors' => $validator->getMessageBag()->toArray()));
         } else {
@@ -57,7 +57,12 @@ class ProductsController extends Controller
             $product->comp_id = 1;
             $product->save();
             return response()->json($product);
-        }
+        }*/
+ 
+        $input = $request->all();
+        Product::create($input);
+        return response()->json(['success'=>'done']);
+ 
     }
 
 
@@ -80,7 +85,8 @@ class ProductsController extends Controller
      */
     public function edit($id)
     {
-        //
+           
+         
     }
 
     /**
@@ -92,7 +98,14 @@ class ProductsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+            
+            $product = Product::findOrFail($id);
+            $product->update($request->all());
+            return 'success';
+
+            
+            
+        
     }
 
     /**
@@ -107,5 +120,8 @@ class ProductsController extends Controller
         $product->delete();
 
         return response()->json($product);
+    }
+    public function showadd(){
+    return view('seller.addproducts');
     }
 }

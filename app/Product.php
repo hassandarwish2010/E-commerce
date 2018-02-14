@@ -11,8 +11,7 @@ class Product extends Model
     protected $fillable=
     [
         'product_serial_num','style_id',
-        'product_price','product_desc',
-        'product_price_sale','product_quan',
+        'product_price','product_desc','product_quan',
         'mater_id','comp_id'
     ];
     public function style()

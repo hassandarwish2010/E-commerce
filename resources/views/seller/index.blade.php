@@ -3,9 +3,12 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="_token" content="{{ csrf_token() }}">
+  
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+
   <title>Website seller | @yield('title')</title>
   <!-- Tell the browser to be responsive to screen width -->
-  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.7 -->
   <link rel="stylesheet" href="
   {{ asset('css/bootstrap.min.css') }}">
@@ -25,6 +28,7 @@
   <!-- jvectormap -->
   <link rel="stylesheet" href="
   {{ asset('jvectormap/jquery-jvectormap.css') }}">
+<<<<<<< HEAD
   <!-- Date Picker -->
   <link rel="stylesheet" href="{{ asset('bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css') }}">
   <!-- Daterange picker -->
@@ -38,11 +42,15 @@
   <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
   <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
   <![endif]-->
+=======
+
+>>>>>>> c5a7d29d41c5d3630c3ab926973a1a55623a626e
 
 
   @yield('header')
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
+  
 
 <div class="wrapper">
 
@@ -107,11 +115,19 @@
             </span>
           </a>
           <ul class="treeview-menu">
+<<<<<<< HEAD
             <li><a href="#"><i class="fa fa-circle-o"></i> Shirts</a></li>
             <li><a href="#"><i class="fa fa-circle-o"></i> Polos</a></li>
             <li><a href="#"><i class="fa fa-circle-o"></i> T-Shirts</a></li>
             <li><a href="#"><i class="fa fa-circle-o"></i> jeans&Pants</a></li>
             <li><a href="#"><i class="fa fa-circle-o"></i>shorts</a></li>
+=======
+            <li><a href="{{route('showproduct',array('Categ_name'=>'Shirts'))}}"><i class="fa fa-circle-o"></i> Shirts</a></li>
+            <li><a href="#"><i class="fa fa-circle-o"></i> Polos</a></li
+            <li><a href="#"><i class="fa fa-circle-o"></i> T-Shirts</a></li>
+            <li><a href="#"><i class="fa fa-circle-o"></i> jeans&Pants</a></li>
+            <li><a href="#"><i class="fa fa-circle-o"></i> shorts</a></li>
+>>>>>>> c5a7d29d41c5d3630c3ab926973a1a55623a626e
             <li><a href="#"><i class="fa fa-circle-o"></i> Swimwear</a></li>
             <li><a href="#"><i class="fa fa-circle-o"></i> Underwear</a></li>
             <li><a href="#"><i class="fa fa-circle-o"></i> Sleepwear</a></li>
@@ -529,11 +545,9 @@
 <!-- jQuery UI 1.11.4 -->
 <script src="{{ asset('jquery-ui/jquery-ui.min.js') }}"></script>
 <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
-<script>
-  $.widget.bridge('uibutton', $.ui.button);
-</script>
 <!-- Bootstrap 3.3.7 -->
 <script src="{{ asset('js/bootstrap.min.js') }}"></script>
+<<<<<<< HEAD
 <!-- Morris.js charts -->
 <script src="{{ asset('raphael/raphael.min.js') }}"></script>
 <script src="{{ asset('morris.js/morris.min.js') }}"></script>
@@ -555,13 +569,25 @@
 <script src="{{ asset('jquery-slimscroll/jquery.slimscroll.min.js') }}"></script>
 <!-- FastClick -->
 <script src="{{ asset('fastclick/lib/fastclick.js') }}"></script>
+=======
+>>>>>>> c5a7d29d41c5d3630c3ab926973a1a55623a626e
 <!-- AdminLTE App -->
 <script src="{{ asset('js/adminlte.min.js') }}"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="{{ asset('js/pages/dashboard.js') }}"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="{{ asset('js/demo.js') }}"></script>
+<<<<<<< HEAD
 @yield('footer')
+=======
+<!-- icheck checkboxes -->
+<script type="text/javascript" src="{{ asset('icheck/icheck.min.js') }}"></script>
+    <!-- Delay table load until everything else is loaded -->
+  <script src="http://malsup.github.com/jquery.form.js"></script>
+    
+@yield('footer')
+@yield('script')
+>>>>>>> c5a7d29d41c5d3630c3ab926973a1a55623a626e
 
 </body>
 </html>

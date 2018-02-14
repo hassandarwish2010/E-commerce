@@ -1,5 +1,9 @@
+<<<<<<< HEAD
 @extends('test);
 <div class="container">
+=======
+<div class="container-fluid">
+>>>>>>> c5a7d29d41c5d3630c3ab926973a1a55623a626e
   <nav class="navbar navbar-default" style="z-index:2; background-color:#575757; ">
          <div class="navbar-header">
            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
