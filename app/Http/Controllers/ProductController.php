@@ -106,7 +106,21 @@ class ProductController extends Controller
         JOIN groups ON groups.id=categ_groups.group_id
         WHERE groups.group_name='gro1'
         AND categories.categ_name='Dresses'*/
-
+        $products=DB::table('sizes')
+        ->join('product_color_sizes','sizes.id','=','product_color_sizes.size_id')
+        ->join('product_colors','product_color_sizes.product_colors_id','=','product_colors.id')
+        ->join('colors','product_colors.color_id','=','colors.id')
+        ->join('products','product_colors.product_id','=','products.id')
+        ->join('styles','products.style_id','=','styles.id')
+        ->join('materials','products.mater_id','=','materials.id')
+        ->join('categories','categories.id','=','styles.categ_id')
+        ->join('categ_groups','categ_groups.categ_id','=','categories.id')
+        ->join('groups','groups.id','=','categ_groups.group_id')
+        ->select('colors.color_name AS color','styles.style_name AS style','materials.mater_name AS mater','sizes.size_name AS size')
+        ->when($categ_name, function ($query) use ($group_name) {
+            return $query->where('groups.group_name', $group_name);
+        })
+        ->get();
         //return max pric and min price
         
 
@@ -120,7 +134,8 @@ class ProductController extends Controller
         ->max('products.product_price');
         
         
-        return view('test', compact('categories','group_name','styles','brands','max_prices'));
+        return view('user.product.show', compact('categories','group_name','styles','brands','max_prices','colors',
+    'materials','sizes','products','categ_name'));
        /* return view('user.product.show',['categories'=>$categories,'group_name'=>$group_name,'styles'=>$styles,
         'brands'=>$brands,'materials'=>$materials,'sizes'=>$sizes]);*/
     }

@@ -28,7 +28,6 @@
   <!-- jvectormap -->
   <link rel="stylesheet" href="
   {{ asset('jvectormap/jquery-jvectormap.css') }}">
-<<<<<<< HEAD
   <!-- Date Picker -->
   <link rel="stylesheet" href="{{ asset('bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css') }}">
   <!-- Daterange picker -->
@@ -42,9 +41,6 @@
   <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
   <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
   <![endif]-->
-=======
-
->>>>>>> c5a7d29d41c5d3630c3ab926973a1a55623a626e
 
 
   @yield('header')
@@ -115,19 +111,11 @@
             </span>
           </a>
           <ul class="treeview-menu">
-<<<<<<< HEAD
             <li><a href="#"><i class="fa fa-circle-o"></i> Shirts</a></li>
             <li><a href="#"><i class="fa fa-circle-o"></i> Polos</a></li>
             <li><a href="#"><i class="fa fa-circle-o"></i> T-Shirts</a></li>
             <li><a href="#"><i class="fa fa-circle-o"></i> jeans&Pants</a></li>
             <li><a href="#"><i class="fa fa-circle-o"></i>shorts</a></li>
-=======
-            <li><a href="{{route('showproduct',array('Categ_name'=>'Shirts'))}}"><i class="fa fa-circle-o"></i> Shirts</a></li>
-            <li><a href="#"><i class="fa fa-circle-o"></i> Polos</a></li
-            <li><a href="#"><i class="fa fa-circle-o"></i> T-Shirts</a></li>
-            <li><a href="#"><i class="fa fa-circle-o"></i> jeans&Pants</a></li>
-            <li><a href="#"><i class="fa fa-circle-o"></i> shorts</a></li>
->>>>>>> c5a7d29d41c5d3630c3ab926973a1a55623a626e
             <li><a href="#"><i class="fa fa-circle-o"></i> Swimwear</a></li>
             <li><a href="#"><i class="fa fa-circle-o"></i> Underwear</a></li>
             <li><a href="#"><i class="fa fa-circle-o"></i> Sleepwear</a></li>
@@ -547,39 +535,12 @@
 <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
 <!-- Bootstrap 3.3.7 -->
 <script src="{{ asset('js/bootstrap.min.js') }}"></script>
-<<<<<<< HEAD
-<!-- Morris.js charts -->
-<script src="{{ asset('raphael/raphael.min.js') }}"></script>
-<script src="{{ asset('morris.js/morris.min.js') }}"></script>
-<!-- Sparkline -->
-<script src="{{ asset('jquery-sparkline/dist/jquery.sparkline.min.js')}}"></script>
-<!-- jvectormap -->
-<script src="{{ asset('plugins/jvectormap/jquery-jvectormap-1.2.2.min.js') }}"></script>
-<script src="{{ asset('plugins/jvectormap/jquery-jvectormap-world-mill-en.js') }}"></script>
-<!-- jQuery Knob Chart -->
-<script src="{{ asset('jquery-knob/dist/jquery.knob.min.js') }}"></script>
-<!-- daterangepicker -->
-<script src="{{ asset('moment/min/moment.min.js') }}"></script>
-<script src="{{ asset('bootstrap-daterangepicker/daterangepicker.js') }}"></script>
-<!-- datepicker -->
-<script src="{{ asset('bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js') }}"></script>
-<!-- Bootstrap WYSIHTML5 -->
-<script src="{{ asset('plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js') }}"></script>
-<!-- Slimscroll -->
-<script src="{{ asset('jquery-slimscroll/jquery.slimscroll.min.js') }}"></script>
-<!-- FastClick -->
-<script src="{{ asset('fastclick/lib/fastclick.js') }}"></script>
-=======
->>>>>>> c5a7d29d41c5d3630c3ab926973a1a55623a626e
 <!-- AdminLTE App -->
 <script src="{{ asset('js/adminlte.min.js') }}"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="{{ asset('js/pages/dashboard.js') }}"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="{{ asset('js/demo.js') }}"></script>
-<<<<<<< HEAD
-@yield('footer')
-=======
 <!-- icheck checkboxes -->
 <script type="text/javascript" src="{{ asset('icheck/icheck.min.js') }}"></script>
     <!-- Delay table load until everything else is loaded -->
@@ -587,7 +548,6 @@
     
 @yield('footer')
 @yield('script')
->>>>>>> c5a7d29d41c5d3630c3ab926973a1a55623a626e
 
 </body>
 </html>
