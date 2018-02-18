@@ -136,6 +136,7 @@
                             <button type="button" class="btn btn-success btn-md" data-toggle="modal" data-target="#Quikviewmodal-{{ $product->id }}" data-id="{{ $product->id }}">Quik Show</button>
                         </div>
                         
+                        
                     </div>
                     <div class="slider-main-detail">
                         <div class="slider-detail">
@@ -177,66 +178,64 @@
                         <input type="text" class="form-control" id="id" value="{{ $product->id }}" >
                     <div class="row">
                           <h4 class="text-left colmain"> MEN T_SHERT</h4>
-                          <div class="col-sm-4 left productslide">
-                                    <div class="mySlides">
-                                        <div class="numbertext">1 / 6</div>
-                                        <img src="{{asset('img/dress.jpg')}}" style="width:100%">
-                                    </div>
-
-                                    <div class="mySlides">
-                                        <div class="numbertext">2 / 6</div>
-                                        <img src="{{asset('img/dress.jpg')}}" style="width:100%">
-                                    </div>
-
-                                    <div class="mySlides">
-                                        <div class="numbertext">3 / 6</div>
-                                        <img src="{{asset('img/dress.jpg')}}" style="width:100%">
-                                    </div>
-                                    <div class="mySlides">
-                                        <div class="numbertext">1 / 6</div>
-                                        <img src="{{asset('img/dress.jpg')}}" style="width:100%">
-                                    </div>
-
-                                    <div class="mySlides">
-                                        <div class="numbertext">2 / 6</div>
-                                        <img src="{{asset('img/dress.jpg')}}" style="width:100%">
-                                    </div>
-
-                                    <div class="mySlides">
-                                        <div class="numbertext">3 / 6</div>
-                                        <img src="{{asset('img/dress.jpg')}}" style="width:100%">
-                                    </div>
-                                        
-
-                                        
-                                    <a class="prev" onclick="plusSlides(-1)">❮</a>
-                                    <a class="next" onclick="plusSlides(1)">❯</a>
-
-                                    <div class="caption-container">
-                                        <p id="caption"></p>
-                                    </div>
-
-                                    <div class="row">
-                                        <div class="column">
-                                        <img class="demo cursor" src="{{asset('img/dress.jpg')}}" style="width:100%" onclick="currentSlide(1)" alt="The Woods">
-                                        </div>
-                                        <div class="column">
-                                        <img class="demo cursor" src="{{asset('img/dress.jpg')}}" style="width:100%" onclick="currentSlide(2)" alt="Trolltunga, Norway">
-                                        </div>
-                                        <div class="column">
-                                        <img class="demo cursor" src="{{asset('img/dress.jpg')}}" style="width:100%" onclick="currentSlide(3)" alt="Mountains and fjords">
-                                        </div>
-                                        <div class="column">
-                                            <img class="demo cursor" src="{{asset('img/dress.jpg')}}" style="width:100%" onclick="currentSlide(1)" alt="The Woods">
-                                            </div>
-                                            <div class="column">
-                                            <img class="demo cursor" src="{{asset('img/dress.jpg')}}" style="width:100%" onclick="currentSlide(2)" alt="Trolltunga, Norway">
-                                            </div>
-                                            <div class="column">
-                                            <img class="demo cursor" src="{{asset('img/dress.jpg')}}" style="width:100%" onclick="currentSlide(3)" alt="Mountains and fjords">
-                                            </div>
-                                    </div>
-                                   
+                          <div class="col-sm-4 ">
+                            <div class="divslideimg">
+                                <div class="numbertext">1 / 6</div>
+                                <img src="{{asset('img/images.jpg')}}" style="width:100%">
+                              </div>
+                        
+                              <div class="divslideimg">
+                                <div class="numbertext">2 / 6</div>
+                                <img src="{{asset('img/images.jpg')}}" style="width:100%">
+                              </div>
+                        
+                              <div class="divslideimg">
+                                <div class="numbertext">3 / 6</div>
+                                <img src="{{asset('img/images.jpg')}}" style="width:100%">
+                              </div>
+                                
+                              <div class="divslideimg">
+                                <div class="numbertext">4 / 6</div>
+                                <img src="{{asset('img/images.jpg')}}" style="width:100%">
+                              </div>
+                        
+                              <div class="divslideimg">
+                                <div class="numbertext">5 / 6</div>
+                                <img src="{{asset('img/images.jpg')}}" style="width:100%">
+                              </div>
+                                
+                              <div class="divslideimg">
+                                <div class="numbertext">6 / 6</div>
+                                <img src="{{asset('img/images.jpg')}}" style="width:100%">
+                              </div>
+                                
+                              <a class="prevlink" onclick="plusSlides(-1)">❮</a>
+                              <a class="nextlink" onclick="plusSlides(1)">❯</a>
+                        
+                              <div class="divproductdetails-container">
+                                <p id="divproductdetails"></p>
+                              </div>
+                        
+                              <div class="row">
+                                <div class="columnforproduct">
+                                  <img class="imgdownslide cursorproduct" src="{{asset('img/images.jpg')}}" style="width:100%" onclick="currentSlide(1)" alt="The Woods">
+                                </div>
+                                <div class="columnforproduct">
+                                  <img class="imgdownslide cursorproduct" src="{{asset('img/images.jpg')}}" style="width:100%" onclick="currentSlide(2)" alt="Trolltunga, Norway">
+                                </div>
+                                <div class="columnforproduct">
+                                  <img class="imgdownslide cursorproduct" src="{{asset('img/images.jpg')}}" style="width:100%" onclick="currentSlide(3)" alt="Mountains and fjords">
+                                </div>
+                                <div class="columnforproduct">
+                                  <img class="imgdownslide cursorproduct" src="{{asset('img/images.jpg')}}" style="width:100%" onclick="currentSlide(4)" alt="Northern Lights">
+                                </div>
+                                <div class="columnforproduct">
+                                  <img class="imgdownslide cursorproduct" src="{{asset('img/images.jpg')}}" style="width:100%" onclick="currentSlide(5)" alt="Nature and sunrise">
+                                </div>    
+                                <div class="columnforproduct">
+                                  <img class="imgdownslide cursorproduct" src="{{asset('img/images.jpg')}}" style="width:100%" onclick="currentSlide(6)" alt="Snowy Mountains">
+                                </div>
+                              </div>
 
                           </div>
                 
@@ -280,36 +279,7 @@
                              <!--......... end row.......-->
                     <!--................-->
                   </div>
-                  <script>
-                        var slideIndex = 1;
-                        showSlides(slideIndex);
-                        
-                        function plusSlides(n) {
-                          showSlides(slideIndex += n);
-                        }
-                        
-                        function currentSlide(n) {
-                          showSlides(slideIndex = n);
-                        }
-                        
-                        function showSlides(n) {
-                          var i;
-                          var slides = document.getElementsByClassName("mySlides");
-                          var dots = document.getElementsByClassName("demo");
-                          var captionText = document.getElementById("caption");
-                          if (n > slides.length) {slideIndex = 1}
-                          if (n < 1) {slideIndex = slides.length}
-                          for (i = 0; i < slides.length; i++) {
-                              slides[i].style.display = "none";
-                          }
-                          for (i = 0; i < dots.length; i++) {
-                              dots[i].className = dots[i].className.replace(" active", "");
-                          }
-                          slides[slideIndex-1].style.display = "block";
-                          dots[slideIndex-1].className += " active";
-                          captionText.innerHTML = dots[slideIndex-1].alt;
-                        }
-                     </script>
+            
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -318,7 +288,7 @@
       
         </div>
       </div>
-    
+  
     <!-- end quik view modal-->
             @endforeach
         </div>
@@ -333,3 +303,35 @@
 @include('layouts.our_team');
 @include('layouts.our_clients');
 @endsection('content')
+@section('script')
+<script>
+    var slideIndex = 1;
+    showSlides(slideIndex);
+    
+    function plusSlides(n) {
+      showSlides(slideIndex += n);
+    }
+    
+    function currentSlide(n) {
+      showSlides(slideIndex = n);
+    }
+    
+    function showSlides(n) {
+      var i;
+      var slides = document.getElementsByClassName("divslideimg");
+      var dots = document.getElementsByClassName("imgdownslide");
+      var divproductdetailsText = document.getElementById("divproductdetails");
+      if (n > slides.length) {slideIndex = 1}
+      if (n < 1) {slideIndex = slides.length}
+      for (i = 0; i < slides.length; i++) {
+          slides[i].style.display = "none";
+      }
+      for (i = 0; i < dots.length; i++) {
+          dots[i].className = dots[i].className.replace(" active", "");
+      }
+      slides[slideIndex-1].style.display = "block";
+      dots[slideIndex-1].className += " active";
+      divproductdetailsText.innerHTML = dots[slideIndex-1].alt;
+    }
+    </script>
+ @endsection('script')

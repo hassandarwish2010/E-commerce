@@ -19,7 +19,7 @@ class ProductsController extends Controller
     public function index($Categ_name)
     {
         $categ_id=Category::where('categ_name','=',$Categ_name)->value('id');
-        $products=Product::with('style.category')->get();
+        $products=Product::with('style.category')->paginate(10);
        // $productss=Product::with('colors')>get();
        
         return view('seller.showProducts',['products'=>$products,'categ_id'=>$categ_id]);
@@ -103,9 +103,6 @@ class ProductsController extends Controller
             $product->update($request->all());
             return 'success';
 
-            
-            
-        
     }
 
     /**
