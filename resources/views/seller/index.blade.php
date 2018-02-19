@@ -134,7 +134,7 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="#"><i class="fa fa-circle-o"></i> dress</a></li>
+            <li><a href="{{ route('showproduct',array('categ_name'=>'Dresses','group_name'=>'Woman')) }}"><i class="fa fa-circle-o"></i> Dresses</a></li>
             <li><a href="#"><i class="fa fa-circle-o"></i> jumpsuits</a></li>
             <li><a href="#"><i class="fa fa-circle-o"></i> Tops</a></li>
             <li><a href="#"><i class="fa fa-circle-o"></i> Jeans & Pants</a></li>
@@ -545,6 +545,8 @@
 <script type="text/javascript" src="{{ asset('icheck/icheck.min.js') }}"></script>
     <!-- Delay table load until everything else is loaded -->
   <script src="http://malsup.github.com/jquery.form.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+	
     
 @yield('footer')
 @yield('script')

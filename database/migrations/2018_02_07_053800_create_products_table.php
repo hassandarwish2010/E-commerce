@@ -20,7 +20,7 @@ class CreateProductsTable extends Migration
             $table->float('product_price');
             $table->string('product_desc');
             $table->float('product_price_sale');
-            $table->integer('product_quan');
+           
             $table->integer('mater_id')->unsigned();
             $table->integer('comp_id')->unsigned();
             $table->foreign('style_id')->references('id')->on('styles')

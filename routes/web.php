@@ -26,10 +26,10 @@ Route::get ( '/',[
     'uses' => 'CartController@getIndex',
     'as' => 'product'] );
 
-Route::get('/test',function(){
+
+Route::get('/test', function () {
     return view('test');
 });
-
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get ( '/product', 'CartController@getIndex' )->name('product');
 Route::get ( '/',['uses' => 'CartController@getIndex','as' => 'product'] );
@@ -41,11 +41,13 @@ Route::get ( '/logout', 'MainController@logout' )->name('logout');
 Route::get('seller', function () {
     return view('seller.index');
 });
-Route::get ( '/seller/showproduct/{Categ_name}',[
+Route::get ('/seller/showproduct/{categ_name}/{group_name}',[
     'uses' => 'ProductsController@index',
     'as' => 'showproduct'] );
+
+
 //Route::get ( '/seller/showproduct/{Categ_name}', 'ProductsController@index')->name('showproduct');
-//Route::get ('addproducts','ProductsController@store')->name('addproducts');
+Route::get ('/seller/showproduct/products/addproducts/{categ_name}/{group_name}/{comp_id}','ProductsController@stylesAndMater')->name('addproduct');
 Route::resource ('/products','ProductsController');
 Route::delete ('products/{id}','ProductsController@destroy');
 Route::get('/show/{categ_name}/{group_name}',[
@@ -55,13 +57,13 @@ Route::get('/show/{categ_name}/{group_name}',[
 
 
     
-Route::get ( '/seller/showproduct/{Categ_name}',['uses' => 'ProductsController@index','as' => 'showproduct'] );
+//Route::get ( '/seller/showproduct/{Categ_name}',['uses' => 'ProductsController@index','as' => 'showproduct'] );
 
 
 
 Route::post ('/seller/showproduct/products',['uses'=>'ProductsController@store','as'=>'products']);
 Route::put ('/editproduct/{id}',['uses'=>'ProductsController@update','as'=>'editproduct']);
-Route::get ('/seller/showproduct/products/addproduct',['uses'=>'ProductsController@showadd','as'=>'addproduct']);
+//Route::post ('add',['uses'=>'ProductsController@create','as'=>'add']);
 
 
 

@@ -33,13 +33,16 @@
     </style>
 
 <div class="">
+
     <h2 class="text-center">Manage products</h2>
     <br />
     <div class="panel panel-default">
         <div class="panel-heading">
             <ul>
                 <li><i class="fa fa-file-text-o"></i> All the current products</li>
-                <a href="{{ route('addproduct') }}" class="btn btn-info">Add a prroduct</a>
+                <a href="{{ route('addproduct',array('categ_name'=>$categ_name,
+                'group_name'=>$group_name,'comp_id'=>$comp_id)) }}"
+                 class="btn btn-info">Add a prroduct</a>
             </ul>
         </div>
     
@@ -49,11 +52,11 @@
                         <tr>
                             <th valign="middle">#</th>
                             <th>Serial Num</th>
-                            <th>Style Name</th>
+                            <th>Style </th>
+                            <th>Description </th>
+                            <th>Material</th>
                             <th>Product Price</th>
                             <th>Price after sale</th>  
-                            <th>Product Qty</th>
-                            <th>Active</th>
                             <th>Last updated</th>
                             <th>Actions</th>
                         </tr>
@@ -61,25 +64,26 @@
                     </thead>
                     <tbody>
                         @foreach($products as $indexKey => $product)
-                            @if($product->style->category->id == $categ_id)
+                            
                                 <tr class="item{{$product->id}}">
                                     <td class="col1">{{ $indexKey+1 }}</td>
-                                    <td>{{$product->product_serial_num}}</td>
-                                    <td>{{$product->style->style_name}}</td>
-                                    <td>{{$product->product_price}}</td>
-                                    <td>{{$product->product_price_sale}}</td>
-                                    <td>{{$product->product_quan}}</td>
+                                    <td>{{$product->serial}}</td>
+                                    <td>{{$product->style}}</td>
+                                    <td>{{$product->desc}}</td>
+                                    <td>{{$product->material}}</td>
+                                    <td>{{$product->price}}</td>
+                                    <td>{{$product->sale}}</td>
                                     
-                                    <td class="text-center"><input type="checkbox" class="published" id="" data-id="{{$product->id}}"{{-- @if ($product->is_published) checked @endif--}} ></td>
-                                    <td>{{ \Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $product->updated_at)->diffForHumans() }}</td>
+                                    
+                                     <td>{{ \Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $product->update)->diffForHumans() }}</td>
                                     <td>
-                                        <button class="show-modal btn btn-success" data-id="{{$product->id}}" data-serial="{{$product->product_serial_num}}" data-content="{{$product->style->style_name}}">
+                                        <button class="show-modal btn btn-success" data-id="{{$product->id}}" data-serial="{{$product->serial}}" data-content="{{$product->style}}">
                                         <span class="glyphicon glyphicon-eye-open"></span> Show</button>
 
                                         <button class="btn btn-info"  data-toggle="modal" data-target="#editmodal-{{ $product->id }}" data-id="{{ $product->id }}">
                                         <span class="glyphicon glyphicon-edit"></span> Edit</button>
 
-                                        <button class="delete-modal btn btn-danger" data-id="{{$product->id}}" data-title="{{$product->style->style_name}}" data-content="{{$product->style->style_name}}">
+                                        <button class="delete-modal btn btn-danger" data-id="{{$product->id}}" data-title="{{$product->style}}" data-content="{{$product->style}}">
                                         <span class="glyphicon glyphicon-trash"></span> Delete</button>
                                     </td>
                                 </tr>
@@ -101,7 +105,7 @@
                                                 <div class="form-group">
                                                     <label class="control-label col-sm-2" for="serial">serial:</label>
                                                     <div class="col-sm-10">
-                                                        <input type="text" class="form-control" name="product_serial_num" id="serial" value="{{$product->product_serial_num}}" autofocus>
+                                                        <input type="text" class="form-control" name="product_serial_num" id="serial" value="{{$product->serial}}" autofocus>
                                                         <small>serial number </small>
                                                         <p class="errorserial text-center alert alert-danger hidden"></p>
                                                     </div>
@@ -109,7 +113,7 @@
                                                 <div class="form-group">
                                                     <label class="control-label col-sm-2" for="price">price:</label>
                                                     <div class="col-sm-10">
-                                                        <input type="text" class="form-control" name="product_price" id="product_price_show" value="{{$product->product_price}}">
+                                                        <input type="text" class="form-control" name="product_price" id="product_price_show" value="{{$product->price}}">
                                                         <small>price number </small>
                                                         <p class="errorprice text-center alert alert-danger hidden"></p>
                                                     </div>
@@ -117,22 +121,13 @@
                                                 <div class="form-group">
                                                     <label class="control-label col-sm-2" for="desc">desc:</label>
                                                     <div class="col-sm-10">
-                                                        <input type="text" class="form-control" name="product_desc" id="desc" value="{{$product->product_desc}}" >
+                                                        <input type="text" class="form-control" name="product_desc" id="desc" value="{{$product->desc}}" >
                                                         <small>desc  </small>
                                                         <p class="errordesc text-center alert alert-danger hidden"></p>
                                                     </div>
                                                 </div>
-                                                <div class="form-group">
-                                                    <label class="control-label col-sm-2" for="Quantity">Quantity:</label>
-                                                    <div class="col-sm-10">
-                                                        <input type="number" class="form-control" name="product_quan" id="Quantity" value="{{$product->product_quan}}"  >
-                                                        <small>Quantity  </small>
-                                                        <p class="errorQuantity text-center alert alert-danger hidden"></p>
-                                                    </div>
-                                                </div>
-                                                <input type="hidden" class="form-control" name="style_id" id="style_id" value="1">
-                                                <input type="hidden" value="1" class="form-control" name="comp_id"  id="comp_id" >
-                                                <input type="hidden" value="1" class="form-control" name="mater_id" id="mater_id" value="1">
+                                               
+                                                
                                                 <div class="form-group">
                                                 <button class="btn btn-success edit-product pull-right" type="submit">Edit</button>
                                                 </div>
@@ -148,7 +143,7 @@
                                 </div>
                             </div>
 
-                            @endif
+                           
                         @endforeach
                     </tbody>
                 </table>
@@ -292,54 +287,3 @@
 
 
 @endsection
-@section('script')
-           
-                    <!-- AJAX CRUD operations -->
-       <script type="text/javascript">
-
-           /* $("modal-body").on("click",".edit-product",function(e){
-                alert("sdfhhf");
-                $(this).parents("form").ajaxForm(options);
-              });
-            
-            
-              var options = { 
-                complete: function(response) 
-                {
-                    if($.isEmptyObject(response.responseJSON.error)){
-                        alert('edit Successfully.');
-                    }else{
-                        printErrorMsg(response.responseJSON.error);
-                    }
-                }
-              };
-            
-            
-              function printErrorMsg (msg) {
-                $(".print-error-msg").find("ul").html('');
-                $(".print-error-msg").css('display','block');
-                $.each( msg, function( key, value ) {
-                    $(".print-error-msg").find("ul").append('<li>'+value+'</li>');
-                });
-              }
-              */
-              $(function(){
-                  $('#myForm').submit(function(e){
-                        e.preventDefault();
-
-                        var data = $(this).serialize();
-
-                        $.ajax({
-                            url:'{{route('editproduct',$product->id)}}',
-                            type:'post',
-                            data:data,
-                            success:function(response){
-                                alert(response);
-                            }
-                        }).fail(function(res){
-                            console.log(res);
-                        });
-                  });
-              });
-        </script>
-        @endsection

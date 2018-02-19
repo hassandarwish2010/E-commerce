@@ -4,13 +4,36 @@
 h3.accordion-header {
         margin-bottom: -4px;
 }
-#accor-content{
+.accor-content{
     
      overflow-y: scroll;
+     width:170px;
+    height:100px;
+}
+.accor-content-cond{
+    
 }
 .divaccor{
     height:700px;
 }
+
+
+.ui-accordion .ui-accordion-content {
+    padding: 1em 0.2em;}
+
+div.accor-content ul{
+    list-style-type: none;
+}
+div.accor-content li
+{
+    margin-left: -37px;
+}
+span.fa-circle{
+    
+    font-size: 40px;
+    
+}
+
 </style>
 @endsection
 @section('content')
@@ -27,8 +50,8 @@ h3.accordion-header {
                                 <input type="text" class="form-control" name="search" id="search" placeholder="search">
                                 <span class="glyphicon glyphicon-search form-control-feedback"></span>
                             </div>
-                            <div id="accor-content" >
-                                <ul class="no-bullet  content-list">
+                            <div class="accor-content" >
+                                <ul class="  content-list">
                                     @foreach($categories as $category)
                                         <li>
                                             <label><input type="checkbox" value="">{{$category->categ_name}}</label>
@@ -44,7 +67,7 @@ h3.accordion-header {
                                 <input type="text" class="form-control" name="search" id="search" placeholder="search">
                                 <span class="glyphicon glyphicon-search form-control-feedback"></span>
                             </div>
-                            <div  id="accor-content">
+                            <div  class="accor-content">
                                 <ul class="no-bullet  content-list">
                                     @foreach($brands as $brand)
                                             <li>
@@ -61,7 +84,7 @@ h3.accordion-header {
                                 <input type="text" class="form-control" name="search" id="search" placeholder="search">
                                 <span class="glyphicon glyphicon-search form-control-feedback"></span>
                             </div>
-                            <div class="container" id="accor-content" >
+                            <div class="container" class="accor-content" >
                                 <ul class="no-bullet clearfix content-list">
                                     @foreach($styles as $style)
                                         <li>
@@ -79,7 +102,7 @@ h3.accordion-header {
                                     <input type="text" class="form-control" name="search" id="search" placeholder="search">
                                     <span class="glyphicon glyphicon-search form-control-feedback"></span>
                                 </div>
-                                <div  id="accor-content">
+                                <div  class="accor-content">
                                     <ul class="no-bullet clearfix content-list">
                                         <li>
                                             <label><input type="checkbox" value="">Maxi</label>
@@ -100,7 +123,7 @@ h3.accordion-header {
                                     <input type="text" class="form-control" name="search" id="search" placeholder="search">
                                     <span class="glyphicon glyphicon-search form-control-feedback"></span>
                                 </div>
-                                <div  id="accor-content">
+                                <div  class="accor-content">
                                     <ul class="no-bullet clearfix content-list">
                                         
                                             <li><label><input type="checkbox" value="">Sleeveless</label></li>
@@ -122,7 +145,7 @@ h3.accordion-header {
                                     <input type="text" class="form-control" name="search" id="search" placeholder="search">
                                     <span class="glyphicon glyphicon-search form-control-feedback"></span>
                                 </div>
-                                <div  id="accor-content">
+                                <div  class="accor-content">
                                     <ul class="no-bullet clearfix content-list">
                                         
                                             <li><label><input type="checkbox" value="">Round Neck</label></li>
@@ -149,7 +172,7 @@ h3.accordion-header {
                                     <input type="text" class="form-control" name="search" id="search" placeholder="search">
                                     <span class="glyphicon glyphicon-search form-control-feedback"></span>
                                 </div>
-                                <div  id="accor-content" >
+                                <div  class="accor-content" >
                                     <ul class="no-bullet clearfix content-list">
                                         <li><label><input type="checkbox" value="">Casual</label></li>
                                         <li><label><input type="checkbox" value="">Special Occasion</label></li>
@@ -165,13 +188,11 @@ h3.accordion-header {
                                 <input type="text" class="form-control" name="search" id="search" placeholder="search">
                                 <span class="glyphicon glyphicon-search form-control-feedback"></span>
                             </div>
-                            <div  id="accor-content">
+                            <div  class="accor-content">
                                 @foreach($colors as $color)
-                                                <ul class="no-bullet clearfix content-list">
-                                                    <li>
-                                                        <label><input type="checkbox" value=""> {{$color->color_name}}}}</label>
-                                                    </li>
-                                                </ul>
+                                    <a href="" style="text-decoration: none;">
+                                        <span class="fa fa-circle" style="color:{{$color->color_name}}"></span>
+                                    </a>
                                 @endforeach
                                     
                                   
@@ -184,7 +205,7 @@ h3.accordion-header {
                                 <input type="text" class="form-control" name="search" id="search" placeholder="search">
                                 <span class="glyphicon glyphicon-search form-control-feedback"></span>
                             </div>
-                            <div  id="accor-content">
+                            <div  class="accor-content">
                                 @foreach($materials as $material)
                                                <ul class="no-bullet clearfix content-list">
                                                     <li>
@@ -202,13 +223,18 @@ h3.accordion-header {
                                 <input type="text" class="form-control" name="search" id="search" placeholder="search">
                                 <span class="glyphicon glyphicon-search form-control-feedback"></span>
                             </div>
-                            <div  id="accor-content">
+                            <div  class="accor-content">
                                 @foreach($sizes as $size)
-                                    <ul class="no-bullet clearfix content-list">
-                                        <li>
-                                            <label><input type="checkbox" value=""> {{$size->size_name}}</label>
-                                        </li>
-                                    </ul>
+                                     <a href="" style="text-decoration: none;">
+                                        <div style="height: 25px;
+                                                width: 27px;
+                                                border: 1px solid black;
+                                                float: left;
+                                                padding-left: 4px;
+                                                margin-right: 3px;"> 
+                                            <span > {{$size->size_name}}</span>
+                                        </div>
+                                    </a>
                                 @endforeach
                             </div>
                     </div>
@@ -220,7 +246,7 @@ h3.accordion-header {
                                 <input type="text" class="form-control" name="search" id="search" placeholder="search">
                                 <span class="glyphicon glyphicon-search form-control-feedback"></span>
                             </div>
-                            <div  id="accor-content">
+                            <div  class="accor-content-cond">
                                 <ul class="no-bullet clearfix content-list">
                                     <li>
                                         <label><input type="checkbox" value="">New</label>
@@ -236,7 +262,7 @@ h3.accordion-header {
                                 <input type="text" class="form-control" name="search" id="search" placeholder="search">
                                 <span class="glyphicon glyphicon-search form-control-feedback"></span>
                             </div>
-                            <div  id="accor-content">
+                            <div  class="accor-content-cond">
                                 <ul class="no-bullet clearfix content-list">
                                     <li>
                                         <label><input type="checkbox" value="">Option 2</label>
@@ -254,7 +280,7 @@ h3.accordion-header {
         @foreach ($products->chunk(3) as $productchunk)
         <div class="row">
             @foreach ($productchunk as $product)
-            <div class="col-md-3 col-sm-3 col-xs-12">
+            <div class="col-md-4 col-sm-6 col-xs-12">
                 <div class="slider-item">
                     <div class="slider-image">
                         <img src="{{asset('img/images.jpg')}}" class="img-responsive" alt="a" />
@@ -267,7 +293,10 @@ h3.accordion-header {
                         <div class="slider-detail">
                             <div class="product-detail">
                                 <h5>{{ $product->id }}</h5>
-                                <h5 class="detail-price">{{$product->product_price}}</h5>
+                                <h5 class="detail-price">{{$product->price}}</h5>
+                                <h5 class="detail-price">{{$product->sale}}</h5>
+                                <h5 class="detail-price">{{$product->desc}}</h5>
+                                
                             </div>
                         </div>
                         <div class="cart-section">

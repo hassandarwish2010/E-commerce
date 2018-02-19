@@ -10,13 +10,10 @@ class Color extends Model
     //
     protected $fillable=
     ['color_name','color_active'];
-    public function sizes()
+   
+    public function products()
     {
-        return $this->hasMany('App\Size');
-    }
-    public function sizes()
-    {
-        return $this->belongsToMany('App\Size','product_color_sizes','product_color_id','size_id');
+        return $this->belongsToMany('App\Color','product_colors','product_id','color_id');
 
     }
 }

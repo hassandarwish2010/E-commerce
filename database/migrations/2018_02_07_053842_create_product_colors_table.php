@@ -17,7 +17,7 @@ class CreateProductColorsTable extends Migration
             $table->increments('id');
             $table->integer('product_id')->unsigned();
             $table->integer('color_id')->unsigned();
-            $table->boolean('product_color_active');
+            
             $table->foreign('color_id')->references('id')->on('colors')
             ->onDelete('cascade')
             ->onUpdate('cascade');
