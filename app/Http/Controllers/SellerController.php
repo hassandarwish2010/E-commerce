@@ -46,17 +46,11 @@ FROM sizes join product_color_sizes on product_color_sizes.size_id=sizes.id*/
 
         
 
-        $colors=DB::table('colors')
-        ->join('product_colors','colors.id','=','product_colors.color_id')
-        ->join('product_color_sizes','product_colors.id','=','product_color_sizes.product_colors_id')
-        ->join('sizes','product_color_sizes.size_id','=','sizes.id')
-        ->join('products','product_colors.product_id','=','products.id')
-        ->select('colors.color_name AS col','sizes.size_name As si','product_colors.product_id As pro','products.style_id As sty')
-        ->get();
+        $pro=Product::with('colors')->get();
 
 
 
-        return view ('test',compact('colors'));
+        return view ('test',compact('pro'));
 
     }
     public function test(Request $request){

@@ -15,6 +15,7 @@ class CreateProductColorSizesTable extends Migration
     {
         Schema::create('product_color_sizes', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('quantity');
             $table->integer('product_colors_id')->unsigned();
             $table->integer('size_id')->unsigned();
             $table->foreign('size_id')->references('id')->on('sizes')

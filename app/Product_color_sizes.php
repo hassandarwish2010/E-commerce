@@ -13,6 +13,7 @@ class Product_color_sizes extends Pivot
     [
         'size_id',
         'product_colors_id',
+        'quantity'
         
     ];
     public function size()

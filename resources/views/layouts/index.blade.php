@@ -13,12 +13,24 @@
         
         <link rel="stylesheet"  href="{{ asset('css/custom.css') }}">
         <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+        <link rel="stylesheet" href="http://code.jquery.com/ui/1.9.0/themes/base/jquery-ui.css" />
+ 
+    
  
 
+<<<<<<< HEAD
+        <title>
+   Open Cart
+
+  @yield('title')
+
+        </title>
+   @yield('style')
+=======
         <title>Open Cart @yield('title')</title>
    
+>>>>>>> 8bffa27201ffc14165e22e79768d795ad3641c80
     </head>
     <style>
         body {
@@ -174,26 +186,26 @@
                                          <div class="row">
                                              <div class="col-md-6">
                                                  <ul id="submenu">
-                                                     <li><a href="{{ route('test',array('categ_name'=>'Dresses','group_name'=>'Woman')) }}">Dresses</a></li>
-                                                     <li><a href="">Tops &amp; T-Shirts</a></li>
-                                                     <li><a href="">Shirts &amp; Blouses</a></li>
-                                                     <li><a href="">Skirts</a></li>
-                                                     <li><a href="">Trousers &amp; Shorts</a></li>
-                                                     <li><a href="">Leggings &amp; Hosiery</a></li>
-                                                     <li><a href="">Playsuits &amp; Jumpsuits </a></li>
-                                                     <li><a href="">Jeans</a></li>
+                                                    <li><a href="{{ route('show',array('categ_name'=>'Dresses','group_name'=>'Woman')) }}">Dresses</a></li>
+                                                    <li><a href="{{ route('show',array('categ_name'=>'Tops & T-Shirts','group_name'=>'Woman')) }}">Tops &amp; T-Shirts</a></li>
+                                                    <li><a href="{{ route('show',array('categ_name'=>'Shirts & Blouses','group_name'=>'Woman')) }}">Shirts &amp; Blouses</a></li>
+                                                    <li><a href="{{ route('show',array('categ_name'=>'Skirts','group_name'=>'Woman')) }}">Skirts</a></li>
+                                                    <li><a href="{{ route('show',array('categ_name'=>'Trousers & Shorts','group_name'=>'Woman')) }}">Trousers &amp; Shorts</a></li>
+                                                    <li><a href="{{ route('show',array('categ_name'=>'Leggings & Hosiery','group_name'=>'Woman')) }}">Leggings &amp; Hosiery</a></li>
+                                                    <li><a href="{{ route('show',array('categ_name'=>'Playsuits & Jumpsuits','group_name'=>'Woman')) }}">Playsuits &amp; Jumpsuits </a></li>
+                                                    <li><a href="{{ route('show',array('categ_name'=>'Jeans','group_name'=>'Woman')) }}">Jeans</a></li>
                                                  </ul>
                                              </div>
                                              <div class="col-md-6">
                                                  <ul>
-                                                     <li><a href="">Sportswear &amp; Joggers </a></li>
-                                                     <li><a href="">Swim &amp; Beachwear </a></li>
-                                                     <li><a href="">Blazer &amp; Jackets </a></li>
-                                                     <li><a href="">Knitwear</a></li>
-                                                     <li><a href="">Onesies &amp; Nightwear</a></li>
-                                                     <li><a href="">Lingerie </a></li>
-                                                     <li><a href="">Suit</a></li>
-                                                     <li><a href="">Sale</a></li>
+                                                     <li><a href="{{ route('show',array('categ_name'=>'Sportswear & Joggers','group_name'=>'Woman')) }}">Sportswear &amp; Joggers </a></li>
+                                                     <li><a href="{{ route('show',array('categ_name'=>'Swim & Beachwear','group_name'=>'Woman')) }}">Swim &amp; Beachwear </a></li>
+                                                     <li><a href="{{ route('show',array('categ_name'=>'Blazer & Jackets','group_name'=>'Woman')) }}">Blazer &amp; Jackets </a></li>
+                                                     <li><a href="{{ route('show',array('categ_name'=>'Knitwear','group_name'=>'Woman')) }}">Knitwear</a></li>
+                                                     <li><a href="{{ route('show',array('categ_name'=>'Onesies & Nightwear','group_name'=>'Woman')) }}">Onesies &amp; Nightwear</a></li>
+                                                     <li><a href="{{ route('show',array('categ_name'=>'Lingerie','group_name'=>'Woman')) }}">Lingerie </a></li>
+                                                     <li><a href="{{ route('show',array('categ_name'=>'Suit','group_name'=>'Woman')) }}">Suit</a></li>
+                                                     <li><a href="{{ route('show',array('categ_name'=>'Sale','group_name'=>'Woman')) }}">Sale</a></li>
                                                  </ul>
                                              </div>  
                                          </div>
@@ -380,10 +392,11 @@
                   @endif
               
         <!--end navbar-->
-
+        
             @yield('content')
 
-       
+         
+                
 
         <!-- start section  footer -->
         <div class="container-fluid">
@@ -415,11 +428,27 @@
             </section>
          </div>	
         <!-- end section  footer -->
+        
     
     
+       
     
-    
-    
+<<<<<<< HEAD
+            <script src="{{ asset('js/jquery-3.2.1.min.js') }}"></script>   
+            <script src="{{ asset('js/bootstrap.min.js') }}"></script>
+            <script src="{{ asset('js/custom.js') }}"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.carousel.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.theme.min.css"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.carousel.css"></script>
+            <script src="http://code.jquery.com/ui/1.9.0/jquery-ui.js"></script>
+            <script src="http://code.jquery.com/jquery-1.8.2.js"></script>
+            <script src="http://code.jquery.com/ui/1.9.0/jquery-ui.js"></script>
+ 
+    @yield('script')    
+        
+        </body>
+    </html>
+=======
         <script src="{{ asset('js/jquery-3.2.1.min.js') }}"></script>   
         <script src="{{ asset('js/bootstrap.min.js') }}"></script>
         <script src="{{ asset('js/custom.js') }}"></script>
@@ -427,3 +456,4 @@
         @yield('script')
     </body>
 </html>
+>>>>>>> 8bffa27201ffc14165e22e79768d795ad3641c80
