@@ -21,9 +21,14 @@ class ProductsController extends Controller
      */
     public function index($categ_name,$group_name)
     {
+<<<<<<< HEAD
         //dd($categ_name);
         //$categ_id=Category::where('categ_name','=',$Categ_name)->value('id');
         //$products=Product::with('style.category')->get();
+=======
+        $categ_id=Category::where('categ_name','=',$Categ_name)->value('id');
+        $products=Product::with('style.category')->paginate(10);
+>>>>>>> 8bffa27201ffc14165e22e79768d795ad3641c80
        // $productss=Product::with('colors')>get();
        /*SELECT sellers.comp_id
         from sellers
@@ -127,7 +132,39 @@ styles.style_name
 
 
     /**
+<<<<<<< HEAD
      * Display the specified resource.
+=======
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
+    {
+           
+         
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, $id)
+    {
+            
+            $product = Product::findOrFail($id);
+            $product->update($request->all());
+            return 'success';
+
+    }
+
+    /**
+     * Remove the specified resource from storage.
+>>>>>>> 8bffa27201ffc14165e22e79768d795ad3641c80
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response

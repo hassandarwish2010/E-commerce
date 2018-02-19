@@ -4,8 +4,8 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link href="css/bootstrap.min.css" rel="stylesheet">
-        <link rel="stylesheet" href="{{ asset('css/bootstrap.css') }}">
+
+        <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
         <link rel="stylesheet"  href="{{ asset('css/font-awesome.min.css') }}">
         <link rel="stylesheet"  href="{{ asset('css/style.css') }}">
         <link rel="stylesheet"  href="{{ asset('css/animate.min.css') }}">
@@ -19,6 +19,7 @@
     
  
 
+<<<<<<< HEAD
         <title>
    Open Cart
 
@@ -26,104 +27,109 @@
 
         </title>
    @yield('style')
+=======
+        <title>Open Cart @yield('title')</title>
+   
+>>>>>>> 8bffa27201ffc14165e22e79768d795ad3641c80
     </head>
     <style>
-            body {
-              font-family: Arial;
-              margin: 0;
-            }
-            
-            * {
-              box-sizing: border-box;
-            }
-            
-            img {
-              vertical-align: middle;
-            }
-            
-            /* Position the image container (needed to position the left and right arrows) */
-            .productslide {
-              position: relative;
-            }
-            
-            /* Hide the images by default */
-            .mySlides {
-              display: none;
-            }
-            
-            /* Add a pointer when hovering over the thumbnail images */
-            .cursor {
-              cursor: pointer;
-            }
-            
-            /* Next & previous buttons */
-            .prev,
-            .next {
-              cursor: pointer;
-              position: absolute;
-              top: 40%;
-              width: auto;
-              padding: 16px;
-              margin-top: -50px;
-              color: white;
-              font-weight: bold;
-              font-size: 20px;
-              border-radius: 0 3px 3px 0;
-              user-select: none;
-              -webkit-user-select: none;
-            }
-            
-            /* Position the "next button" to the right */
-            .next {
-              right: 0;
-              border-radius: 3px 0 0 3px;
-            }
-            
-            /* On hover, add a black background color with a little bit see-through */
-            .prev:hover,
-            .next:hover {
-              background-color: rgba(0, 0, 0, 0.8);
-            }
-            
-            /* Number text (1/3 etc) */
-            .numbertext {
-              color: #f2f2f2;
-              font-size: 12px;
-              padding: 8px 12px;
-              position: absolute;
-              top: 0;
-            }
-            
-            /* Container for image text */
-            .caption-container {
-              text-align: center;
-              background-color: #222;
-              padding: 2px 16px;
-              color: white;
-            }
-            
-            .row:after {
-              content: "";
-              display: table;
-              clear: both;
-            }
-            
-            /* Six columns side by side */
-            .column {
-              float: left;
-              width: 16.66%;
-            }
-            
-            /* Add a transparency effect for thumnbail images */
-            .demo {
-              opacity: 0.6;
-            }
-            
-            .active,
-            .demo:hover {
-              opacity: 1;
-            }
-            </style>
+        body {
+            font-family: Arial;
+            margin: 0;
+        }
+        
+        * {
+            box-sizing: border-box;
+        }
+        
+        img {
+            vertical-align: middle;
+        }
+        
+        /* Position the image container (needed to position the left and right arrows) */
+        .productslide {
+            position: relative;
+        }
+        
+        /* Hide the images by default */
+        .mySlides {
+            display: none;
+        }
+        
+        /* Add a pointer when hovering over the thumbnail images */
+        .cursor {
+            cursor: pointer;
+        }
+        
+        /* Next & previous buttons */
+        .prev,
+        .next {
+            cursor: pointer;
+            position: absolute;
+            top: 40%;
+            width: auto;
+            padding: 16px;
+            margin-top: -50px;
+            color: white;
+            font-weight: bold;
+            font-size: 20px;
+            border-radius: 0 3px 3px 0;
+            user-select: none;
+            -webkit-user-select: none;
+        }
+        
+        /* Position the "next button" to the right */
+        .next {
+            right: 0;
+            border-radius: 3px 0 0 3px;
+        }
+        
+        /* On hover, add a black background color with a little bit see-through */
+        .prev:hover,
+        .next:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+        
+        /* Number text (1/3 etc) */
+        .numbertext {
+            color: #f2f2f2;
+            font-size: 12px;
+            padding: 8px 12px;
+            position: absolute;
+            top: 0;
+        }
+        
+        /* Container for image text */
+        .caption-container {
+            text-align: center;
+            background-color: #222;
+            padding: 2px 16px;
+            color: white;
+        }
+        
+        .row:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+        
+        /* Six columns side by side */
+        .column {
+            float: left;
+            width: 16.66%;
+        }
+        
+        /* Add a transparency effect for thumnbail images */
+        .demo {
+            opacity: 0.6;
+        }
+        
+        .active,
+        .demo:hover {
+            opacity: 1;
+        }
+    
+    </style>
     <body>
         <!-- start header -->
         <div class="container">
@@ -427,6 +433,7 @@
     
        
     
+<<<<<<< HEAD
             <script src="{{ asset('js/jquery-3.2.1.min.js') }}"></script>   
             <script src="{{ asset('js/bootstrap.min.js') }}"></script>
             <script src="{{ asset('js/custom.js') }}"></script>
@@ -441,3 +448,12 @@
         
         </body>
     </html>
+=======
+        <script src="{{ asset('js/jquery-3.2.1.min.js') }}"></script>   
+        <script src="{{ asset('js/bootstrap.min.js') }}"></script>
+        <script src="{{ asset('js/custom.js') }}"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.carousel.js"></script>
+        @yield('script')
+    </body>
+</html>
+>>>>>>> 8bffa27201ffc14165e22e79768d795ad3641c80

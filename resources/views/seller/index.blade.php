@@ -4,25 +4,14 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="_token" content="{{ csrf_token() }}">
-  
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-
   <title>Website seller | @yield('title')</title>
-  <!-- Tell the browser to be responsive to screen width -->
-  <!-- Bootstrap 3.3.7 -->
-  <link rel="stylesheet" href="
-  {{ asset('css/bootstrap.min.css') }}">
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="
-  {{ asset('css/font-awesome.min.css') }}">
-  <!-- Ionicons -->
-  <link rel="stylesheet" href="
-  {{ asset('Ionicons/css/ionicons.min.css') }}">
-  <!-- Theme style -->
+
+  <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
+  <link rel="stylesheet"  href="{{ asset('css/font-awesome.min.css') }}">
   <link rel="stylesheet" href="{{ asset('css/AdminLTE.min.css') }}">
-  <!-- AdminLTE Skins. Choose a skin from the css/skins
-       folder instead of downloading all of them to reduce the load. -->
   <link rel="stylesheet" href="{{ asset('css/skins/_all-skins.min.css') }}">
+<<<<<<< HEAD
   <!-- Morris chart -->
   <link rel="stylesheet" href="{{ asset('morris.js/morris.css') }}">
   <!-- jvectormap -->
@@ -43,13 +32,19 @@
   <![endif]-->
 
 
+=======
+  <link rel="stylesheet" href="{{ asset('jvectormap/jquery-jvectormap.css') }}">
+  <link rel="stylesheet" href="{{ asset('toastr/toastr.min.css') }}"> 
+  
+  <link rel="stylesheet" href="{{ asset('icheck/square/yellow.css') }}">
+ 
+>>>>>>> 8bffa27201ffc14165e22e79768d795ad3641c80
   @yield('header')
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
   
 
 <div class="wrapper">
-
   <header class="main-header">
     <!-- Logo -->
     <a href="index2.html" class="logo">
@@ -76,7 +71,7 @@
       <!-- Sidebar user panel -->
       <div class="user-panel">
         <div class="pull-left image">
-          <img src="{{ asset('admin/dist/img/user2-160x160.jpg')}}" class="img-circle" alt="User Image">
+          <img src="" class="img-circle" alt="User Image">
         </div>
         <div class="pull-left info">
           <p>Alexander Pierce</p>
@@ -111,11 +106,19 @@
             </span>
           </a>
           <ul class="treeview-menu">
+<<<<<<< HEAD
             <li><a href="#"><i class="fa fa-circle-o"></i> Shirts</a></li>
             <li><a href="#"><i class="fa fa-circle-o"></i> Polos</a></li>
             <li><a href="#"><i class="fa fa-circle-o"></i> T-Shirts</a></li>
             <li><a href="#"><i class="fa fa-circle-o"></i> jeans&Pants</a></li>
             <li><a href="#"><i class="fa fa-circle-o"></i>shorts</a></li>
+=======
+            <li><a href="{{route('showproduct',array('Categ_name'=>'Shirts'))}}"><i class="fa fa-circle-o"></i> Shirts</a></li>
+            <li><a href="#"><i class="fa fa-circle-o"></i> Polos</a></li
+            <li><a href="#"><i class="fa fa-circle-o"></i> T-Shirts</a></li>
+            <li><a href="#"><i class="fa fa-circle-o"></i> jeans&Pants</a></li>
+            <li><a href="#"><i class="fa fa-circle-o"></i> shorts</a></li>
+>>>>>>> 8bffa27201ffc14165e22e79768d795ad3641c80
             <li><a href="#"><i class="fa fa-circle-o"></i> Swimwear</a></li>
             <li><a href="#"><i class="fa fa-circle-o"></i> Underwear</a></li>
             <li><a href="#"><i class="fa fa-circle-o"></i> Sleepwear</a></li>
@@ -283,78 +286,9 @@
 
 
 
-        <li>
-          <a href="pages/mailbox/mailbox.html">
-            <i class="fa fa-envelope"></i> <span>Mailbox</span>
-            <span class="pull-right-container">
-              <small class="label pull-right bg-yellow">12</small>
-              <small class="label pull-right bg-green">16</small>
-              <small class="label pull-right bg-red">5</small>
-            </span>
-          </a>
-        </li>
+      
 
-        <li class="treeview">
-          <a href="#">
-            <i class="fa fa-folder"></i> <span>Examples</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-            <li><a href="pages/examples/invoice.html"><i class="fa fa-circle-o"></i> Invoice</a></li>
-            <li><a href="pages/examples/profile.html"><i class="fa gfa-circle-o"></i> Profile</a></li>
-            <li><a href="pages/examples/login.html"><i class="fa fa-circle-o"></i> Login</a></li>
-            <li><a href="pages/examples/register.html"><i class="fa fa-circle-o"></i> Register</a></li>
-            <li><a href="pages/examples/lockscreen.html"><i class="fa fa-circle-o"></i> Lockscreen</a></li>
-            <li><a href="pages/examples/404.html"><i class="fa fa-circle-o"></i> 404 Error</a></li>
-            <li><a href="pages/examples/500.html"><i class="fa fa-circle-o"></i> 500 Error</a></li>
-            <li><a href="pages/examples/blank.html"><i class="fa fa-circle-o"></i> Blank Page</a></li>
-            <li><a href="pages/examples/pace.html"><i class="fa fa-circle-o"></i> Pace Page</a></li>
-          </ul>
-        </li>
-
-        <li class="treeview">
-          <a href="#">
-            <i class="fa fa-share"></i> <span>Multilevel</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-            <li><a href="#"><i class="fa fa-circle-o"></i> Level One</a></li>
-            <li class="treeview">
-              <a href="#"><i class="fa fa-circle-o"></i> Level One
-                <span class="pull-right-container">
-                  <i class="fa fa-angle-left pull-right"></i>
-                </span>
-              </a>
-              <ul class="treeview-menu">
-                <li><a href="#"><i class="fa fa-circle-o"></i> Level Two</a></li>
-                <li class="treeview">
-                  <a href="#"><i class="fa fa-circle-o"></i> Level Two
-                    <span class="pull-right-container">
-                      <i class="fa fa-angle-left pull-right"></i>
-                    </span>
-                  </a>
-                  <ul class="treeview-menu">
-                    <li><a href="#"><i class="fa fa-circle-o"></i> Level Three</a></li>
-                    <li><a href="#"><i class="fa fa-circle-o"></i> Level Three</a></li>
-                  </ul>
-                </li>
-              </ul>
-            </li>
-            <li><a href="#"><i class="fa fa-circle-o"></i> Level One</a></li>
-          </ul>
-        </li>
-
-
-        <li><a href="https://adminlte.io/docs"><i class="fa fa-book"></i> <span>Documentation</span></a></li>
-
-        <li class="header">LABELS</li>
-        <li><a href="#"><i class="fa fa-circle-o text-red"></i> <span>Important</span></a></li>
-        <li><a href="#"><i class="fa fa-circle-o text-yellow"></i> <span>Warning</span></a></li>
-        <li><a href="#"><i class="fa fa-circle-o text-aqua"></i> <span>Information</span></a></li>
+        
       </ul>
     </section>
     <!-- /.sidebar -->
@@ -366,11 +300,9 @@
 
 <div class="content-wrapper">
 
-
 @yield('content')
 
-
-  </div>
+</div>
 
 
 
@@ -382,159 +314,16 @@
     reserved.
   </footer>
 
-  <!-- Control Sidebar -->
-  <aside class="control-sidebar control-sidebar-dark">
-    <!-- Create the tabs -->
-    <ul class="nav nav-tabs nav-justified control-sidebar-tabs">
-      <li><a href="#control-sidebar-home-tab" data-toggle="tab"><i class="fa fa-home"></i></a></li>
-      <li><a href="#control-sidebar-settings-tab" data-toggle="tab"><i class="fa fa-gears"></i></a></li>
-    </ul>
-    <!-- Tab panes -->
-    <div class="tab-content">
-      <!-- Home tab content -->
-      <div class="tab-pane" id="control-sidebar-home-tab">
-        <h3 class="control-sidebar-heading">Recent Activity</h3>
-        <ul class="control-sidebar-menu">
-          <li>
-            <a href="javascript:void(0)">
-              <i class="menu-icon fa fa-birthday-cake bg-red"></i>
-
-              <div class="menu-info">
-                <h4 class="control-sidebar-subheading">Langdon's Birthday</h4>
-
-                <p>Will be 23 on April 24th</p>
-              </div>
-            </a>
-          </li>
-          <li>
-            <a href="javascript:void(0)">
-              <i class="menu-icon fa fa-user bg-yellow"></i>
-
-              <div class="menu-info">
-                <h4 class="control-sidebar-subheading">Frodo Updated His Profile</h4>
-
-                <p>New phone +1(800)555-1234</p>
-              </div>
-            </a>
-          </li>
-         
-          <li>
-            <a href="javascript:void(0)">
-              <i class="menu-icon fa fa-file-code-o bg-green"></i>
-
-              <div class="menu-info">
-                <h4 class="control-sidebar-subheading">Cron Job 254 Executed</h4>
-
-                <p>Execution time 5 seconds</p>
-              </div>
-            </a>
-          </li>
-        </ul>
-        <!-- /.control-sidebar-menu -->
-
-        <h3 class="control-sidebar-heading">Tasks Progress</h3>
-        
-        <!-- /.control-sidebar-menu -->
-
-
-
-
-
-
-
-
-      </div>
-      <!-- /.tab-pane -->
-      <!-- Stats tab content -->
-      <div class="tab-pane" id="control-sidebar-stats-tab">Stats Tab Content</div>
-      <!-- /.tab-pane -->
-      <!-- Settings tab content -->
-      <div class="tab-pane" id="control-sidebar-settings-tab">
-        <form method="post">
-          <h3 class="control-sidebar-heading">General Settings</h3>
-
-          <div class="form-group">
-            <label class="control-sidebar-subheading">
-              Report panel usage
-              <input type="checkbox" class="pull-right" checked>
-            </label>
-
-            <p>
-              Some information about this general settings option
-            </p>
-          </div>
-          <!-- /.form-group -->
-
-          <div class="form-group">
-            <label class="control-sidebar-subheading">
-              Allow mail redirect
-              <input type="checkbox" class="pull-right" checked>
-            </label>
-
-            <p>
-              Other sets of options are available
-            </p>
-          </div>
-          <!-- /.form-group -->
-
-          <div class="form-group">
-            <label class="control-sidebar-subheading">
-              Expose author name in posts
-              <input type="checkbox" class="pull-right" checked>
-            </label>
-
-            <p>
-              Allow the user to show his name in blog posts
-            </p>
-          </div>
-          <!-- /.form-group -->
-
-          <h3 class="control-sidebar-heading">Chat Settings</h3>
-
-          <div class="form-group">
-            <label class="control-sidebar-subheading">
-              Show me as online
-              <input type="checkbox" class="pull-right" checked>
-            </label>
-          </div>
-          <!-- /.form-group -->
-
-          <div class="form-group">
-            <label class="control-sidebar-subheading">
-              Turn off notifications
-              <input type="checkbox" class="pull-right">
-            </label>
-          </div>
-          <!-- /.form-group -->
-
-          <div class="form-group">
-            <label class="control-sidebar-subheading">
-              Delete chat history
-              <a href="javascript:void(0)" class="text-red pull-right"><i class="fa fa-trash-o"></i></a>
-            </label>
-          </div>
-          <!-- /.form-group -->
-        </form>
-      </div>
-      <!-- /.tab-pane -->
-    </div>
-  </aside>
-
-
-
-
-
   <!-- /.control-sidebar -->
   <!-- Add the sidebar's background. This div must be placed
-       immediately after the control sidebar -->
+    immediately after the control sidebar -->
   <div class="control-sidebar-bg"></div>
-<!-- jQuery 3 -->
-<script src="{{ asset('js/jquery-3.2.1.min.js') }}"></script>
-<!-- jQuery UI 1.11.4 -->
-<script src="{{ asset('jquery-ui/jquery-ui.min.js') }}"></script>
-<!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
-<!-- Bootstrap 3.3.7 -->
+ 
+
+<script src="{{ asset('js/jquery-3.2.1.min.js') }}" ></script>
+<script src="{{ asset('js/jquery-ui.min.js') }}"></script>
 <script src="{{ asset('js/bootstrap.min.js') }}"></script>
+<<<<<<< HEAD
 <!-- AdminLTE App -->
 <script src="{{ asset('js/adminlte.min.js') }}"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
@@ -550,6 +339,13 @@
     
 @yield('footer')
 @yield('script')
+=======
+<script src="{{ asset('js/adminlte.min.js') }}"></script>
 
+<script type="text/javascript" src="{{ asset('toastr/toastr.min.js') }}"></script> 
+<script type="text/javascript" src="{{ asset('icheck/icheck.min.js') }}"></script>
+>>>>>>> 8bffa27201ffc14165e22e79768d795ad3641c80
+
+@yield('script')
 </body>
 </html>
