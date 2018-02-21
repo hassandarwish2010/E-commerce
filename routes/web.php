@@ -50,7 +50,13 @@ Route::get ('/seller/showproduct/{categ_name}/{group_name}',[
 Route::get ('/seller/showproduct/products/addproducts/{categ_name}/{group_name}/{comp_id}','ProductsController@stylesAndMater')->name('addproduct');
 Route::resource ('/products','ProductsController');
 Route::delete ('products/{id}','ProductsController@destroy');
+<<<<<<< HEAD
 
+=======
+Route::get('/show/{categ_name}/{group_name}',[
+    'as'=>'show',
+    'uses'=>'ProductController@index']);
+>>>>>>> 04f486ee2b4d22b9a87b37d8d66d8562e1024674
 
 
 

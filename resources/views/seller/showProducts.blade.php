@@ -77,17 +77,82 @@
                                     
                                      <td>{{ \Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $product->update)->diffForHumans() }}</td>
                                     <td>
+<<<<<<< HEAD
                                         <button class="show-modal btn btn-success" data-id="{{$product->id}}" data-serial="{{$product->serial}}" data-content="{{$product->style}}">
+=======
+                                        <button class="show-modal btn btn-success" data-id="{{$product->id}}" data-serial="{{$product->serial}}" data-style="{{$product->style->style_name}}" data-price="{{$product->price}}" data-sale="{{$product->sale}}" data-quan="{{$product->sale}}" >
+>>>>>>> 04f486ee2b4d22b9a87b37d8d66d8562e1024674
                                         <span class="glyphicon glyphicon-eye-open"></span> Show</button>
 
                                         <button class="edit-modal btn btn-info" data-id="{{$product->id}}" >
                                         <span class="glyphicon glyphicon-edit"></span> Edit</button>
 
+<<<<<<< HEAD
                                         <button class="delete-modal btn btn-danger" data-id="{{$product->id}}" data-title="{{$product->style}}" data-content="{{$product->style}}">
                                         <span class="glyphicon glyphicon-trash"></span> Delete</button>
                                     </td> 
                                 </tr>
                                
+=======
+                                        <button class="delete-modal btn btn-danger"data-id="{{$product->id}}" data-serial="{{$product->serial}}" data-style="{{$product->style->style_name}}" data-price="{{$product->price}}" data-sale="{{$product->sale}}" data-quan="{{$product->sale}}" >
+                                        <span class="glyphicon glyphicon-trash"></span> Delete</button>
+                                    </td> 
+                                </tr>
+                                <!-- Modal form to edit a form -->
+                                <div id="editmodal-{{ $product->id }}" class="modal fade" role="dialog">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                            <h4 class="modal-title"></h4>
+                                        </div>
+                                        <div class="modal-body">
+                                            <form   method="post" id="myForm" >
+                                                <input type="hidden" name="_method" value="put">
+                                                    {{ csrf_field() }}
+                                                <div class="alert alert-danger print-error-msg" style="display:none">
+                                                    <ul></ul>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="control-label col-sm-2" for="serial">serial:</label>
+                                                    <div class="col-sm-10">
+                                                        <input type="text" class="form-control" name="serial" id="serial" value="{{$product->serial}}" autofocus>
+                                                        <small>serial number </small>
+                                                        <p class="errorserial text-center alert alert-danger hidden"></p>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="control-label col-sm-2" for="price">price:</label>
+                                                    <div class="col-sm-10">
+                                                        <input type="text" class="form-control" name="product_price" id="product_price_show" value="{{$product->price}}">
+                                                        <small>price number </small>
+                                                        <p class="errorprice text-center alert alert-danger hidden"></p>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="control-label col-sm-2" for="desc">desc:</label>
+                                                    <div class="col-sm-10">
+                                                        <input type="text" class="form-control" name="product_desc" id="desc" value="{{$product->desc}}" >
+                                                        <small>desc  </small>
+                                                        <p class="errordesc text-center alert alert-danger hidden"></p>
+                                                    </div>
+                                                </div>
+                                               
+                                                
+                                                <div class="form-group">
+                                                <button class="btn btn-success edit-product pull-right" type="submit">Edit</button>
+                                                </div>
+                                            </form>
+                                            
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-warning" data-dismiss="modal">
+                                                    <span class='glyphicon glyphicon-remove'></span> Close
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+>>>>>>> 04f486ee2b4d22b9a87b37d8d66d8562e1024674
                             </div>
 
                            
@@ -95,12 +160,17 @@
                        
                     </tbody>
                 </table>
+<<<<<<< HEAD
+=======
+                <?php //echo $products->render(); ?>
+>>>>>>> 04f486ee2b4d22b9a87b37d8d66d8562e1024674
               
                     
         </div><!-- /.panel-body -->
     </div><!-- /.panel panel-default -->
 </div>
 <!-- /.col-md-8 -->
+<<<<<<< HEAD
 <!-- Modal form to edit a form -->
     <div id="editModal" class="modal fade" role="dialog">
         <div class="modal-dialog">
@@ -157,6 +227,8 @@
             </div>
         </div>
     </div>
+=======
+>>>>>>> 04f486ee2b4d22b9a87b37d8d66d8562e1024674
 
 <!-- Modal form to show a Product -->
     <div id="showModal" class="modal fade" role="dialog">
