@@ -19,18 +19,8 @@
     
  
 
-<<<<<<< HEAD
-        <title>
-   Open Cart
-
-  @yield('title')
-
-        </title>
-   @yield('style')
-=======
         <title>Open Cart @yield('title')</title>
    
->>>>>>> 8bffa27201ffc14165e22e79768d795ad3641c80
     </head>
     <style>
         body {
@@ -433,7 +423,6 @@
     
        
     
-<<<<<<< HEAD
             <script src="{{ asset('js/jquery-3.2.1.min.js') }}"></script>   
             <script src="{{ asset('js/bootstrap.min.js') }}"></script>
             <script src="{{ asset('js/custom.js') }}"></script>
@@ -448,12 +437,3 @@
         
         </body>
     </html>
-=======
-        <script src="{{ asset('js/jquery-3.2.1.min.js') }}"></script>   
-        <script src="{{ asset('js/bootstrap.min.js') }}"></script>
-        <script src="{{ asset('js/custom.js') }}"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.carousel.js"></script>
-        @yield('script')
-    </body>
-</html>
->>>>>>> 8bffa27201ffc14165e22e79768d795ad3641c80

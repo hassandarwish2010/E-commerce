@@ -21,14 +21,9 @@ class ProductsController extends Controller
      */
     public function index($categ_name,$group_name)
     {
-<<<<<<< HEAD
         //dd($categ_name);
         //$categ_id=Category::where('categ_name','=',$Categ_name)->value('id');
         //$products=Product::with('style.category')->get();
-=======
-        $categ_id=Category::where('categ_name','=',$Categ_name)->value('id');
-        $products=Product::with('style.category')->paginate(10);
->>>>>>> 8bffa27201ffc14165e22e79768d795ad3641c80
        // $productss=Product::with('colors')>get();
        /*SELECT sellers.comp_id
         from sellers
@@ -66,9 +61,12 @@ styles.style_name
              $query->where('groups.group_name', $group_name);
                     
         })
+        
        ->get();
        
-        return view('seller.showProducts',compact('products','categ_name','group_name','comp_id','styles','materials'));
+        return view('seller.showProducts',compact('products','categ_name','group_name','comp_id',
+        'styles','materials'));
+        
         //return view('test',compact('pro'));
     }
 
@@ -96,7 +94,28 @@ styles.style_name
         ->select('styles.style_name AS style_name')
         ->where('categories.categ_name',$categ_name)
         ->get();
-       return view('seller.addproducts',compact('styles','materials'));
+
+        $length_values=DB::table('style_details')
+        ->select('style_details.style_details_value AS legth')
+        ->where('style_details.style_details_type','Length')
+        ->get();
+
+        $neck_values=DB::table('style_details')
+        ->select('style_details.style_details_value AS neck')
+        ->where('style_details.style_details_type','Neck Style')
+        ->get();
+
+        $sleeve_values=DB::table('style_details')
+        ->select('style_details.style_details_value AS sleeve')
+        ->where('style_details.style_details_type','Sleeve Length')
+        ->get();
+
+        $occassion_values=DB::table('style_details')
+        ->select('style_details.style_details_value AS occassion')
+        ->where('style_details.style_details_type','Occassion')
+        ->get();
+
+       return view('seller.addproducts',compact('styles','materials','length_values','sleeve_values','neck_values','occassion_values'));
     }
 
     /**
@@ -132,9 +151,6 @@ styles.style_name
 
 
     /**
-<<<<<<< HEAD
-     * Display the specified resource.
-=======
      * Show the form for editing the specified resource.
      *
      * @param  int  $id
@@ -164,7 +180,6 @@ styles.style_name
 
     /**
      * Remove the specified resource from storage.
->>>>>>> 8bffa27201ffc14165e22e79768d795ad3641c80
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response

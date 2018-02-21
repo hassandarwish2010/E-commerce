@@ -14,12 +14,18 @@ use App\Product;
 use App\Company;
 use DB;
 use Illuminate\Http\Request;
+use redirect;
 
 class ProductController extends Controller
 {
     //
     public function index($categ_name,$group_name)
     {
+        /*if(!Auth::check()) 
+		{
+            dd('done');
+			//return redirect('welcome');
+		}*/
        //retrun categries of group
         $categories=DB::table('categories')
         ->join('categ_groups','categories.id','=','categ_groups.categ_id')
