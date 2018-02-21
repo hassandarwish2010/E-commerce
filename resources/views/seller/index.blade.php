@@ -11,34 +11,11 @@
   <link rel="stylesheet"  href="{{ asset('css/font-awesome.min.css') }}">
   <link rel="stylesheet" href="{{ asset('css/AdminLTE.min.css') }}">
   <link rel="stylesheet" href="{{ asset('css/skins/_all-skins.min.css') }}">
-<<<<<<< HEAD
-  <!-- Morris chart -->
-  <link rel="stylesheet" href="{{ asset('morris.js/morris.css') }}">
-  <!-- jvectormap -->
-  <link rel="stylesheet" href="
-  {{ asset('jvectormap/jquery-jvectormap.css') }}">
-  <!-- Date Picker -->
-  <link rel="stylesheet" href="{{ asset('bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css') }}">
-  <!-- Daterange picker -->
-  <link rel="stylesheet" href="{{ asset('bootstrap-daterangepicker/daterangepicker.css') }}">
-  <!-- bootstrap wysihtml5 - text editor -->
-  <link rel="stylesheet" href="{{ asset('plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css')}}">
-
-  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-  <!--[if lt IE 9]>
-  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-  <![endif]-->
-
-
-=======
   <link rel="stylesheet" href="{{ asset('jvectormap/jquery-jvectormap.css') }}">
   <link rel="stylesheet" href="{{ asset('toastr/toastr.min.css') }}"> 
-  
+  <link rel="stylesheet" href="{{ asset('css/tags.css') }}">
   <link rel="stylesheet" href="{{ asset('icheck/square/yellow.css') }}">
- 
->>>>>>> 8bffa27201ffc14165e22e79768d795ad3641c80
+ @yield('style')
   @yield('header')
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
@@ -106,19 +83,11 @@
             </span>
           </a>
           <ul class="treeview-menu">
-<<<<<<< HEAD
-            <li><a href="#"><i class="fa fa-circle-o"></i> Shirts</a></li>
+            <li><a href="{{ route('showproduct',array('categ_name'=>'Shirts','group_name'=>'Men')) }}"><i class="fa fa-circle-o"></i> Shirts</a></li>
             <li><a href="#"><i class="fa fa-circle-o"></i> Polos</a></li>
             <li><a href="#"><i class="fa fa-circle-o"></i> T-Shirts</a></li>
             <li><a href="#"><i class="fa fa-circle-o"></i> jeans&Pants</a></li>
             <li><a href="#"><i class="fa fa-circle-o"></i>shorts</a></li>
-=======
-            <li><a href="{{route('showproduct',array('Categ_name'=>'Shirts'))}}"><i class="fa fa-circle-o"></i> Shirts</a></li>
-            <li><a href="#"><i class="fa fa-circle-o"></i> Polos</a></li
-            <li><a href="#"><i class="fa fa-circle-o"></i> T-Shirts</a></li>
-            <li><a href="#"><i class="fa fa-circle-o"></i> jeans&Pants</a></li>
-            <li><a href="#"><i class="fa fa-circle-o"></i> shorts</a></li>
->>>>>>> 8bffa27201ffc14165e22e79768d795ad3641c80
             <li><a href="#"><i class="fa fa-circle-o"></i> Swimwear</a></li>
             <li><a href="#"><i class="fa fa-circle-o"></i> Underwear</a></li>
             <li><a href="#"><i class="fa fa-circle-o"></i> Sleepwear</a></li>
@@ -282,29 +251,17 @@
             <li><a href="#"><i class="fa fa-circle-o"></i>  Jumpsuits, Rompers</a></li>
 
           </ul>
-        </li>
-
-
-
-      
-
-        
+        </li>     
       </ul>
     </section>
     <!-- /.sidebar -->
   </aside>
-
-
-
-
 
 <div class="content-wrapper">
 
 @yield('content')
 
 </div>
-
-
 
 <footer class="main-footer">
     <div class="pull-right hidden-xs">
@@ -323,28 +280,11 @@
 <script src="{{ asset('js/jquery-3.2.1.min.js') }}" ></script>
 <script src="{{ asset('js/jquery-ui.min.js') }}"></script>
 <script src="{{ asset('js/bootstrap.min.js') }}"></script>
-<<<<<<< HEAD
-<!-- AdminLTE App -->
 <script src="{{ asset('js/adminlte.min.js') }}"></script>
-<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-<script src="{{ asset('js/pages/dashboard.js') }}"></script>
-<!-- AdminLTE for demo purposes -->
-<script src="{{ asset('js/demo.js') }}"></script>
-<!-- icheck checkboxes -->
-<script type="text/javascript" src="{{ asset('icheck/icheck.min.js') }}"></script>
-    <!-- Delay table load until everything else is loaded -->
-  <script src="http://malsup.github.com/jquery.form.js"></script>
-  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-	
-    
-@yield('footer')
-@yield('script')
-=======
-<script src="{{ asset('js/adminlte.min.js') }}"></script>
+<script src="{{ asset('js/tags.js') }}"></script>
 
 <script type="text/javascript" src="{{ asset('toastr/toastr.min.js') }}"></script> 
 <script type="text/javascript" src="{{ asset('icheck/icheck.min.js') }}"></script>
->>>>>>> 8bffa27201ffc14165e22e79768d795ad3641c80
 
 @yield('script')
 </body>
