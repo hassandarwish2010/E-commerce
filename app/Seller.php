@@ -3,15 +3,23 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Notifications\Notifiable;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class Seller extends Model
+class Seller extends Authenticatable
 {
     //
+    use Notifiable;
+    protected $guard='seller';
     protected $fillable = [
-        'name', 'email', 'password','comp_id','phone'
+        'name', 'email', 'password','phone','address'
     ];
-    public function company()
+    public function products()
     {
-        return $this->belongsTo('App\Company','comp_id');
+        return $this->hasMany('App\Product','comp_id');
     }
+
+    protected $hidden = [
+        'password', 'remember_token',
+    ];
 }

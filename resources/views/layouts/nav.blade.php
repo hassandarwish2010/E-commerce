@@ -67,9 +67,11 @@
                <ul class="nav navbar-nav navbar-right">
                         <!-- Authentication Links -->
                         @guest
+                        
+                        
       
                             <li><a class="" href="#" id="auth"
-                                onclick="document.getElementById('authentication').style.display='block'">Login Register</a></li>
+                                onclick="document.getElementById('authentication').style.display='block'">User</a></li>
                         @else
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">

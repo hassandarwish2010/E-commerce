@@ -7,8 +7,6 @@
 </style>
 @endsection
 @section('content')
-<<<<<<< HEAD
-=======
 <h1 class="text-center">Add Product:</h1>
 <form action="#" class="form-horizontal" onkeypress="return event.keyCode != 13;">
 <!--Main Details About Product-->
@@ -269,13 +267,10 @@
 </form>
 
 
->>>>>>> 04f486ee2b4d22b9a87b37d8d66d8562e1024674
 
 
 @endsection
 
-<<<<<<< HEAD
-=======
 @section('script')
 
 
@@ -292,4 +287,3 @@ function myFunction() {
 }
 </script>
 @endsection
->>>>>>> 04f486ee2b4d22b9a87b37d8d66d8562e1024674

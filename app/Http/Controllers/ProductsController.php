@@ -177,6 +177,7 @@ styles.style_name
             return 'success';
 
     }
+  
 
     /**
      * Remove the specified resource from storage.

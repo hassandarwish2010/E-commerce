@@ -12,7 +12,7 @@ class Category extends Model
     ];
     public function groups()
     {
-        return $this->belongsToMany('App\Group','categ_groups','group_id','category_id');
+        return $this->belongsToMany('App\Group','categ_groups','group_id','categ_id');
     }
     public function styles()
     {

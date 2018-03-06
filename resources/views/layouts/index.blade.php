@@ -23,6 +23,7 @@
    
     </head>
     <style>
+  
         body {
             font-family: Arial;
             margin: 0;
@@ -138,7 +139,10 @@
                         </div>
                         <div class="col-sm-2">
                             <div class="check">
-                                <span></span><a href="#" >Shoping Cart</a>
+                            <!-- hereeeee -->
+                            <span></span><a href="{{route('shoppingcart')}}" >Shoping Cart</a>
+                                <span class="badge">{{ Session::has('cartt') ? Session::get('cartt')->totalQty : '' }}</span>
+                               
                             </div>
                         </div>
                         <div class="col-sm-4">
@@ -223,7 +227,19 @@
                              <ul class="nav navbar-nav navbar-right">
                                       <!-- Authentication Links -->
                                       @guest
-                    
+                                      <!-- <li>
+                            <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" style="padding-top: 22px; padding-right: 44px;">Login Register
+                            <span class="caret" ></span></button>
+                                <ul class="dropdown-menu">
+                                  <li style="
+                                    margin-top:-6px;
+                                    background-color: #575757;
+                                    margin-bottom: 2px;">
+                                  <a class="" href="#" id="auth"
+                                              onclick="document.getElementById('authentication').style.display='block'" >User</a></li>
+                                    <li style="background-color: #575757;"><a href="#" id="auth" onclick="document.getElementById('authenticationSeller').style.display='block'">Seller</a></li>
+                                </ul>
+                    </li> -->
                                           <li><a class="" href="#" id="auth"
                                               onclick="document.getElementById('authentication').style.display='block'">Login Register</a></li>
                                       @else
@@ -249,7 +265,8 @@
                        </div>
                    </nav>
                 </div>
-              <!--Login Modal -->
+              <!--Login Modal user -->
+              
               <div id="authentication" class="w3-modal">
                       <span
                           onclick="document.getElementById('authentication').style.display='none'"
@@ -283,10 +300,14 @@
                                           @endif
                                           <form action="{{ route('login') }}" method="post">
                                               {{ csrf_field() }} <input type="hidden" name="redirurl"
-                                                  value="{{ $_SERVER['REQUEST_URI'] }}"> <label><b>Username</b></label>
+                                                  value="{{ $_SERVER['REQUEST_URI'] }}">
+                                                  <input type="radio" name="choices" value="user" required>User<br>
+                                                    <input type="radio" name="choices" value="seller" >Seller<br>
+                                                   <label><b>Username</b></label>
                                               <input name="username"
                                                   class="w3-input w3-border w3-margin-bottom" type="text"
                                                   placeholder="Enter Username" required> <label><b>Password</b></label>
+                                                  
                                               <input class="w3-input w3-border w3-margin-bottom"
                                                   name="password" type="password" placeholder="Enter Password"
                                                   required> <input type="submit"
@@ -321,15 +342,21 @@
                                       <form action="{{ route('register')}} " method="POST" id="regForm">
                                           {{ csrf_field() }} <input type="hidden" name="redirurl"
                                               value="{{ $_SERVER['REQUEST_URI'] }}"> 
+                                              <input type="radio" name="choices" value="user" required onclick="show1();">User<br>
+                                            <input type="radio" name="choices" value="seller" onclick="show2();">Seller<br>
                                           <label><b>Email</b></label>
                                           <input class="w3-input w3-border w3-margin-bottom" type="text"
                                               name="email" placeholder="Enter Email"
                                               value="{{ old('email') }}" required>
-              
-                                          <label><b>Username</b></label>
-                                          <input class="w3-input w3-border w3-margin-bottom" type="text"
-                                              name="name" placeholder="Enter username" required
-                                              value="{{ old('name') }}">
+
+                                              
+
+                                              <div id="divUser" class="user">
+                                                <label><b>Username</b></label>
+                                                <input class="w3-input w3-border w3-margin-bottom" type="text"
+                                                    name="name" placeholder="Enter username" required
+                                                    value="{{ old('name') }}">
+                                              </div>
                                                
                                           <label><b>Address</b></label>
                                           <input class="w3-input w3-border w3-margin-bottom" type="text"
@@ -361,6 +388,7 @@
                       </div>
                   </div>
                   <div class="fluid-container"></div>
+ 
                   <script>	
               openForm("Login");
              
@@ -372,6 +400,15 @@
                   }
                   document.getElementById(formName).style.display = "block";  
               }
+
+            //   function show1(){
+            //     document.getElementById('divComp').style.display ='none';
+            //     document.getElementById('divUser').style.display = 'block';
+            //     }
+            //     function show2(){
+            //         document.getElementById('divUser').style.display ='none';
+            //     document.getElementById('divComp').style.display = 'block';
+            //     }
               </script>
               @if (Session::has('message'))
                   <script>  $('#auth').click(); </script>
@@ -384,10 +421,8 @@
         <!--end navbar-->
         
             @yield('content')
-
-         
-                
-
+        
+            
         <!-- start section  footer -->
         <div class="container-fluid">
             <section class="footer">
