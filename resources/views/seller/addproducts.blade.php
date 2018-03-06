@@ -4,18 +4,31 @@
 .panel-shadow {
     box-shadow: 0 8px 10px 1px rgba(0, 0, 0, .14), 0 3px 14px 2px rgba(0, 0, 0, .12), 0 5px 5px -3px rgba(0, 0, 0, .2);
 }
+.form-control{
+      background-color: #e4e3da;
+}
 </style>
 @endsection
 @section('content')
-<<<<<<< HEAD
-=======
 <h1 class="text-center">Add Product:</h1>
-<form action="#" class="form-horizontal" onkeypress="return event.keyCode != 13;">
-<!--Main Details About Product-->
+<form  action="{{ route('storeproduct') }}" enctype="multipart/form-data" method="POST" class="form-horizontal" onkeypress="return event.keyCode != 13;">
+
+  {{ csrf_field() }}
+
+   {{--  @foreach($items as $item)
+      <h1> {{$item->product_serial_num}}</h1>
+        @foreach($item->colors as $color)
+          <div style="background-color:{{$color->color_name}}; width:10%"> {{$color->color_name}}</div>
+          @foreach($color->sizes as $size)
+            <span style="background-color:{{$color->color_name}}; color:white"> {{$size->size_name}}</span>
+          @endforeach
+        @endforeach                    
+  @endforeach  --}}
+ 
+
   <div class="row">
-    <div class="col-md-1">
-    </div>
-    <div class="col-md-10">
+  
+    <div class="col-md-12">
       <div class="panel panel-success panel-shadow">
         <div class="panel-heading">Main Details About Product</div>
         <div class="panel-body">
@@ -25,56 +38,54 @@
               <div class="form-group">
                 <label class="control-label col-sm-2" for="style">Style:</label>
                 <div class="col-sm-10">
-                  <input class="form-control"  list="style" name="style"  placeholder="Enter style For Product">
-                  <datalist id="style">
-                      <option value="Volvo">
-                      <option value="BMW">
-                      <option value="Bugatti">
-                      <option value="Cadillac">
-                      <option value="Chevrolet">
-                      <option value="Chrysler">
-                  </datalist>
+                  <select class="form-control" id="style" name="style_id" required >
+                    <option value="" >choose style:</option>
+                    @foreach($styles as $style)
+                      <option value={{$style->id}}>{{$style->style_name}}</option>
+                    @endforeach
+                  </select>
+              
+                  {{-- <input class="form-control" onchange="myFunction()" id="styl"  list="style" name="style"  placeholder="Enter style For Product">
+                   <datalist id="style">
+                   @foreach($styles as $style)
+                      <option value={{$style->id}}>{{$style->style_name}}</option>
+                    @endforeach
+                  </datalist> --}}
                 </div>
               </div>
             </div>
-
              <div class="col-md-6 col-sm-12">
               <div class="form-group">
                 <label class="control-label col-sm-2" for="material">Material:</label>
                 <div class="col-sm-10">
-                  <select class="form-control" id="material">
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
-                    <option>5</option>
-                  </select>
+                  <select class="form-control" id="material" name="mater_id" required>
+                    <option value="" >choose material:</option>
+                    @foreach($materials as $material)
+                      <option value={{$material->id}}>{{$material->mater_name}}</option>
+                    @endforeach
+                    </select>
                 </div>
               </div>
             </div>
-
           </div>
 
           <div class="row">
-
             <div class="col-md-6 col-sm-12">
               <div class="form-group">
                 <label class="control-label col-sm-2" for="serial">Serial:</label>
                 <div class="col-sm-10">
-                  <input type="text" class="form-control" id="serial" placeholder="Enter serial For Product">
+                  <input type="text" class="form-control" id="serial" name="product_serial_num" placeholder="Enter serial For Product">
                 </div>
               </div>
             </div>
-
             <div class="col-md-6 col-sm-12">
               <div class="form-group">
                 <label class="control-label col-sm-2" for="price">Price:</label>
                 <div class="col-sm-10">
-                  <input type="text" class="form-control" id="price" placeholder="Enter price For Product">
+                  <input type="number" class="form-control" id="price" name="product_price" placeholder="Enter price For Product" required  min="0"  step="0.01" title="Currency" pattern="^\d+(?:\.\d{1,2})?$" onblur="this.parentNode.parentNode.style.backgroundColor=/^\d+(?:\.\d{1,2})?$/.test(this.value)?'inherit':'red'">
                 </div>
               </div>
             </div>
-
           </div>
 
           <div class="row">
@@ -83,7 +94,7 @@
               <div class="form-group">
                 <label class="control-label col-sm-3" for="desc">Descirption:</label>
                 <div class="col-sm-9">
-                  <textarea rows="4" cols="50" class="form-control" id="desc" placeholder="Enter Descirption For Product"></textarea>
+                  <textarea rows="4" cols="50" class="form-control" id="desc" name="product_desc" placeholder="Enter Descirption For Product"></textarea>
                 </div>
               </div>
             </div>
@@ -92,54 +103,41 @@
               <div class="form-group">
                 <label class="control-label col-sm-2" for="sale">Sale:</label>
                 <div class="col-sm-10">
-                  <input type="text" class="form-control" id="sale" placeholder="Enter sale For Product">
+                  <input type="number" class="form-control" id="sale" name="product_price_sale" placeholder="Enter sale For Product" required min="0"  step="0.01" title="Currency" pattern="^\d+(?:\.\d{1,2})?$" onblur="this.parentNode.parentNode.style.backgroundColor=/^\d+(?:\.\d{1,2})?$/.test(this.value)?'inherit':'red'">
                 </div>
-              </div>
-
-              
+              </div>      
                 <div class="form-group">
                   <div style="position:relative;">
                       <a class='btn btn-primary' href='javascript:;'>
                         Choose File...
-                        <input type="file" style='position:absolute;z-index:2;top:0;left:0;filter: alpha(opacity=0);-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";opacity:0;background-color:transparent;color:transparent;' name="file_source" size="40"  onchange='$("#upload-file-info").html($(this).val());'>
+                        <input type="file" multiple name="product_image[]" style='position:absolute;z-index:2;top:0;left:0;filter: alpha(opacity=0);-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";opacity:0;background-color:transparent;color:transparent;' name="file_source" size="40"  onchange='$("#upload-file-info").html($(this).val());'>
                       </a>
                       &nbsp;
                       <span class='label label-info' id="upload-file-info"></span>
                     </div>
                 </div>
-              
             </div>
-
           </div>
-
           <div class="row">
-
             <div class="col-md-12 col-sm-12">
               <div class="form-group">
                 <label class="control-label col-sm-1" for="tag">Tags:</label>
                 <div class="col-sm-11">
-                  <input type="text" value="" data-role="tagsinput" id="tag" placeholder="Add tags" />
+                  <input type="text" value="" data-role="tagsinput" id="tag" name="tag_word" placeholder="Add tags" />
                 </div>
               </div>
             </div>
-
-           
-
           </div>
-       
-
-
         </div>
       </div>    
     </div>
-    <div class="col-md-1">
-    </div>
+   
   </div>
   <!-- for dresses and shirts -->
-  <div class="row">
-    <div class="col-md-1">
-    </div>
-    <div class="col-md-10">
+  {{$categ_name}}
+  @if($categ_name == "Shirts") 
+  <div class="row" id="shirts">
+    <div class="col-md-12">
       <div class="panel panel-warning panel-shadow">
         <div class="panel-heading">for dresses and shirts</div>
         <div class="panel-body">
@@ -149,12 +147,11 @@
               <div class="form-group">
                 <label class="control-label col-sm-2" for="sleeve">Sleeve Length:</label>
                 <div class="col-sm-10">
-                  <select class="form-control" id="sleeve">
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
-                    <option>5</option>
+                  <select class="form-control" id="sleeve" name="sleeve" required>
+                  <option value=""></option>
+                  @foreach($sleeve_values as $sleeve)
+                    <option value="{{$sleeve->id}}">{{$sleeve->sleeve}}</option>
+                  @endforeach
                   </select>
                 </div>
               </div>
@@ -164,12 +161,11 @@
               <div class="form-group">
                 <label class="control-label col-sm-2" for="length">Length:</label>
                 <div class="col-sm-10">
-                  <select class="form-control" id="length">
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
-                    <option>5</option>
+                  <select class="form-control" id="length" name="length" required>
+                  <option value=""></option>
+                  @foreach($length_values as $length)
+                    <option value="{{$length->id}}">{{$length->length}}</option>
+                  @endforeach
                   </select>
                 </div>
               </div>
@@ -180,14 +176,13 @@
             <!-- -->
             <div class="col-md-6 col-sm-12">
               <div class="form-group">
-                <label class="control-label col-sm-2" for="Neck">Neck Style:</label>
+                <label class="control-label col-sm-2" for="neck">Neck Style:</label>
                 <div class="col-sm-10">
-                  <select class="form-control" id="Neck">
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
-                    <option>5</option>
+                  <select class="form-control" id="neck" name="neck" required>
+                  <option value=""></option>
+                  @foreach($neck_values as $neck)
+                    <option value="{{$neck->id}}">{{$neck->neck}}</option>
+                  @endforeach
                   </select>
                 </div>
               </div>
@@ -195,14 +190,13 @@
 
              <div class="col-md-6 col-sm-12">
               <div class="form-group">
-                <label class="control-label col-sm-2" for="occasion">Occasion:</label>
+                <label class="control-label col-sm-2" for="occassion">Occasion:</label>
                 <div class="col-sm-10">
-                  <select class="form-control" id="occasion">
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
-                    <option>5</option>
+                  <select class="form-control" id="occassion" name="occassion" required>
+                  <option value=""></option>
+                  @foreach($occassion_values as $occassion)
+                    <option value="{{$occassion->id}}">{{$occassion->occassion}}</option>
+                  @endforeach
                   </select>
                 </div>
               </div>
@@ -212,26 +206,26 @@
         </div>
       </div> 
     </div>   
-    <div class="col-md-1">
-    </div>
   </div>
-
-  <!-- for dresses and shirts -->
+@endif  
+  <!-- for colors and sizes -->
   <div class="row">
-    <div class="col-md-1">
-    </div>
-    <div class="col-md-10">
+    <div class="col-md-12">
       <div class="panel panel-warning panel-shadow">
         <div class="panel-heading">Add Featurs</div>
         <div class="panel-body">
-          <div class="row">
-           
+          <div class="row">           
 
             <div class="col-md-6 col-sm-12">
               <div class="form-group">
                 <label class="control-label col-sm-2" for="color">Color:</label>
                 <div class="col-sm-10">
-                  <input type="color" class="form-control" id="color" >
+                  <select class="form-control" id="color" name="color_id" required>
+                    <option value="">choose color:</option>
+                    @foreach($colors as $color)
+                      <option value={{$color->id}} style="color:{{$color->color_name}};">{{$color->color_name}} </option><div style="background-color:{{$color->color_name}}; width:1em; heigh:1em;"></div>
+                    @endforeach
+                  </select>
                 </div>
               </div>
             </div>
@@ -240,15 +234,18 @@
               <div class="form-group">
                 <label class="control-label col-sm-2" for="sizes">Sizes:</label>
                 <div class="col-sm-10">
-                 <input class="form-control"  list="sizes" name="sizes"  placeholder="Enter Size For Color">
-                  <datalist id="sizes" multiple>
-                    <option value="s">
-                    <option value="m">
-                    <option value="l">
-                    <option value="xl">
-                    <option value="xxl">
-                    <option value="xxxl">
-                  </datalist>
+                  @foreach($sizes as $size)
+                    <label class="checkbox-inline"><input type="checkbox" name="size[]" value="{{$size->id}}">{{$size->size_name}}</label>
+                  @endforeach
+                </div>  
+              </div>
+              <div class="form-group">
+                <label class="control-label col-sm-2" for="sizes">Quantity:</label>
+                <div class="col-sm-10">
+                  @foreach($sizes as $size)
+                   <input type="number" name="quan[]" style="width:3.3em;">
+                   
+                  @endforeach
                 </div>
               </div>
             </div>
@@ -261,35 +258,32 @@
         </div>
       </div> 
     </div>   
-    <div class="col-md-1">
-    </div>
   </div>
   
 
 </form>
 
 
->>>>>>> 04f486ee2b4d22b9a87b37d8d66d8562e1024674
-
 
 @endsection
 
-<<<<<<< HEAD
-=======
 @section('script')
 
 
 <script>
-function myFunction() {
-    var x = document.getElementById("select1").value;
-    
-    if(x=='other')
-    {
-        console.log(x);
-        $("#style").removeAttr('hidden');
-        
-    }
-}
+
+    $('#style').change(function() {
+        if ($(this).val() === '1') {
+            alert("hjgjhghjg");
+             $("#shirts").append('<b>Appended text</b>')
+        }
+    });
+
+
+  $('form').ajaxForm(function() 
+   {
+    alert("Uploaded SuccessFully");
+
+   }); 
 </script>
 @endsection
->>>>>>> 04f486ee2b4d22b9a87b37d8d66d8562e1024674

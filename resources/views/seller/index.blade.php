@@ -15,11 +15,9 @@
   <link rel="stylesheet" href="{{ asset('toastr/toastr.min.css') }}"> 
   <link rel="stylesheet" href="{{ asset('css/tags.css') }}">
   <link rel="stylesheet" href="{{ asset('icheck/square/yellow.css') }}">
-<<<<<<< HEAD
  
-=======
+  
  @yield('style')
->>>>>>> 04f486ee2b4d22b9a87b37d8d66d8562e1024674
   @yield('header')
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
@@ -75,9 +73,7 @@
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">MAIN NAVIGATION</li>
 
-        
-        
-
+    
         <li class="treeview">
           <a href="#">
             <i class="fa fa-pie-chart"></i>
@@ -87,11 +83,7 @@
             </span>
           </a>
           <ul class="treeview-menu">
-<<<<<<< HEAD
-            <li><a href="#"><i class="fa fa-circle-o"></i> Shirts</a></li>
-=======
             <li><a href="{{ route('showproduct',array('categ_name'=>'Shirts','group_name'=>'Men')) }}"><i class="fa fa-circle-o"></i> Shirts</a></li>
->>>>>>> 04f486ee2b4d22b9a87b37d8d66d8562e1024674
             <li><a href="#"><i class="fa fa-circle-o"></i> Polos</a></li>
             <li><a href="#"><i class="fa fa-circle-o"></i> T-Shirts</a></li>
             <li><a href="#"><i class="fa fa-circle-o"></i> jeans&Pants</a></li>
@@ -265,7 +257,7 @@
     <!-- /.sidebar -->
   </aside>
 
-<div class="content-wrapper">
+<div class="content-wrapper" style="padding:2em">
 
 @yield('content')
 

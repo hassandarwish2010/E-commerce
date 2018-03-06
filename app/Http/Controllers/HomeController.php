@@ -55,6 +55,7 @@ class HomeController extends Controller
             $imageName = time(). $key . '.' . $value->getClientOriginalExtension();
 
             $value->move(public_path('images'), $imageName);
+            
 
         }
 

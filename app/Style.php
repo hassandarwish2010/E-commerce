@@ -14,7 +14,7 @@ class Style extends Model
     
     public function category()
     {
-        return $this->belongsTo('App\Category','categ_id');
+        return $this->belongsTo('App\Category','categ_id')->with('groups');
     }
     public function products()
     {

@@ -14,10 +14,12 @@ class Product extends Model
         'product_price','product_desc',
         'mater_id','comp_id','product_price_sale'
     ];
+
     public function style()
     {
-        return $this->belongsTo('App\Style','style_id');
+        return $this->belongsTo('App\Style','style_id')->with('category');
     }
+
     public function material()
     {
         return $this->belongsTo('App\Material','mater_id');
@@ -28,10 +30,8 @@ class Product extends Model
     }
     public function colors()
     {
-        return $this->belongsToMany('App\Color','product_colors','product_id','color_id');
-
+        return $this->belongsToMany('App\Color','product_colors','product_id','color_id')->with('sizes'); 
     }
-
     public function styleDetails()
     {
         return $this->belongsToMany('App\StyleDetails','product_style_details','product_id','style_details_id');
@@ -40,5 +40,8 @@ class Product extends Model
     {
         return $this->hasMany('App\OrderDetails','product_id');
     }
-    
+    public function images()
+    {
+        return $this->morphMany('App\Media', 'media');
+    }
 }
