@@ -15,8 +15,11 @@
   <link rel="stylesheet" href="{{ asset('toastr/toastr.min.css') }}"> 
   <link rel="stylesheet" href="{{ asset('css/tags.css') }}">
   <link rel="stylesheet" href="{{ asset('icheck/square/yellow.css') }}">
+<<<<<<< HEAD
  
   
+=======
+>>>>>>> edcd38eeefd00e6ef701c168d8446ceccab7bfd8
  @yield('style')
   @yield('header')
 </head>
@@ -38,9 +41,34 @@
       <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
         <span class="sr-only">Toggle navigation</span>
       </a>
+     
+                                          
+
 
       
     </nav>
+    
+<ul style="margin-left: 1147px;
+    margin-top: 4px;">
+<li class="dropdown">
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                                        {{ Auth::guard('seller')->user()->name }} 
+                                        <span class="caret"></span>
+                                        </a>
+                                        <ul style="background-color: #708090" class="dropdown-menu" role="menu">
+                                            <li >
+                                                <a href="{{ route('logout') }}">
+                                                                <i class="fa fa-btn fa-sign-out"></i>Logout
+                                                </a>
+                    
+                                                <!-- <form id="logout-form" action="#" method="POST" style="display: none;">
+                                                    {{ csrf_field() }}
+                                                </form> -->
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    </ul>
+
   </header>
   <!-- Left side column. contains the logo and sidebar -->
   <aside class="main-sidebar">

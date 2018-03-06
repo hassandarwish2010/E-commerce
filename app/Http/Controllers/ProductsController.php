@@ -223,6 +223,7 @@ class ProductsController extends Controller
             return 'success';
 
     }
+  
 
     /**
      * Remove the specified resource from storage.

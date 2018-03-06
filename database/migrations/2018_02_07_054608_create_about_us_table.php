@@ -15,8 +15,8 @@ class CreateAboutUsTable extends Migration
     {
         Schema::create('about_us', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('about_title');
-            $table->text('about_desc');
+            $table->string('con_type');
+            $table->text('con_value')->unique()->nullable(false);
             $table->timestamps();
         });
     }

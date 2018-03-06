@@ -2,6 +2,7 @@
 
 namespace App;
 use App\Size;
+use App\Seller;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -26,11 +27,16 @@ class Product extends Model
     }
     public function company()
     {
-        return $this->belongsTo('App\Company','comp_id');
+        return $this->belongsTo('App\Seller','comp_id');
     }
     public function colors()
     {
+<<<<<<< HEAD
         return $this->belongsToMany('App\Color','product_colors','product_id','color_id')->with('sizes'); 
+=======
+        return $this->belongsToMany('App\Color','product_colors','product_id','color_id')->with('sizes');
+
+>>>>>>> edcd38eeefd00e6ef701c168d8446ceccab7bfd8
     }
     public function styleDetails()
     {
@@ -42,6 +48,12 @@ class Product extends Model
     }
     public function images()
     {
+<<<<<<< HEAD
         return $this->morphMany('App\Media', 'media');
     }
+=======
+        return $this->morphMany('App\Media','media');
+    }
+    
+>>>>>>> edcd38eeefd00e6ef701c168d8446ceccab7bfd8
 }

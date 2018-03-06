@@ -20,10 +20,8 @@ class CreateSellersTable extends Migration
             $table->string('password');
             $table->string('phone');
             $table->string('address');
-            $table->integer('comp_id')->unsigned();
-            $table->foreign('comp_id')->references('id')->on('companies')
-            ->onDelete('cascade')
-            ->onUpdate('cascade');
+            $table->boolean('is_active');
+            $table->rememberToken();
             $table->timestamps();
         });
     }

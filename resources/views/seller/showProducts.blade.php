@@ -184,16 +184,30 @@ print_r($group_name);
                                     
                                      <td>{{ \Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $product->updated_at)->diffForHumans() }}</td>
                                     <td>
+<<<<<<< HEAD
                                         <button class="show-modal btn btn-success" data-id="{{$product->id}}" data-serial="{{$product->product_serial_num}}" data-content="{{$product->style->style_name}}">
                                         <span class="glyphicon glyphicon-eye-open"></span> </button>
+=======
+                                        <button class="show-modal btn btn-success" data-id="{{$product->id}}" data-serial="{{$product->serial}}" data-content="{{$product->style}}">
+                                        <span class="glyphicon glyphicon-eye-open"></span> Show</button>
+>>>>>>> edcd38eeefd00e6ef701c168d8446ceccab7bfd8
 
                                         <button class="edit-modal btn btn-info" data-id="{{$product->id}}" >
                                         <span class="glyphicon glyphicon-edit"></span> </button>
 
+<<<<<<< HEAD
                                         <button class="delete-modal btn btn-danger" data-color="{{$product->colors}}" data-id="{{$product->id}}" data-title="{{$product->style->style_name}}" data-content="{{$product->style->style_name}}">
                                         <span class="glyphicon glyphicon-trash"></span> </button>
                                     </td> 
                                 </tr>
+=======
+                                        <button class="delete-modal btn btn-danger" data-id="{{$product->id}}" data-title="{{$product->style}}" data-content="{{$product->style}}">
+                                        <span class="glyphicon glyphicon-trash"></span> Delete</button>
+                                    </td> 
+                                </tr>
+                               
+                            </div>
+>>>>>>> edcd38eeefd00e6ef701c168d8446ceccab7bfd8
 
                                @endif
                            
@@ -206,6 +220,7 @@ print_r($group_name);
         </div><!-- /.panel-body -->
         {{--  <div style="color:yellowpp">color test</div>  --}}
     </div><!-- /.panel panel-default -->
+<<<<<<< HEAD
     <div class="panel panel-default panel-shadow ">
         <div class="panel-body">
         <div class="row">
@@ -622,6 +637,11 @@ print_r($group_name);
             </div>
         </div>
     </div>
+=======
+</div>
+<!-- /.col-md-8 -->
+<!--  -->
+>>>>>>> edcd38eeefd00e6ef701c168d8446ceccab7bfd8
 
 
 @endsection

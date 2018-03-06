@@ -18,42 +18,29 @@ use DB;
 class SellerController extends Controller
 {
     //
+    public function __construct()
+    {
+        $this->middleware('seller');
+    }
+    /**
+     * show dashboard.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function index()
     {
-       /* $colors=DB::table('sizes')
-        ->join('product_colors_sizes','product_colors_sizes.size_id', '=', 'sizes.id')
-        ->get();*/
+        //$seller=auth()->guard('admin')->user();
         
-        //$colors = new Illuminate\Database\Eloquent\Builder( $query );
-        //$colors->setModel( new Color );
-        /*$colors=Color::select('id','color_name');
-        $categ_id = Category::where('categ_name','=','Dresses')->value('id');
-        $products= Product::with('colors');*/
-        //$colors=Product_color_sizes::with('size')->get();
+            // $name=session('name');
+            // $seller=Seller::where('name','=',$name)->get();
+            // Product::where(['comp_id'=>1])
+            // select count(*) FROM products 
+            // WHERE products.comp_id=1
+            $product_num=DB::table('products')
+            ->where('comp_id','=', 1)->count();
 
-        /*SELECT product_color_sizes.product_colors_id ,sizes.size_name
-FROM sizes join product_color_sizes on product_color_sizes.size_id=sizes.id*/
-        
-        //returns product_colors.id
-        /*$colors=DB::table('product_color_sizes')
-        ->join( 'product_colors','product_colors.id','=','product_color_sizes.product_colors_id')
-        ->select('product_colors.id')
-        ->where('product_colors.id','=',1)->get();*/
-        
-        /*$colors=DB::table('product_color_sizes')
-        ->join( 'sizes','product_color_sizes.size_id','=','sizes.id')
-        ->select('product_color_sizes.product_colors_id','sizes.size_name')->get();*/
-
-        
-
-        $pro=Product::with('colors')->get();
-
-
-
-        return view ('test',compact('pro'));
-
+        return view('seller.sellerHome',compact('product_num'));
     }
-    public function test(Request $request){
-    return view('home',compact('request'));
-    }
+  
+
 }

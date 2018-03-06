@@ -77,7 +77,16 @@
         </div>
         <div id="carousel-example" class="carousel slide hidden-xs" data-ride="carousel" data-type="multi">
             <div class="carousel-inner">
-               
+                @if (Session::has('success'))
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="alert alert-success">
+                                {{Session::get('success')}}
+                        </div>
+
+                    </div>
+                </div>
+               @endif
                     @foreach ($products->chunk(4) as $key => $productchunk)
                     <div class="item{{ $key == 0 ? ' active' : '' }}">
                         <div class="row">
@@ -104,7 +113,11 @@
                                                     <i class="fa fa-star-o" aria-hidden="true"></i>
                                                 </div>
                                                 <div class="col-md-6 col-sm-12 col-xs-6">
-                                                    <a href="#" class="AddCart btn btn-info"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Add To Cart</a>
+                                                        {{--  <input type="hidden" name='productid' value={{$product->id}}>
+                                                        <input type="hidden" name='qty' value={{$product->product_price}}>
+                                                      <a href="{{route('addtocartt',['id'=>$product->id])}}">add</a>  --}}
+                                                      
+                                                    <a href="{{route('addtocartt',['id'=>$product->id])}}" class="AddCart btn btn-info"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Add To Cart</a>
                                                 </div>
                                             </div>
                                         </div>
