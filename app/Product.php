@@ -15,10 +15,12 @@ class Product extends Model
         'product_price','product_desc',
         'mater_id','comp_id','product_price_sale'
     ];
+
     public function style()
     {
         return $this->belongsTo('App\Style','style_id')->with('category');
     }
+
     public function material()
     {
         return $this->belongsTo('App\Material','mater_id');
@@ -32,7 +34,6 @@ class Product extends Model
         return $this->belongsToMany('App\Color','product_colors','product_id','color_id')->with('sizes');
 
     }
-
     public function styleDetails()
     {
         return $this->belongsToMany('App\StyleDetails','product_style_details','product_id','style_details_id');

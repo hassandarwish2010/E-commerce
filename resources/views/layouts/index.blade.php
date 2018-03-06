@@ -10,10 +10,7 @@
         <link rel="stylesheet"  href="{{ asset('css/style.css') }}">
         <link rel="stylesheet"  href="{{ asset('css/animate.min.css') }}">
         <link rel="stylesheet"  href="{{ asset('css/show.css') }}">
-        
-        <link rel="stylesheet"  href="{{ asset('css/custom.css') }}">
         <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
-
         <link rel="stylesheet" href="http://code.jquery.com/ui/1.9.0/themes/base/jquery-ui.css" />
  
     
@@ -206,8 +203,69 @@
                                      </div>        
                                  </a>
                              </li>
-                             <li><a href="#">Men</a></li>
-                             <li><a href="#">Babies</a></li>
+                             <li id="mn">
+                                <a href="#">Men
+                                    <div id="showman" style="width:600%;background-color:#575757; display:none; position:absolute;z-index:1 ;opacity:0.9;margin-left:17%;margin-top:-2%;">
+                                         <div class="row">
+                                             <div class="col-md-6">
+                                                 <ul id="submenu">
+                                                    <li><a href="{{ route('show',array('categ_name'=>'Dresses','group_name'=>'Woman')) }}">Dresses</a></li>
+                                                    <li><a href="{{ route('show',array('categ_name'=>'Tops & T-Shirts','group_name'=>'Woman')) }}">Tops &amp; T-Shirts</a></li>
+                                                    <li><a href="{{ route('show',array('categ_name'=>'Shirts & Blouses','group_name'=>'Woman')) }}">Shirts &amp; Blouses</a></li>
+                                                    <li><a href="{{ route('show',array('categ_name'=>'Skirts','group_name'=>'Woman')) }}">Skirts</a></li>
+                                                    <li><a href="{{ route('show',array('categ_name'=>'Trousers & Shorts','group_name'=>'Woman')) }}">Trousers &amp; Shorts</a></li>
+                                                    <li><a href="{{ route('show',array('categ_name'=>'Leggings & Hosiery','group_name'=>'Woman')) }}">Leggings &amp; Hosiery</a></li>
+                                                    <li><a href="{{ route('show',array('categ_name'=>'Playsuits & Jumpsuits','group_name'=>'Woman')) }}">Playsuits &amp; Jumpsuits </a></li>
+                                                    <li><a href="{{ route('show',array('categ_name'=>'Jeans','group_name'=>'Woman')) }}">Jeans</a></li>
+                                                 </ul>
+                                             </div>
+                                             <div class="col-md-6">
+                                                 <ul>
+                                                     <li><a href="{{ route('show',array('categ_name'=>'Sportswear & Joggers','group_name'=>'Woman')) }}">Sportswear &amp; Joggers </a></li>
+                                                     <li><a href="{{ route('show',array('categ_name'=>'Swim & Beachwear','group_name'=>'Woman')) }}">Swim &amp; Beachwear </a></li>
+                                                     <li><a href="{{ route('show',array('categ_name'=>'Blazer & Jackets','group_name'=>'Woman')) }}">Blazer &amp; Jackets </a></li>
+                                                     <li><a href="{{ route('show',array('categ_name'=>'Knitwear','group_name'=>'Woman')) }}">Knitwear</a></li>
+                                                     <li><a href="{{ route('show',array('categ_name'=>'Onesies & Nightwear','group_name'=>'Woman')) }}">Onesies &amp; Nightwear</a></li>
+                                                     <li><a href="{{ route('show',array('categ_name'=>'Lingerie','group_name'=>'Woman')) }}">Lingerie </a></li>
+                                                     <li><a href="{{ route('show',array('categ_name'=>'Suit','group_name'=>'Woman')) }}">Suit</a></li>
+                                                     <li><a href="{{ route('show',array('categ_name'=>'Sale','group_name'=>'Woman')) }}">Sale</a></li>
+                                                 </ul>
+                                             </div>  
+                                         </div>
+                                     </div>
+                                </a>
+                            </li>
+                             <li><a href="#">Babies
+                                    <div id="showwomen" style="width:600%;background-color:#575757; display:none; position:absolute;z-index:1 ;opacity:0.9;margin-left:17%;margin-top:-2%;">
+                                         <div class="row">
+                                             <div class="col-md-6">
+                                                 <ul id="submenu">
+                                                    <li><a href="{{ route('show',array('categ_name'=>'Dresses','group_name'=>'Woman')) }}">Dresses</a></li>
+                                                    <li><a href="{{ route('show',array('categ_name'=>'Tops & T-Shirts','group_name'=>'Woman')) }}">Tops &amp; T-Shirts</a></li>
+                                                    <li><a href="{{ route('show',array('categ_name'=>'Shirts & Blouses','group_name'=>'Woman')) }}">Shirts &amp; Blouses</a></li>
+                                                    <li><a href="{{ route('show',array('categ_name'=>'Skirts','group_name'=>'Woman')) }}">Skirts</a></li>
+                                                    <li><a href="{{ route('show',array('categ_name'=>'Trousers & Shorts','group_name'=>'Woman')) }}">Trousers &amp; Shorts</a></li>
+                                                    <li><a href="{{ route('show',array('categ_name'=>'Leggings & Hosiery','group_name'=>'Woman')) }}">Leggings &amp; Hosiery</a></li>
+                                                    <li><a href="{{ route('show',array('categ_name'=>'Playsuits & Jumpsuits','group_name'=>'Woman')) }}">Playsuits &amp; Jumpsuits </a></li>
+                                                    <li><a href="{{ route('show',array('categ_name'=>'Jeans','group_name'=>'Woman')) }}">Jeans</a></li>
+                                                 </ul>
+                                             </div>
+                                             <div class="col-md-6">
+                                                 <ul>
+                                                     <li><a href="{{ route('show',array('categ_name'=>'Sportswear & Joggers','group_name'=>'Woman')) }}">Sportswear &amp; Joggers </a></li>
+                                                     <li><a href="{{ route('show',array('categ_name'=>'Swim & Beachwear','group_name'=>'Woman')) }}">Swim &amp; Beachwear </a></li>
+                                                     <li><a href="{{ route('show',array('categ_name'=>'Blazer & Jackets','group_name'=>'Woman')) }}">Blazer &amp; Jackets </a></li>
+                                                     <li><a href="{{ route('show',array('categ_name'=>'Knitwear','group_name'=>'Woman')) }}">Knitwear</a></li>
+                                                     <li><a href="{{ route('show',array('categ_name'=>'Onesies & Nightwear','group_name'=>'Woman')) }}">Onesies &amp; Nightwear</a></li>
+                                                     <li><a href="{{ route('show',array('categ_name'=>'Lingerie','group_name'=>'Woman')) }}">Lingerie </a></li>
+                                                     <li><a href="{{ route('show',array('categ_name'=>'Suit','group_name'=>'Woman')) }}">Suit</a></li>
+                                                     <li><a href="{{ route('show',array('categ_name'=>'Sale','group_name'=>'Woman')) }}">Sale</a></li>
+                                                 </ul>
+                                             </div>  
+                                         </div>
+                                     </div>
+                                </a>
+                            </li>
                              <li><a href="#">Contact Us</a></li>
                              <li><a href="#">About</a></li>
                              <li><a href="#">Account</a></li>
@@ -224,43 +282,31 @@
                           
                          </ul>-->
                              
-                             <ul class="nav navbar-nav navbar-right">
-                                      <!-- Authentication Links -->
-                                      @guest
-                                      <!-- <li>
-                            <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" style="padding-top: 22px; padding-right: 44px;">Login Register
-                            <span class="caret" ></span></button>
-                                <ul class="dropdown-menu">
-                                  <li style="
-                                    margin-top:-6px;
-                                    background-color: #575757;
-                                    margin-bottom: 2px;">
-                                  <a class="" href="#" id="auth"
-                                              onclick="document.getElementById('authentication').style.display='block'" >User</a></li>
-                                    <li style="background-color: #575757;"><a href="#" id="auth" onclick="document.getElementById('authenticationSeller').style.display='block'">Seller</a></li>
-                                </ul>
-                    </li> -->
-                                          <li><a class="" href="#" id="auth"
-                                              onclick="document.getElementById('authentication').style.display='block'">Login Register</a></li>
-                                      @else
-                                          <li class="dropdown">
-                                              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                                                  {{ Auth::user()->name }} <span class="caret"></span>
-                                              </a>
-                                              <ul style="background-color: #708090" class="dropdown-menu" role="menu">
-                                                  <li >
-                                                      <a href="{{ route('logout') }}">
-                                                                      <i class="fa fa-btn fa-sign-out"></i>Logout
-                                                      </a>
-                          
-                                                      <form id="logout-form" action="#" method="POST" style="display: none;">
-                                                          {{ csrf_field() }}
-                                                      </form>
-                                                  </li>
-                                              </ul>
-                                          </li>
-                                      @endguest
-                                  </ul>
+                        <ul class="nav navbar-nav navbar-right">
+                            <!-- Authentication Links -->
+                            @guest
+        
+                                <li><a class="" href="#" id="auth"
+                                    onclick="document.getElementById('authentication').style.display='block'">Login Register</a></li>
+                            @else
+                                <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                                        {{ Auth::user()->name }} <span class="caret"></span>
+                                    </a>
+                                    <ul style="background-color: #708090" class="dropdown-menu" role="menu">
+                                        <li >
+                                            <a href="{{ route('logout') }}">
+                                                <i class="fa fa-btn fa-sign-out"></i>Logout
+                                            </a>
+                
+                                            <form id="logout-form" action="#" method="POST" style="display: none;">
+                                                {{ csrf_field() }}
+                                            </form>
+                                        </li>
+                                    </ul>
+                                </li>
+                            @endguest
+                        </ul>
               
                        </div>
                    </nav>

@@ -20,7 +20,6 @@ Auth::routes();
 
 Route::get ( '/',['uses' => 'HomeController@index','as' => 'product'] );
 
-
 Route::post ( '/login', 'MainController@login' )->name('login');
 Route::post ( '/register', 'MainController@register' )->name('register');
 Route::get ( '/logout', 'MainController@logout' )->name('logout');
@@ -40,11 +39,11 @@ Route::group(['middleware' => ['seller'],'prefix'=>'seller'], function () {
     Route::get ('/showproduct/{categ_name}/{group_name}',[
         'uses' => 'ProductsController@index',
         'as' => 'showproduct']);
-        Route::post ('/addproduct/{categ_name}/{group_name}',[
+        Route::post ('/addproduct',[
             'uses' => 'ProductsController@store',
-            'as' => 'addproduct']);
+            'as' => 'storeproduct']);
             Route::get ('/addproduct/{categ_name}/{group_name}',[
-                'uses' => 'ProductsController@store',
+                'uses' => 'ProductsController@stylesAndMater',
                 'as' => 'addproduct']);
     Route::post ('/showproduct/products',['uses'=>'ProductsController@store','as'=>'products']);
     Route::put ('/editproduct/{id}',['uses'=>'ProductsController@update','as'=>'editproduct']);
@@ -85,7 +84,6 @@ Route::get('adminstting',['uses'=>"AdminController@adminsetting",'as'=>'adminstt
 /////////////////test//////////////////////////
 Route::get('ajaxImageUpload', ['uses'=>'AjaxImageUploadController@ajaxImageUpload']);
 Route::post('ajaxImageUpload', ['as'=>'ajaxImageUpload','uses'=>'AjaxImageUploadController@ajaxImageUploadPost']);
-
 
 Route::get('images-upload', 'HomeController@imagesUpload');
 

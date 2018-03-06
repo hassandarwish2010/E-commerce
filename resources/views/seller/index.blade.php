@@ -96,9 +96,7 @@
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">MAIN NAVIGATION</li>
 
-        
-        
-
+    
         <li class="treeview">
           <a href="#">
             <i class="fa fa-pie-chart"></i>
@@ -282,7 +280,7 @@
     <!-- /.sidebar -->
   </aside>
 
-<div class="content-wrapper">
+<div class="content-wrapper" style="padding:2em">
 
 @yield('content')
 

@@ -1,8 +1,6 @@
 //============= start bar
 $(document).ready
-	(
-	function()
-	{
+	(function(){
 		$("#wm").mouseover(
 		function(){
 			$("#showwomen").slideDown('fast');//slow
@@ -12,7 +10,17 @@ $(document).ready
 				$("#showwomen").slideUp('fast');//slow
 			});
 
+		$("#mn").mouseover(
+			function(){
+				$("#showman").slideDown('fast');//slow
+			});
+		$("#mn").mouseleave(
+				function(){
+					$("#showman").slideUp('fast');//slow
+			});
+
 	})
+	
 
 
 
