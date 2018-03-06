@@ -43,6 +43,9 @@ Route::group(['middleware' => ['seller'],'prefix'=>'seller'], function () {
         Route::post ('/addproduct/{categ_name}/{group_name}',[
             'uses' => 'ProductsController@store',
             'as' => 'addproduct']);
+            Route::get ('/addproduct/{categ_name}/{group_name}',[
+                'uses' => 'ProductsController@store',
+                'as' => 'addproduct']);
     Route::post ('/showproduct/products',['uses'=>'ProductsController@store','as'=>'products']);
     Route::put ('/editproduct/{id}',['uses'=>'ProductsController@update','as'=>'editproduct']);
 });
