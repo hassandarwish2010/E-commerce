@@ -36,17 +36,11 @@ Route::group(['middleware'=>'auth','prefix'=>'user'],function()
 
 Route::group(['middleware' => ['seller'],'prefix'=>'seller'], function () {
     Route::get('/', 'SellerController@index')->name('seller');
-    Route::get ('/showproduct/{categ_name}/{group_name}',[
-        'uses' => 'ProductsController@index',
-        'as' => 'showproduct']);
-        Route::post ('/addproduct',[
-            'uses' => 'ProductsController@store',
-            'as' => 'storeproduct']);
-            Route::get ('/addproduct/{categ_name}/{group_name}',[
-                'uses' => 'ProductsController@stylesAndMater',
-                'as' => 'addproduct']);
+    Route::get ('/showproduct/{categ_name}/{group_name}',['uses' => 'ProductsController@index','as' => 'showproduct']);
+    Route::post ('/addproduct',['uses' => 'ProductsController@store','as' => 'storeproduct']);
+    Route::get ('/addproduct/{categ_name}/{group_name}',['uses' => 'ProductsController@create','as' => 'addproduct']);
     Route::post ('/showproduct/products',['uses'=>'ProductsController@store','as'=>'products']);
-    Route::put ('/editproduct/{id}',['uses'=>'ProductsController@update','as'=>'editproduct']);
+    Route::get ('/editproduct/{id}/{categ_name}/{group_name}',['uses'=>'ProductsController@edit','as'=>'editproduct']);
 });
 
 //////////////////////  Cart

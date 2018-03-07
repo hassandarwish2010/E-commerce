@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Color;
 use App\Category;
 use App\Style;
+use App\Group;
 use App\Product;
 use App\Size;
 use App\Product_colors;
@@ -38,8 +39,11 @@ class SellerController extends Controller
             // WHERE products.comp_id=1
             $product_num=DB::table('products')
             ->where('comp_id','=', 1)->count();
+        $groups =Group::with('categories')->limit(2)->get();
+        // dd($groups);
+            
 
-        return view('seller.sellerHome',compact('product_num'));
+        return view('seller.sellerHome',compact('groups','product_num'));
     }
   
 
