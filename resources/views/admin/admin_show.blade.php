@@ -24,7 +24,7 @@
                 <th>{{$user->address}}</th>
                 <th>{{$user->phone}}</th>
                
-                <td class="text-center"><a class='btn btn-info btn-xs' href="#"><span class="glyphicon glyphicon-edit"></span> Edit</a> <a href="{{route('deleteuser',['id'=>$user->id])}}" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span> Del</a></td>
+                <td class="text-center"><a href="{{route('deleteuser',['id'=>$user->id])}}" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span> Del</a></td>
             </tr>
             @endforeach
 

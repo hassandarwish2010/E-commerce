@@ -68,6 +68,8 @@
                                     <li class="header"><a href="{{route('showadmin')}}">Users</a></li>
                                     <li class="header"><a href="{{route('showseller')}}">Sellers</a></li>
                                     <li class="header"><a href="{{route('adminproducts')}}">Products</a></li>
+                                    <li class="header"><a href="{{route('adminstting')}}">Settings</a></li>
+                                    <li class="header"><a href="{{route('massages')}}">massages</a></li>
                                   </ul>
                     
 

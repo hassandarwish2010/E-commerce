@@ -6,6 +6,7 @@ namespace App\Http\Controllers;
     use App\User;
     use App\Seller;
     use App\Product;
+    use App\Contact;
     class AdminController extends Controller
     {
         public function getIndex(){
@@ -74,6 +75,26 @@ namespace App\Http\Controllers;
            return view('admin.admin_setting',['product'=>$product,'user'=>$user,'seller'=>$seller]);
          }
     
+
+         public function getmassages(){
+        
+            $massages=Contact::all();
+           
+       
+           $arr=array('massages'=>$massages);
+          // dd($arr);
+           return view('admin.massages',$arr);
     }
+
+
+    public function deletemassage($id){
+        
+        $massages=Contact::find($id)->delete();
+        
+   
+        
+        return redirect('massages');
+     }
     
 
+    }

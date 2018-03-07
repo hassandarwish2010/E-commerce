@@ -26,7 +26,8 @@ class HomeController extends Controller
     {
         
         // $product=array();
-            $products=Product::all();
+            $products=Product::with('style')->with('images')->get();
+            dd($products);
             //$lastproduct=Product::find(1);
             // $product->products->get();
             return view('welcome',['products'=>$products]);

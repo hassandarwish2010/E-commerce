@@ -266,8 +266,8 @@
                                      </div>
                                 </a>
                             </li>
-                             <li><a href="#">Contact Us</a></li>
-                             <li><a href="#">About</a></li>
+                             <li><a href="{{route('contactt')}}">Contact Us</a></li>
+                             <li><a href="{{route('about')}}">About</a></li>
                              <li><a href="#">Account</a></li>
                          </ul>
                          <!--<ul class="nav navbar-nav navbar-right">

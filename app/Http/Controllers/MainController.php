@@ -115,7 +115,8 @@ public function login(Request $request) {
 			$rules = array (
 					'email' => 'required|unique:users|email',
 					'name' => 'required|unique:users|alpha_num|min:4',
-					'password' => 'required|min:6|confirmed' 
+					'password' => 'required|min:6|confirmed|',
+					'phone'=>'required|regex:/^[0-9]+$/'
 			);
 			$validator = Validator::make ( Input::all (), $rules );
 			if ($validator->fails ()) {
@@ -142,7 +143,8 @@ public function login(Request $request) {
 		$rules = array (
 			'email' => 'required|unique:sellers|email',
 			'name' => 'required|unique:sellers|alpha_num|min:4',
-			'password' => 'required|min:6|confirmed' 
+			'password' => 'required|min:6|confirmed',
+			'phone'=>'required|regex:/^[0-9]+$/'
 		);
 		$validator = Validator::make ( Input::all (), $rules );
 		if ($validator->fails ()) {

@@ -48,7 +48,7 @@
                </li>
                <li><a href="#">Men</a></li>
                <li><a href="#">Babies</a></li>
-               <li><a href="#">Contact Us</a></li>
+               <a href="#">Contact Us</a></li>
                <li><a href="#">About</a></li>
                <li><a href="#">Account</a></li>
            </ul>
