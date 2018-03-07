@@ -40,7 +40,7 @@
                 <label class="control-label col-sm-2" for="style">Style:</label>
                 <div class="col-sm-10">
                   <select class="form-control" id="style" name="style_id" required >
-                    <option value="" >choose style:</option>
+                    <option value={{$product[0]->style->style_id}} >{{$product[0]->style->style_name}}</option>
                     @foreach($styles as $style)
                       <option value={{$style->id}}>{{$style->style_name}}</option>
                     @endforeach
@@ -53,7 +53,7 @@
                 <label class="control-label col-sm-2" for="material">Material:</label>
                 <div class="col-sm-10">
                   <select class="form-control" id="material" name="mater_id" required>
-                    <option value="" >choose material:</option>
+                    <option value={{$product[0]->mater_id}} >{{$product[0]->material->mater_name}}</option>
                     @foreach($materials as $material)
                       <option value={{$material->id}}>{{$material->mater_name}}</option>
                     @endforeach
@@ -68,7 +68,7 @@
               <div class="form-group">
                 <label class="control-label col-sm-2" for="serial">Serial:</label>
                 <div class="col-sm-10">
-                  <input type="text" class="form-control" id="serial" name="product_serial_num" placeholder="Enter serial For Product">
+                  <input type="text" class="form-control" value={{$product[0]->product_serial_num}} id="serial" name="product_serial_num" placeholder="Enter serial For Product">
                 </div>
               </div>
             </div>
@@ -76,7 +76,7 @@
               <div class="form-group">
                 <label class="control-label col-sm-2" for="price">Price:</label>
                 <div class="col-sm-10">
-                  <input type="number" class="form-control" id="price" name="product_price" placeholder="Enter price For Product" required  min="0"  step="0.01" title="Currency" pattern="^\d+(?:\.\d{1,2})?$">
+                  <input type="number" class="form-control" value={{$product[0]->product_price}}  id="price" name="product_price" placeholder="Enter price For Product" required  min="0"  step="0.01" title="Currency" pattern="^\d+(?:\.\d{1,2})?$">
                 </div>
               </div>
             </div>
@@ -88,7 +88,7 @@
               <div class="form-group">
                 <label class="control-label col-sm-3" for="desc">Descirption:</label>
                 <div class="col-sm-9">
-                  <textarea rows="4" cols="50" class="form-control" id="desc" name="product_desc" placeholder="Enter Descirption For Product"></textarea>
+                  <textarea value={{$product[0]->product_desc}} rows="4" cols="50" class="form-control" id="desc" name="product_desc" placeholder="Enter Descirption For Product"></textarea>
                 </div>
               </div>
             </div>
@@ -97,7 +97,7 @@
               <div class="form-group">
                 <label class="control-label col-sm-2" for="sale">Sale:</label>
                 <div class="col-sm-10">
-                  <input type="number" class="form-control" id="sale" name="product_price_sale" placeholder="Enter sale For Product" min="0"  step="0.01" title="Currency" pattern="^\d+(?:\.\d{1,2})?$">
+                  <input value={{$product[0]->product_price_sale}} type="number" class="form-control" id="sale" name="product_price_sale" placeholder="Enter sale For Product" min="0"  step="0.01" title="Currency" pattern="^\d+(?:\.\d{1,2})?$">
                 </div>
               </div>      
                 <div class="form-group">
@@ -117,7 +117,7 @@
               <div class="form-group">
                 <label class="control-label col-sm-1" for="tag">Tags:</label>
                 <div class="col-sm-11">
-                  <input type="text" value="" data-role="tagsinput" id="tag" name="tag_word" placeholder="Add tags" />
+                  <input type="text" value="{{$product[0]->tag_word}}" data-role="tagsinput" id="tag" name="tag_word" placeholder="Add tags" />
                 </div>
               </div>
             </div>

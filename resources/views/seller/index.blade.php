@@ -15,6 +15,12 @@
   <link rel="stylesheet" href="{{ asset('toastr/toastr.min.css') }}"> 
   <link rel="stylesheet" href="{{ asset('css/tags.css') }}">
   <link rel="stylesheet" href="{{ asset('icheck/square/yellow.css') }}">
+
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/4.2.2/jquery.form.min.js"></script>
+
+
  @yield('style')
   @yield('header')
 </head>
@@ -96,28 +102,25 @@
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">MAIN NAVIGATION</li>
 
-    
+    @foreach($groups as $group)
         <li class="treeview">
           <a href="#">
+         
+          
+
             <i class="fa fa-pie-chart"></i>
-            <span>Man</span>
+            <span>{{$group->group_name}}</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="{{ route('showproduct',array('categ_name'=>'Shirts','group_name'=>'Men')) }}"><i class="fa fa-circle-o"></i> Shirts</a></li>
-            <li><a href="#"><i class="fa fa-circle-o"></i> Polos</a></li>
-            <li><a href="#"><i class="fa fa-circle-o"></i> T-Shirts</a></li>
-            <li><a href="#"><i class="fa fa-circle-o"></i> jeans&Pants</a></li>
-            <li><a href="#"><i class="fa fa-circle-o"></i>shorts</a></li>
-            <li><a href="#"><i class="fa fa-circle-o"></i> Swimwear</a></li>
-            <li><a href="#"><i class="fa fa-circle-o"></i> Underwear</a></li>
-            <li><a href="#"><i class="fa fa-circle-o"></i> Sleepwear</a></li>
-            <li><a href="#"><i class="fa fa-circle-o"></i> jackets,Coats&Hoodies</a></li>
-
+           @foreach($group->categories as $category )
+            <li><a href="{{ route('showproduct',array('categ_name'=>$category->categ_name,'group_name'=>$group->group_name)) }}"><i class="fa fa-circle-o"></i> {{$category->categ_name}}</a></li>
+            @endforeach
           </ul>
         </li>
+        @endforeach
 
 
         <li class="treeview">
@@ -282,7 +285,9 @@
 
 <div class="content-wrapper" style="padding:2em">
 
+          
 @yield('content')
+
 
 </div>
 
