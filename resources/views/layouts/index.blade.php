@@ -120,10 +120,11 @@
     </style>
     <body>
         <!-- start header -->
+        <div class="navbar-fixed-top">
         <div class="container">
-                <div class="row">
+                <div class="row" style="background: #e6e6ff">
                         <div class="col-sm-4"> 
-                                <a class="logo" href="#"><img src="{{asset('img/logo.jpg')}}"></a>
+                                <a class="logo"  href="#"><img src="{{asset('img/logo.jpg')}}" class="wow bounceInLeft"></a>
                         </div>
                         <div class="col-sm-2">
                             <div class="check">
@@ -311,6 +312,10 @@
                        </div>
                    </nav>
                 </div>
+                </div>
+                <br>
+                <br><br><br><br><br><br><br>
+
               <!--Login Modal user -->
               
               <div id="authentication" class="w3-modal">
@@ -513,6 +518,12 @@
             <script src="http://code.jquery.com/ui/1.9.0/jquery-ui.js"></script>
             <script src="http://code.jquery.com/jquery-1.8.2.js"></script>
             <script src="http://code.jquery.com/ui/1.9.0/jquery-ui.js"></script>
+            <script src="{{ asset('js/wow.min.js') }}"></script>
+            <script>
+    new WOW().init();
+ </script>
+            
+
  
     @yield('script')    
         

@@ -158,7 +158,7 @@ public function login(Request $request) {
 			$seller->email = $request->get ( 'email' );
 			$seller->address = $request->get ( 'address' );
 			$seller->phone = $request->get ( 'phone' );
-			$seller->comp_id=1;
+			//$seller->comp_id=1;
 			$seller->password = Hash::make ( $request->get ( 'password' ) );
 			$seller->remember_token = $request->get ( '_token' );
 			
