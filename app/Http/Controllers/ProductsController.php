@@ -129,6 +129,7 @@ class ProductsController extends Controller
      */
     public function store(Request $request)
     { 
+        // dd($request->all());
         // $pro =Product::with('images')->get();
         //  dd($pro[4]->images[1]->img_name);
        

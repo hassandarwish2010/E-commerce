@@ -90,6 +90,11 @@ public function getRemoveItem($id){
 public function getcheckout(Request $request){
   //$comments = App\Post::find(1)->comments()->where('title', 'foo')->first();
  // $users=Order::find(1)->User;
+
+
+
+
+
  $users=User::with('orders')->get();
 //dd($users);
 
@@ -149,7 +154,20 @@ public function getcheckout(Request $request){
 
 
 }
-public function postcheckout(){
+public function postcheckout(Request $request){
+
+
+  $this->validate($request,[
+    'name'=>'required|regex:/^[a-zA-Z ]+$/',
+   'card'=>'required|min:16|max:16|regex:/^[0-9 ]+$/',
+   'cvc'=>'required|min:3|max:3|regex:/^[0-9]+$/',
+   'month'=>'required|min:2|max:2',
+   'year'=>'required|min:4|max:4',
+   
+   
+  ]);
+
+
   if(!Session::has('cartt')){
     return view('user.product.shoppingcart');
   }
@@ -178,11 +196,11 @@ $order_id= $order_user->id;
 // $qu=($q['item']['product_quan']);
 $qu=$q['qty'];
  $price=($q['item']['product_price']);
- $product_id=($q['item']['id']);
+ //$product_id=($q['item']['id']);
 
  
  DB::table('order_details')->insert([
-  ['product_id' =>$product_id, 'order_id' =>$order_id,'order_details_quan' =>$qu, 'order_details_price' =>$price]
+  ['product_color_size_id' =>5, 'order_id' =>$order_id,'order_details_quan' =>$qu, 'order_details_price' =>$price]
 ]);
 
 

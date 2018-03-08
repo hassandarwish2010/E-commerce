@@ -2,7 +2,15 @@
 
 @section('content')
 
-
+@if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
 
 <div class="container">
   <div class="row">
@@ -29,28 +37,28 @@
     <div class="col-xs-12">
               <div class="form-group">
               <label for="name">Name</label>
-              <input type="text" id="name" class="form-control" required="">
+              <input type="text" id="name" class="form-control" required="" name="name">
               </div>
             </div>
   
               <div class="col-xs-12">
                <div class="form-group">
                <label for="card-name">Card holder name</label>
-               <input type="text" id="card name" class="form-control" required="">
+               <input type="text" id="card name" class="form-control" required="" name="card">
                </div>
             </div>
             <div class='form-row'>
               <div class='col-xs-4 form-group cvc required'>
                 <label class='control-label'>CVC</label>
-                <input autocomplete='off' class='form-control card-cvc' placeholder='ex. 311' size='4' type='text' required>
+                <input autocomplete='off' class='form-control card-cvc'name="cvc" placeholder='ex. 311' size='4' type='text' required>
               </div>
               <div class='col-xs-4 form-group expiration required'>
                 <label class='control-label'>Expiration</label>
-                <input class='form-control card-expiry-month' placeholder='MM' size='2' type='text' required>
+                <input class='form-control card-expiry-month' placeholder='MM' size='2' type='text' required name="month">
               </div>
               <div class='col-xs-4 form-group expiration required'>
                 <label class='control-label'> </label>
-                <input class='form-control card-expiry-year' placeholder='YYYY' size='4' type='text'required >
+                <input class='form-control card-expiry-year' placeholder='YYYY' size='4' type='text'required  name="year">
               </div>
             </div>
 

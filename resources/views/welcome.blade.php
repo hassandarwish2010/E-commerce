@@ -86,6 +86,7 @@
 
                     </div>
                 </div>
+                
                @endif
                     @foreach ($products->chunk(4) as $key => $productchunk)
                     <div class="item{{ $key == 0 ? ' active' : '' }}">
@@ -94,7 +95,8 @@
                             <div class="col-md-3 col-sm-3 col-xs-12">
                                 <div class="slider-item">
                                     <div class="slider-image">
-                                        <img src="{{asset('img/main-banner1.jpg')}}" class="img-responsive" alt="a" />
+
+                                        <img src="{{asset('images/'.$product->images->toArray()[0]['img_name'])}}" class="img-responsive"  alt="a" />
                                     </div>
                                     <div class="slider-main-detail">
                                         <div class="slider-detail">

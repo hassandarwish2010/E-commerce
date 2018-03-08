@@ -23,11 +23,13 @@ class HomeController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
+
+    
     {
         
         // $product=array();
             $products=Product::with('style')->with('images')->get();
-            dd($products);
+          //  dd($products[4]->images[0]->img_name);
             //$lastproduct=Product::find(1);
             // $product->products->get();
             return view('welcome',['products'=>$products]);

@@ -1,29 +1,26 @@
-<!--start section skills-->
-<div class="our_skills">
-		<div class="container">
-			<h1 class="text-center">About Us</h1>
-			<center>
-			<p style="width: 70%; font-family: 'Times New Roman', Times, serif; font-size: 20px">
-			</center>
-			<div class="row" style="margin-top: 50px">
-			<!--start progresss skills-->
-				<div class="col-md-5">
-				
-					<img src="{{asset('img/main-banner1.jpg')}}" style="width: 100%; height: 200px;margin-bottom: 10px;margin-top: 30px">
-					<img src="{{asset('img/main-banner1.jpg')}}" style="width: 100%; height: 200px">
-				</div>
-			<!--end progresss skills-->
-             
-             <!--start team info-->
-				<div class="col-md-6 col-md-offset-1">
-					<h1>About Us</h1>
-					<p style="font-family: 'Times New Roman', Times, serif; font-size: 20px">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-					tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-					quis nostrud exercitation ullamco laboris nisi ut aliquip </p>
-					<img src="{{asset('img/main-banner1.jpg')}}" style="width: 90%; height: 200px;margin-top: 30px">
-				</div>
-			<!--end team info-->
-			</div>
-		</div>
+@extends('layouts.index')
+
+@section('content')
+
+@foreach($abouts as $about)
+
+<h1 class="text-center">{{$about->con_type}}</h1>
+<br><br>
+<h6 class="text-center">{{$about->con_value}}</h6>
+<hr>
+
+
+<div class="text-center">
 	
-</div>
+		<br><br><br>
+
+	
+	<a href="https://www.googleplus.com/">	<li class="fa fa-google-plus fa-3x" style="padding: 10px"></li></a>
+	<a href="https://www.facebook.com/">	<li class="fa fa-facebook fa-3x" style="padding: 10px"></li></a>
+	<a href="https://www.twitter.com/"><li class="fa fa-twitter fa-3x" style="padding: 10px"></li></li></a>
+	<a href="https://www.youtube.com/"><li class="fa fa-youtube fa-3x" style="padding: 10px"></li></a>
+	</div>
+
+
+@endforeach
+@endsection
