@@ -16,11 +16,7 @@
  				<div class="media">
  					
  					<div class="media-body">
- 						<h4 class="media-heading">
- 							programming
- 						</h4>
- 						Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
- 						tempor
+ 						
  					</div>
  				</div>
  			</div>

@@ -487,11 +487,15 @@
                      <div class="media">
                          
                          <div class="media-body">
-                             <h4 class="media-heading">
-                                 programming
-                             </h4>
-                             Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                             tempor
+                            <div class="col-md-6">
+				
+
+                                <hr style="width: 50%">
+                            <a href="https://www.googleplus.com/">	<li class="fa fa-google-plus fa-3x" style="padding: 10px"></li></a>
+                            <a href="https://www.facebook.com/">	<li class="fa fa-facebook fa-3x" style="padding: 10px"></li></a>
+                            <a href="https://www.twitter.com/"><li class="fa fa-twitter fa-3x" style="padding: 10px"></li></li></a>
+                            <a href="https://www.youtube.com/"><li class="fa fa-youtube fa-3x" style="padding: 10px"></li></a>
+                            </div>
                          </div>
                      </div>
                  </div>
