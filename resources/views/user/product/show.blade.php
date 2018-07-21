@@ -37,6 +37,7 @@ span.fa-circle{
 </style>
 @endsection
 @section('content')
+{{ $categories }}
 
 <div class="container-fluid">
     <div class="row">
@@ -54,7 +55,7 @@ span.fa-circle{
                                 <ul class="  content-list">
                                     @foreach($categories as $category)
                                         <li>
-                                            <label><input type="checkbox" value="">{{$category->categ_name}}</label>
+                                           <a href='#'>{{ $category->categ_name }}</a>
                                         </li>
                                     @endforeach
                                 </ul>

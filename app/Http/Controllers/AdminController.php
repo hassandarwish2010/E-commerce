@@ -9,6 +9,7 @@ namespace App\Http\Controllers;
     use App\Contact;
     class AdminController extends Controller
     {
+        
         public function getIndex(){
            
               $users=User::all();

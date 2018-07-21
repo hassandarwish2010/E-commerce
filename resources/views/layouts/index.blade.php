@@ -120,10 +120,11 @@
     </style>
     <body>
         <!-- start header -->
-        <div class="container">
-                <div class="row">
+        <div class="navbar-fixed-top">
+        <div class="container-fluid">
+                <div class="row" style="background: #e6e6ff">
                         <div class="col-sm-4"> 
-                                <a class="logo" href="#"><img src="{{asset('img/logo.jpg')}}"></a>
+                                <a class="logo"  href="#"><img src="{{asset('img/logo.jpg')}}" class="wow bounceInLeft"></a>
                         </div>
                         <div class="col-sm-2">
                             <div class="check">
@@ -170,13 +171,14 @@
                        </div>
                        <div class="collapse navbar-collapse" id="myNavbar">
                          <ul class="nav navbar-nav">
-                             <li><a href="#">Home</a></li>
+                             <li><a href="{{route('product')}}">Home</a></li>
                              <li id="wm">
                                  <a href="#">Women
                                      <div id="showwomen" style="width:600%;background-color:#575757; display:none; position:absolute;z-index:1 ;opacity:0.9;margin-left:17%;margin-top:-2%;">
                                          <div class="row">
                                              <div class="col-md-6">
                                                  <ul id="submenu">
+                                                    <li><a href="{{ route('show',array('categ_name'=>'Dresses','group_name'=>'Woman')) }}">Dresses</a></li>
                                                     <li><a href="{{ route('show',array('categ_name'=>'Dresses','group_name'=>'Woman')) }}">Dresses</a></li>
                                                     <li><a href="{{ route('show',array('categ_name'=>'Tops & T-Shirts','group_name'=>'Woman')) }}">Tops &amp; T-Shirts</a></li>
                                                     <li><a href="{{ route('show',array('categ_name'=>'Shirts & Blouses','group_name'=>'Woman')) }}">Shirts &amp; Blouses</a></li>
@@ -209,26 +211,27 @@
                                          <div class="row">
                                              <div class="col-md-6">
                                                  <ul id="submenu">
-                                                    <li><a href="{{ route('show',array('categ_name'=>'Dresses','group_name'=>'Woman')) }}">Dresses</a></li>
-                                                    <li><a href="{{ route('show',array('categ_name'=>'Tops & T-Shirts','group_name'=>'Woman')) }}">Tops &amp; T-Shirts</a></li>
-                                                    <li><a href="{{ route('show',array('categ_name'=>'Shirts & Blouses','group_name'=>'Woman')) }}">Shirts &amp; Blouses</a></li>
+                                                    <li><a href="{{ route('show',array('categ_name'=>'Dresses','group_name'=>'Men')) }}">Skirts</a></li>
+                                                    <li><a href="{{ route('show',array('categ_name'=>'Tops & T-Shirts','group_name'=>'Men')) }}">Tops &amp; T-Shirts</a></li>
+                                                    <li><a href="{{ route('show',array('categ_name'=>'Shirts & Blouses','group_name'=>'Men')) }}">Shirts &amp; Blouses</a></li>
                                                     <li><a href="{{ route('show',array('categ_name'=>'Skirts','group_name'=>'Woman')) }}">Skirts</a></li>
-                                                    <li><a href="{{ route('show',array('categ_name'=>'Trousers & Shorts','group_name'=>'Woman')) }}">Trousers &amp; Shorts</a></li>
-                                                    <li><a href="{{ route('show',array('categ_name'=>'Leggings & Hosiery','group_name'=>'Woman')) }}">Leggings &amp; Hosiery</a></li>
-                                                    <li><a href="{{ route('show',array('categ_name'=>'Playsuits & Jumpsuits','group_name'=>'Woman')) }}">Playsuits &amp; Jumpsuits </a></li>
-                                                    <li><a href="{{ route('show',array('categ_name'=>'Jeans','group_name'=>'Woman')) }}">Jeans</a></li>
+                                                    <li><a href="{{ route('show',array('categ_name'=>'Trousers & Shorts','group_name'=>'Men')) }}">Trousers &amp; Shorts</a></li>
+                                                    <li><a href="{{ route('show',array('categ_name'=>'Leggings & Hosiery','group_name'=>'Men')) }}">Leggings &amp; Hosiery</a></li>
+                                                    <li><a href="{{ route('show',array('categ_name'=>'Playsuits & Jumpsuits','group_name'=>'Men')) }}">Playsuits &amp; Jumpsuits </a></li>
+                                                    <li><a href="{{ route('show',array('categ_name'=>'Jeans','group_name'=>'Men')) }}">Jeans</a></li>
                                                  </ul>
                                              </div>
                                              <div class="col-md-6">
                                                  <ul>
-                                                     <li><a href="{{ route('show',array('categ_name'=>'Sportswear & Joggers','group_name'=>'Woman')) }}">Sportswear &amp; Joggers </a></li>
-                                                     <li><a href="{{ route('show',array('categ_name'=>'Swim & Beachwear','group_name'=>'Woman')) }}">Swim &amp; Beachwear </a></li>
-                                                     <li><a href="{{ route('show',array('categ_name'=>'Blazer & Jackets','group_name'=>'Woman')) }}">Blazer &amp; Jackets </a></li>
-                                                     <li><a href="{{ route('show',array('categ_name'=>'Knitwear','group_name'=>'Woman')) }}">Knitwear</a></li>
-                                                     <li><a href="{{ route('show',array('categ_name'=>'Onesies & Nightwear','group_name'=>'Woman')) }}">Onesies &amp; Nightwear</a></li>
-                                                     <li><a href="{{ route('show',array('categ_name'=>'Lingerie','group_name'=>'Woman')) }}">Lingerie </a></li>
-                                                     <li><a href="{{ route('show',array('categ_name'=>'Suit','group_name'=>'Woman')) }}">Suit</a></li>
-                                                     <li><a href="{{ route('show',array('categ_name'=>'Sale','group_name'=>'Woman')) }}">Sale</a></li>
+                                                     
+                                                     <li><a href="{{ route('show',array('categ_name'=>'Sportswear & Joggers','group_name'=>'Men')) }}">Sportswear &amp; Joggers </a></li>
+                                                     <li><a href="{{ route('show',array('categ_name'=>'Swim & Beachwear','group_name'=>'Men')) }}">Swim &amp; Beachwear </a></li>
+                                                     <li><a href="{{ route('show',array('categ_name'=>'Blazer & Jackets','group_name'=>'Men')) }}">Blazer &amp; Jackets </a></li>
+                                                     <li><a href="{{ route('show',array('categ_name'=>'Knitwear','group_name'=>'Men')) }}">Knitwear</a></li>
+                                                     <li><a href="{{ route('show',array('categ_name'=>'Onesies & Nightwear','group_name'=>'Men')) }}">Onesies &amp; Nightwear</a></li>
+                                                     <li><a href="{{ route('show',array('categ_name'=>'Lingerie','group_name'=>'Men')) }}">Lingerie </a></li>
+                                                     <li><a href="{{ route('show',array('categ_name'=>'Suit','group_name'=>'Men')) }}">Suit</a></li>
+                                                     <li><a href="{{ route('show',array('categ_name'=>'Sale','group_name'=>'Men')) }}">Sale</a></li>
                                                  </ul>
                                              </div>  
                                          </div>
@@ -311,9 +314,13 @@
                        </div>
                    </nav>
                 </div>
+                </div>
+                <br>
+                <br><br><br><br><br><br><br>
+
               <!--Login Modal user -->
               
-              <div id="authentication" class="w3-modal">
+              <div id="authentication" class="w3-modal top">
                       <span
                           onclick="document.getElementById('authentication').style.display='none'"
                           class="w3-closebtn w3-grey w3-hover-red w3-container w3-padding-16 w3-display-topright">X</span>
@@ -502,7 +509,7 @@
              </div>
             </section>
          </div>	
-        <!-- end section  footer -->
+        <!-- end section  footer -->    
         
     
     
@@ -517,6 +524,12 @@
             <script src="http://code.jquery.com/ui/1.9.0/jquery-ui.js"></script>
             <script src="http://code.jquery.com/jquery-1.8.2.js"></script>
             <script src="http://code.jquery.com/ui/1.9.0/jquery-ui.js"></script>
+            <script src="{{ asset('js/wow.min.js') }}"></script>
+            <script>
+    new WOW().init();
+ </script>
+            
+
  
     @yield('script')    
         

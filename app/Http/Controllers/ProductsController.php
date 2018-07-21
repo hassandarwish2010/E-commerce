@@ -51,6 +51,7 @@ class ProductsController extends Controller
         // dd($products);
         
         
+
         $groups =Group::with('categories')->get();
      
     //    $products= DB::table('materials')
@@ -230,12 +231,12 @@ class ProductsController extends Controller
     public function edit($id,$categ_name,$group_name)
     {
        
-        // dd($products);
+      
         
         $product= Product::with('style')->where('id',$id)->get();
         
         $style_details= Product::with('styleDetails')->where('id',$id)->get();
-        dd($style_details);
+      //  dd($style_details);
         $materials=Material::all();
  
         $styles=DB::table('styles')

@@ -39,7 +39,7 @@ public function login(Request $request) {
 				] );
 				return Redirect::back ();
 			} else {
-				Session::flash ( 'message', "Invalid Credentials88888 , Please try again." );
+				Session::flash ( 'message', "Invalid Credentials, Please try again." );
 				return Redirect::back ();
 			}
 		}
@@ -141,10 +141,10 @@ public function login(Request $request) {
 		{
 
 		$rules = array (
-			'email' => 'required|unique:sellers|email',
-			'name' => 'required|unique:sellers|alpha_num|min:4',
+			'email'    => 'required|unique:sellers|email',
+			'name'     => 'required|unique:sellers|alpha_num|min:4',
 			'password' => 'required|min:6|confirmed',
-			'phone'=>'required|regex:/^[0-9]+$/'
+			'phone'    => 'required|regex:/^[0-9]+$/'
 		);
 		$validator = Validator::make ( Input::all (), $rules );
 		if ($validator->fails ()) {
@@ -160,6 +160,7 @@ public function login(Request $request) {
 			$seller->email = $request->get ( 'email' );
 			$seller->address = $request->get ( 'address' );
 			$seller->phone = $request->get ( 'phone' );
+			//$seller->comp_id=1;
 			$seller->password = Hash::make ( $request->get ( 'password' ) );
 			$seller->remember_token = $request->get ( '_token' );
 			

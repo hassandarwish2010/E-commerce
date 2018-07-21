@@ -34,6 +34,7 @@ Route::group(['middleware'=>'auth','prefix'=>'user'],function()
 });
 
 
+
 Route::group(['middleware' => ['seller'],'prefix'=>'seller'], function () {
     Route::get('/', 'SellerController@index')->name('seller');
     Route::get ('/showproduct/{categ_name}/{group_name}',['uses' => 'ProductsController@index','as' => 'showproduct']);
@@ -42,6 +43,7 @@ Route::group(['middleware' => ['seller'],'prefix'=>'seller'], function () {
     Route::post ('/showproduct/products',['uses'=>'ProductsController@store','as'=>'products']);
     Route::get ('/editproduct/{id}/{categ_name}/{group_name}',['uses'=>'ProductsController@edit','as'=>'editproduct']);
 });
+
 
 //////////////////////  Cart
 

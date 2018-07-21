@@ -18,6 +18,7 @@ use App\User;
 use App\Order;
 
 //use Cart;
+
 use Auth;
 use DB;
 
@@ -200,7 +201,7 @@ $qu=$q['qty'];
 
  
  DB::table('order_details')->insert([
-  ['product_color_size_id' =>5, 'order_id' =>$order_id,'order_details_quan' =>$qu, 'order_details_price' =>$price]
+  ['product_color_size_id' =>'17', 'order_id' =>$order_id,'order_details_quan' =>$qu, 'order_details_price' =>$price]
 ]);
 
 

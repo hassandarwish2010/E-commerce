@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Product;
+use App\Group;
 
 class HomeController extends Controller
 {
@@ -29,8 +30,14 @@ class HomeController extends Controller
         
         // $product=array();
             $products=Product::with('style')->with('images')->get();
+         //   dd($products);
           //  dd($products[4]->images[0]->img_name);
-            //$lastproduct=Product::find(1);
+          //$a=($products[5]->style->categ_id);
+          
+        //   $g=Group::with('categories')->where('id', 17)->get();
+        //   dd($g);
+           // $lastproduct=Product::find(13);
+            
             // $product->products->get();
             return view('welcome',['products'=>$products]);
            

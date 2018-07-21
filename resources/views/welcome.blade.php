@@ -1,8 +1,65 @@
 @extends('layouts.index')
 
 @section('content')
-
+<style type="text/css">
+/* carousel */
+.media-carousel 
+{
+  margin-bottom: 0;
+  padding: 0 40px 30px 40px;
+  margin-top: 30px;
+}
+/* Previous button  */
+.media-carousel .carousel-control.left 
+{
+  left: -12px;
+  background-image: none;
+  background: none repeat scroll 0 0 #222222;
+  border: 4px solid #FFFFFF;
+  border-radius: 23px 23px 23px 23px;
+  height: 40px;
+  width : 40px;
+  margin-top: 30px
+}
+/* Next button  */
+.media-carousel .carousel-control.right 
+{
+  right: -12px !important;
+  background-image: none;
+  background: none repeat scroll 0 0 #222222;
+  border: 4px solid #FFFFFF;
+  border-radius: 23px 23px 23px 23px;
+  height: 40px;
+  width : 40px;
+  margin-top: 30px
+}
+/* Changes the position of the indicators */
+.media-carousel .carousel-indicators 
+{
+  right: 50%;
+  top: auto;
+  bottom: 0px;
+  margin-right: -19px;
+}
+/* Changes the colour of the indicators */
+.media-carousel .carousel-indicators li 
+{
+  background: #c0c0c0;
+}
+.media-carousel .carousel-indicators .active 
+{
+  background: #333333;
+}
+.media-carousel img
+{
+  width: 250px;
+  height: 100px
+}
+/* End carousel */
+</style>
 <!-- start slider image for advertise-->
+
+
 <div class="container">
         <div id="first-slider">
             <div id="carousel-example-generic" class="carousel slide carousel-fade">
@@ -95,14 +152,13 @@
                             <div class="col-md-3 col-sm-3 col-xs-12">
                                 <div class="slider-item">
                                     <div class="slider-image">
-
-                                        <img src="{{asset('images/'.$product->images->toArray()[0]['img_name'])}}" class="img-responsive"  alt="a" />
+                                         <img src="{{asset('images/'.$product->images->toArray()[0]['img_name'])}}" class="im"  alt="a" /> 
                                     </div>
                                     <div class="slider-main-detail">
                                         <div class="slider-detail">
                                             <div class="product-detail">
-                                                <h5>{{ $product->id }}</h5>
-                                                <h5 class="detail-price">$187.87</h5>
+                                               
+                                                <h5 class="detail-price">$  {{ $product->product_price }} </h5>
                                             </div>
                                         </div>
                                         <div class="cart-section">
@@ -146,7 +202,7 @@
             <div class="col-md-3 col-sm-3 col-xs-12">
                 <div class="slider-item">
                     <div class="slider-image">
-                        <img src="{{asset('img/images.jpg')}}" class="img-responsive" alt="a" />
+                        <img src="{{asset('images/'.$product->images->toArray()[0]['img_name'])}}" class="im"  alt="a" /> 
                         <div class="middle">
                             <button type="button" class="btn btn-success btn-md" data-toggle="modal" data-target="#Quikviewmodal-{{ $product->id }}" data-id="{{ $product->id }}">Quik Show</button>
                         </div>
@@ -156,8 +212,10 @@
                     <div class="slider-main-detail">
                         <div class="slider-detail">
                             <div class="product-detail">
-                                <h5>{{ $product->id }}</h5>
-                                <h5 class="detail-price">{{$product->product_price}}</h5>
+                                
+                                <h5 class="detail-price">${{ $product->product_price }}</h5>
+                                <h5 class="detail-price">${{ $product->style->style_name}}</h5>
+
                             </div>
                         </div>
                         <div class="cart-section">
@@ -170,8 +228,7 @@
                                     <i class="fa fa-star-o" aria-hidden="true"></i>
                                 </div>
                                 <div class="col-md-6 col-sm-12 col-xs-6">
-                                    <a href="#" class="AddCart btn btn-info"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Add To Cart</a>
-                                </div>
+                                <a href="{{route('addtocartt',['id'=>$product->id])}}" class="AddCart btn btn-info"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Add To Cart</a>                                </div>
                             </div>
                         </div>
                     </div>
@@ -190,11 +247,26 @@
             </div>
             <div class="modal-body">
                 <div class="p_content">
-                        <input type="text" class="form-control" id="id" value="{{ $product->id }}" >
-                    <div class="row">
-                          <h4 class="text-left colmain"> MEN T_SHERT</h4>
-                          <div class="col-sm-4 ">
-                            <div class="divslideimg">
+                       
+                    <div class="row"> 
+                         <div class="col-sm-4 ">
+                            <div class="carousel slide media-carousel" id="media">
+                              <div class="carousel-inner">
+                                <div class="item  active">               
+                                      <a class="thumbnail" href="#"><img alt="" src="{{asset('img/images.jpg')}}"></a>
+                                </div>
+                                <div class="item">
+                                 <a class="thumbnail" href="#"><img alt="" src="{{asset('img/images.jpg')}}"></a>
+                                </div>
+                                <div class="item">
+                                  <a class="thumbnail" href="#"><img alt="" src="{{asset('img/images.jpg')}}"></a>
+                                </div>
+                              </div>
+                              <a data-slide="prev" href="#media" class="left carousel-control">‹</a>
+                              <a data-slide="next" href="#media" class="right carousel-control">›</a>
+                            </div>                          
+    
+                        <!-- <div class="divslideimg">
                                 <div class="numbertext">1 / 6</div>
                                 <img src="{{asset('img/images.jpg')}}" style="width:100%">
                               </div>
@@ -250,24 +322,26 @@
                                 <div class="columnforproduct">
                                   <img class="imgdownslide cursorproduct" src="{{asset('img/images.jpg')}}" style="width:100%" onclick="currentSlide(6)" alt="Snowy Mountains">
                                 </div>
-                              </div>
+                              </div>-->
 
                           </div>
                 
                           <div class="col-sm-4 cente ctr">
                             <p class='popprise text-left'>225 EGY <p>
                             <p class="popdetails text-left"> details<p>
-                            <hr>
-                            <h6 class="text-left popprise">size:</h6>
-                            <div>
-                              <span class="btn btn-primary size"> M </span>
-                              <span class="btn btn-primary size"> L   </span>
-                              <span class="btn btn-primary size"> xm  </span>
-                              <span class="btn btn-primary size"> xxl </span>
-                              <span class="btn btn-primary size">xxxl </span>
-                            </div>
-                            <hr>
+                            <hr>   
                             <p class="text-left popdetails">Color</p>
+                            <input type="radio" > yellow<br>
+                            <input type="radio" > Green <br>
+                            <hr>   
+                            <p class="text-left popdetails">Size</p> 
+                            <div>  
+                                <input type="radio" > M<br>
+                                <input type="radio" > L <br>
+                                <input type="radio" > xM<br>
+                                <input type="radio" > xxL <br>
+                            </div>
+                            
                             <div>
                               <span class="redd"></span>
                               <span class="bluee"></span>
@@ -286,12 +360,18 @@
                               </p>
                               <p class="text-left small"> deliverd at </p>
                             </div>
-                            <a href="#" class="btn btn-success addtocart"> ADD TO CART</a>
+                            <a href="{{route('addtocartt',['id'=>$product->id])}}" class="btn btn-success addtocart"> ADD TO CART</a>
+
                             <p class="text-left small "> Sold BY :</p>
                           </div>
                           <!--......... end right.......-->
                       </div> 
                              <!--......... end row.......-->
+
+
+
+
+
                     <!--................-->
                   </div>
             
@@ -320,7 +400,15 @@
 @endsection('content')
 @section('script')
 <script>
-    var slideIndex = 1;
+$(document).ready(function() {
+  $('#media').carousel({
+    pause: true,
+    interval: false,
+  });
+});
+
+
+   /* var slideIndex = 1;
     showSlides(slideIndex);
     
     function plusSlides(n) {
@@ -347,6 +435,6 @@
       slides[slideIndex-1].style.display = "block";
       dots[slideIndex-1].className += " active";
       divproductdetailsText.innerHTML = dots[slideIndex-1].alt;
-    }
+    }*/
     </script>
  @endsection('script')

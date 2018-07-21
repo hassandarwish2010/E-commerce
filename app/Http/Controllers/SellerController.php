@@ -43,6 +43,7 @@ class SellerController extends Controller
         // dd($groups);
             
 
+        
         return view('seller.sellerHome',compact('groups','product_num'));
     }
   

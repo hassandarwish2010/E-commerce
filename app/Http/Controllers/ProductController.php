@@ -16,8 +16,9 @@ use DB;
 use Illuminate\Http\Request;
 use redirect;
 
+
 class ProductController extends Controller
-{
+{                                                                       
     //
     public function index($categ_name,$group_name)
     {
@@ -35,6 +36,9 @@ class ProductController extends Controller
             return $query->where('groups.group_name', $group_name);
         })
         ->get();
+       // $categories=Group::with('categories')->select('categories.categ_name')->get();
+       // dd($categories);
+       
         
         //return styles of category
         $styles=DB::table('styles')
@@ -42,8 +46,8 @@ class ProductController extends Controller
         ->select('styles.style_name AS style_name')
         ->where('categories.categ_name',$categ_name)
         ->get();
-
-        //return brands of category
+      
+        //return brands of category 
         $brands=DB::table('brands')
         ->join('group_brands','brands.id','=','group_brands.brand_id')
         ->join('groups','groups.id','=','group_brands.group_id')
@@ -134,8 +138,8 @@ class ProductController extends Controller
         })
         ->get();
         //return max pric and min price
-        
-
+        $product=Style::with('products')->with('category')->where('style_name','shirt')->get();
+ dd($product);
         $max_prices=DB::table('groups')
         ->join('categ_groups','categ_groups.group_id','=','groups.id')
         ->join('categories','categories.id','=','categ_groups.categ_id')
