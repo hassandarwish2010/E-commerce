@@ -1,31 +1,27 @@
-<div class="container">
-	<div class="row">
-	        <div class="col-sm-4"> 
-	                <a class="logo" href="#"><img src="{{asset('img/logo.jpg')}}"></a>
-	        </div>
-	        <div class="col-sm-2">
-	            <div class="check">
-	                <div><p>Check Rate</p></div>
-	                <div>
-	                <img src="{{asset('img/flagus.jpg')}}">
-	                <img src="{{asset('img/flaguk.jpg')}}">
-	            </div>
-	            </div>
-	        </div>
-	        <div class="col-sm-2">
-	            <span></span><a href="#" >Shoping Cart</a>
-	        </div>
-	        <div class="col-sm-4">
-	            <form class="search" action="#">
-	                <div class="input-group">
-	                    <input type="text" class="form-control" placeholder="Search">
-	                    <div class="input-group-btn">
-	                    <button class="btn btn-default" type="submit">
-	                        <i class="glyphicon glyphicon-search"></i>
-	                    </button>
-	                    </div>
-	                </div>
-	            </form>
-	        </div>
-	    </div>
-   </div>
+<!doctype html>
+<html lang="{{ app()->getLocale() }}">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
+        <link rel="stylesheet"  href="{{ asset('css/font-awesome.min.css') }}">
+        <link rel="stylesheet"  href="{{ asset('css/style.css') }}">
+        <link rel="stylesheet"  href="{{ asset('css/animate.min.css') }}">
+        <link rel="stylesheet"  href="{{ asset('css/show.css') }}">
+        <link rel="stylesheet"  href="{{ asset('css/collapse.css') }}">
+        
+        <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
+        <link rel="stylesheet" href="http://code.jquery.com/ui/1.9.0/themes/base/jquery-ui.css" />
+        <script src="{{ asset('js/jquery-3.2.1.min.js') }}"></script>   
+
+    
+ 
+
+        <title>Open Cart @yield('title')</title>
+   
+    </head>
+
+   
+    <body>

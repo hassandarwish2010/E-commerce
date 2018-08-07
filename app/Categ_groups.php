@@ -15,5 +15,5 @@ class Categ_groups extends Pivot
         'group_id',
         'categ_id',
     ];
-
+  
 }

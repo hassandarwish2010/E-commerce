@@ -648,3 +648,71 @@ color: #080;
   width: 100%;
   height: 150px;
 }
+
+
+
+
+  
+  
+  /* end right...........................*/
+  
+  
+  
+  
+  
+  .breadcrumb{
+    
+    background-color:#ddd;
+  }
+  .breadcrumb{
+    background:none;
+  }
+  .breadcrumb li{
+    border:0px solid #ddd;
+  
+    background-color:#ddd;
+    
+  }
+  .accordion .accordion-heading {
+    background-color: #eee;
+  }
+  .nav-tabs li.active, .accordion .accordion-heading {
+    font-weight: bold;
+    font-size: 12px;
+  }
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+  .hide-bullets {
+    list-style:none;
+    margin-left: -40px;
+    margin-top:20px;
+}
+
+.thumbnail {
+    padding: 0;
+}
+
+.carousel-inner>.item>img, .carousel-inner>.item>a>img {
+    width: 100%;
+}
+
+.roww{
+  margin-top:-65;
+}
+
+
+
+
+
+  

@@ -5,20 +5,14 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 //use App\Http\Request;
 use Session;
-
 use App\Category;
 use App\Style;
 use App\Product;
-
-
-//use App\Http\Request;
-
 use App\Cart;
 use App\User;
 use App\Order;
-
-//use Cart;
-
+use Redirect;
+use App\Product_color_sizes;
 use Auth;
 use DB;
 
@@ -27,26 +21,11 @@ use App\OrderDetails;
 class CartController extends Controller
 {
     public function getIndex(){
-  // $product=array();
+
     $products=Product::all();
-    //$lastproduct=Product::find(1);
-   // $product->products->get();
     return view('welcome',['products'=>$products]);
  }
 //////////////////////
-
-function getaddtocart(Request $request,$id){
-  $product=Product::find($id);
-  
- $oldCartt=Session::has('cartt') ? Session::get('cartt') : null;
- $cart=new Cart($oldCartt);    
- $cart->add($product,$product->id,$product->product_price);
-
- $request->Session()->put('cartt',$cart);
-//dd($request->Session()->get('cartt'));
-
- return redirect()->route('product');
-}
 
 function shoppingcart(){
   if(!Session::has('cartt')){
@@ -56,34 +35,66 @@ function shoppingcart(){
 
   $oldCartt=Session::get('cartt');
   $cart=new Cart($oldCartt);
+  //dd($cart);
   return view('user.product.shoppingcart',['products'=> $cart->items,'totalPrice'=>$cart->totalPrice]);
 }
 
-public function getRemoveItem($id){
 
+function getaddtocart(Request $request,$id){
+  
+  $product=Product::with('style')->with('images')
+  ->with('material')
+  ->with('company')
+  ->with('colors')
+  ->with('styleDetails')
+  ->where('id',$id)->first();
+  //$product=$product2[0];
+  //$product=Product::find($id);
+  //dd($product);
+
+ $oldCartt=Session::has('cartt') ? Session::get('cartt') : null;
+ $cart=new Cart($oldCartt);    
+ $cart->add($product,$product->id,$product->product_price);
+ //dd($cart);
+ $request->Session()->put('cartt',$cart);
+//dd($request->Session()->get('cartt'));
+return redirect()->route("product");
+ //return response(['status'=>true,'result'=>$html]);
+}
+
+
+public function getRemoveItem(Request $request,$id){
+  
  $oldCartt=Session::has('cartt') ? Session::get('cartt') : null;
  $cart=new Cart($oldCartt);    
  $cart->removeItem($id);
  Session::put('cartt',$cart);
 
+ $product=Product::with('style')->with('images')
+ ->with('material')
+ ->with('company')
+ ->with('colors')
+ ->with('styleDetails')
+ ->where('id',$id)->first();
 
- return redirect()->route('shoppingcart');
+ return view('user.product.shoppingcart',['products'=> $cart->items,'totalPrice'=>$cart->totalPrice]);
+ //return response(['status'=>true,'result'=>$html]);
 
 }
 
 
-// public function getupdateItem($id){
+public function getupdateItem($id){
 
-//   $oldCartt=Session::has('cartt') ? Session::get('cartt') : null;
-//   $cart=new Cartt($oldCartt);    
-//   $cart->updateItem($id);
+  $oldCart=Session::has('cartt') ? Session::get('cartt') : null;
+  $cart=new Cart($oldCart);    
+  $cart->updateItem($id);
 
-//   Session::put('cartt',$cart);
+  Session::put('cartt',$cart);
  
-  
-//     return redirect()->route('shoppingcart');
+  //dd($cart);
+  return view('user.product.shoppingcart',['products'=> $cart->items,'totalPrice'=>$cart->totalPrice]);
  
-// }
+}
 
 
 
@@ -92,11 +103,11 @@ public function getcheckout(Request $request){
   //$comments = App\Post::find(1)->comments()->where('title', 'foo')->first();
  // $users=Order::find(1)->User;
 
+if(Auth::check()){
 
 
 
-
- $users=User::with('orders')->get();
+ $users=Auth::user()->with('orders')->get();
 //dd($users);
 
   if(!Session::has('cartt')){
@@ -109,49 +120,13 @@ public function getcheckout(Request $request){
   $total=$cart->totalPrice;
   
 
-//    $quntaty=$cart->items;
- 
- 
- 
-// foreach($quntaty as $q){
-//   echo($q['qty']);
-// }
-   
-//  // dd($quntaty);
-//  $orders=Order::with('users')->select('orders.id')->get();
-//  $order_user=DB::table('orders')
-//  ->join('users','orders.user_id','=','users.id')
-//  ->select('orders.id')
-//  ->latest('orders.id')->first();
-//  $a=dd($order_user->id);
- 
-//  //echo($orders[0]['id']);
- 
-  
-//   foreach($quntaty as $key=>$q){
-//   echo($q['item']['product_quan']);
-//   echo($q['item']['product_price']);
-//   echo($q['item']['id']);
-  
-//   echo($orders);
- 
 
-//   }
-//  // $orders=Order::with('orderDetails')->get();
-//    $orders=OrderDetails::with('orders')->get();
- 
-//echo($orders[0]['id']);
-
-// each($orders);
-  // dd($orders);
-  // $neworder=new Order();
-
-  // $neworder->order_price=$request->$total;[]
-  // $neworder->user_id=1;
-
-   return view('user.product.checkout',["total"=>$total,"users"=>$users]);
+   return view('user.product.checkout',["total"=>$total,"users"=>$users]);}
     
-   
+   else{
+    session()->flash("success",'your must be logged in');
+    return redirect('/');
+   }
 
 
 }
@@ -175,12 +150,15 @@ public function postcheckout(Request $request){
 
   $oldCartt=Session::get('cartt');
   $cart=new Cart($oldCartt);
+  //dd($cart);
   $total=$cart->totalPrice;
   $quntaty=$cart->items;
+  //dd($quntaty[14]);
 
   DB::table('orders')->insert([
     ['order_price' =>$total, 'user_id' =>Auth::id()]
 ]);
+
 
 $orders=Order::with('users')->select('orders.id')->get();
 $order_user=DB::table('orders')
@@ -190,22 +168,28 @@ $order_user=DB::table('orders')
 $order_id= $order_user->id;
 
 
-//echo($orders[0]['id']);
 
  
- foreach($quntaty as $key=>$q){
-// $qu=($q['item']['product_quan']);
-$qu=$q['qty'];
- $price=($q['item']['product_price']);
- //$product_id=($q['item']['id']);
+ foreach($quntaty as $q){
+      $qu=$q['qty'];
+      $price=($q['item']['product_price']);
+      $product_id=($q['item']['id']);
+      $comp_id=($q['item']['comp_id']);
+      
+      
+      // $color_size=$q['item']['colors'][0]['sizes'][0]['id'];
+      // $size=$q['item']['colors'][0]['sizes'][0]['id'];
+      // $color=$q['item']['colors'][0]['id'];
+      
+    //   $pro_color=Product_color_sizes::where('product_colors_id',$color)->where('size_id',$size)->get();
+    //   $a=$pro_color[0]->id;
+    //  // dd($size);
+      DB::table('order_details')->insert([
+        ['product_id' =>$product_id, 'order_id' =>$order_id,'order_details_quan' =>$qu, 
+        'order_details_price' =>$price,"seller_id"=>$comp_id]
+      ]);
 
- 
- DB::table('order_details')->insert([
-  ['product_color_size_id' =>'17', 'order_id' =>$order_id,'order_details_quan' =>$qu, 'order_details_price' =>$price]
-]);
-
-
- }
+}
 
 
  Session::forget("cartt");
@@ -218,60 +202,6 @@ $qu=$q['qty'];
 //////////////////////////////////////////////////////////////////////////
 
 
-// public function addtocart(Request $request){
-//    $prod=$request->productid;
-//    $prodbyid=Product::where('id',$prod)->first();
 
-//  Cart::add([
-//       "id"=>$prod,
-//       "price"=>$prodbyid->product_price,
-//       "qty"=>$prodbyid->style_id,
-//       "name"=>$prodbyid->product_name,
-//   ]);
-
-//   return redirect()->route('product');
-// }
-
-// public function cartshow(){
-
-//   $cartproducts=Cart::Content();
-
- 
-
-//   return view("user.product.showcart",['cartproducts'=>$cartproducts]);
-
-// }
-
-
-
-
-
-
-
-
-
-// // public function cartupdate(Request $request){
-
-// //  $qty=$request->input('newQty');
-// //  return $qty ; 
-
-  
-// // }
-
-
-
-
-
-
-//  public function deletecart($rowId){
-
-//   Cart::remove($rowId);
-
-//   return  redirect('showcart.blade')->with("msg","deleted");
-  
-
-
-// }
-////////////////////////////
 
 }

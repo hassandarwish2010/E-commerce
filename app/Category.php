@@ -12,11 +12,11 @@ class Category extends Model
     ];
     public function groups()
     {
-        return $this->belongsToMany('App\Group','categ_groups','group_id','categ_id');
+        return $this->belongsToMany('App\Group','categ_groups','group_id','categ_id')->with('brands');
     }
     public function styles()
     {
-        return $this->hasMany('App\Style','categ_id');
+        return $this->hasMany('App\Style','categ_id')->with('products');
     }
     
 }

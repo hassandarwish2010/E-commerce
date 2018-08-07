@@ -67,40 +67,7 @@ public function login(Request $request) {
 				  }
 				}
 				  
-				// $name = $request->get('username');
-				// $seller = new Seller;
-				// // $seller->name     = Input::get('name');
-				// // $seller->email    = Input::get('email');
-				// // $seller->password = Hash::make(Input::get('password'));
-				// $seller = Seller::where('name','=',$name)->first();
-				// if($seller==null)
-				// {
-				// 	Session::flash ( 'message', "Invalid Credentials999999999 , Please try again." );
-				// 	return Redirect::back ();
-				// }
-				// else
-				// {
-				// 	//dd('seler');
-				// 	session ( [ 
-						
-					
-				// 				'name' => $request->get ( 'username' ) ,
-				// 				'id'=>$seller->id
-				// 		] );
-						
-
-				// 		$seller_id=Session::get('id');
-				// 		$comp_name=Session::get('name');
-				// 		//Session::set('seller', [ 'id' => $seller->id, 'name'=>$seller->name]);
-				// 		//Session::set('id', $seller->id);
-						
-						
-				// 		//Redirect::route('seller');
-				// 		return redirect('seller');
-						//
-						//Redirect::route('seller',array('seller_id' => $seller_id,'comp_name' => $comp_name));
-						//return view('seller.index');
-
+			
 				
 			
 			
@@ -150,11 +117,6 @@ public function login(Request $request) {
 		if ($validator->fails ()) {
 			return Redirect::back ()->withErrors ( $validator, 'register' )->withInput ();
 		} else {
-			// $comp=new Company();
-			// $comp->company_name=$request->get ( 'name' );
-			// $comp->save();
-			//$comp = Company::create(request(['company_name']));
-
 			$seller = new Seller ();
 			$seller->name = $request->get ( 'name' );
 			$seller->email = $request->get ( 'email' );
@@ -177,22 +139,5 @@ public function login(Request $request) {
 		return Redirect::back ();
 	}
 	
-    /*public function getUserLogin()
-    {
-        return view('userLogin');
-    }
-    public function userAuth(Request $request)
-    {
-        $this->validate($request, [
-            'email' => 'required|email',
-            'password' => 'required',
-        ]);
-        if (auth()->attempt(['email' => $request->input('email'), 'password' => $request->input('password')]))
-        {
-            $user = auth()->user();
-            dd($user);
-        }else{
-            dd('your username and password are wrong.');            
-        }
-    }*/
+ 
 }

@@ -25,6 +25,9 @@ class CreateOrderDetailsTable extends Migration
             $table->foreign('order_id')->references('id')->on('orders')
             ->onDelete('cascade')
             ->onUpdate('cascade');
+            $table->foreign('seller_id')->references('id')->on('seller')
+            ->onDelete('cascade')
+            ->onUpdate('cascade');
             $table->timestamps();
         });
     }

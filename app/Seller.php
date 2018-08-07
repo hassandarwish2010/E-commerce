@@ -18,6 +18,10 @@ class Seller extends Authenticatable
     {
         return $this->hasMany('App\Product','comp_id');
     }
+    public function orders_details()
+    {
+        return $this->hasMany('App\OrderDetails','seller_id');
+    }
 
     protected $hidden = [
         'password', 'remember_token',

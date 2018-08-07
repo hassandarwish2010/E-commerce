@@ -10,7 +10,7 @@ class Product_color_sizes extends Pivot
     //
     protected $table='product_color_sizes';
     protected $fillable=
-    [
+    [    'id',
         'size_id',
         'product_colors_id',
         'quan'

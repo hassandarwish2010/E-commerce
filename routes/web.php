@@ -24,6 +24,17 @@ Route::post ( '/login', 'MainController@login' )->name('login');
 Route::post ( '/register', 'MainController@register' )->name('register');
 Route::get ( '/logout', 'MainController@logout' )->name('logout');
 
+////////////////////////filters///////
+Route::get('get_category/{name}','ProductController@category');
+Route::get('categ_products/{categ_name}/{group_name}','ProductController@categ_products')->name('categ_products');
+Route::get('brandsProducts/{brand_name}/{group_name}','ProductController@brandsProducts');
+Route::get('styleswProducts/{style_name}/{group_name}','ProductController@styleswProducts');
+Route::get('material_products/{mater_name}/{group_name}','ProductController@material_products');
+Route::get('color_products/{mater_name}/{group_name}','ProductController@color_products');
+Route::get('size_products/{size_name}/{group_name}','ProductController@size_products');
+// Route::get('showdetails/{id}/','ProductController@showDetails');
+
+
 
 Route::get('/show/{categ_name}/{group_name}',['as'=>'show','uses'=>'ProductController@index']);
 
@@ -36,13 +47,15 @@ Route::group(['middleware'=>'auth','prefix'=>'user'],function()
 
 
 Route::group(['middleware' => ['seller'],'prefix'=>'seller'], function () {
-    Route::get('/', 'SellerController@index')->name('seller');
-    Route::get ('/showproduct/{categ_name}/{group_name}',['uses' => 'ProductsController@index','as' => 'showproduct']);
-    Route::post ('/addproduct',['uses' => 'ProductsController@store','as' => 'storeproduct']);
-    Route::get ('/addproduct/{categ_name}/{group_name}',['uses' => 'ProductsController@create','as' => 'addproduct']);
-    Route::post ('/showproduct/products',['uses'=>'ProductsController@store','as'=>'products']);
-    Route::get ('/editproduct/{id}/{categ_name}/{group_name}',['uses'=>'ProductsController@edit','as'=>'editproduct']);
-});
+        Route::get('/', 'SellerController@index')->name('seller');
+        Route::get ('/showproduct/{categ_name}/{group_name}',['uses' => 'ProductsController@index','as' => 'showproduct']);
+        Route::post ('/addproduct',['uses' => 'ProductsController@store','as' => 'storeproduct']);
+        Route::get ('/addproduct/{categ_name}/{group_name}',['uses' => 'ProductsController@create','as' => 'addproduct']);
+        Route::post ('/showproduct/products',['uses'=>'ProductsController@store','as'=>'products']);
+        Route::get ('/editproduct/{id}/{categ_name}/{group_name}',['uses'=>'ProductsController@edit','as'=>'editproduct']);
+        Route::post ('seller/update/{id}/',['uses'=>'ProductsController@update','as'=>'updateproduct']);
+
+    });
 
 
 //////////////////////  Cart

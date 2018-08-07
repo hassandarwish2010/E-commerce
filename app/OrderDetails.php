@@ -21,4 +21,9 @@ class OrderDetails extends Model
     {
         return $this->belongsTo('App\Product','product_id');
     }
+
+    public function seller()
+    {
+        return $this->belongsTo('App\Seller','seller_id');
+    }
 }

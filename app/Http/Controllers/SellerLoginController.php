@@ -32,67 +32,13 @@ class SellerLoginController extends Controller
 
   
     public function login(Request $request) {
-       // dd('done');
-            // $rules = array (
-                    
-            //         'name' => 'required',
-            //         'password' => 'required' 
-            // );
-            // $validator = Validator::make ( Input::all (), $rules );
-            // if ($validator->fails ()) {
-            //     return Redirect::back ()->withErrors ( $validator, 'login' )->withInput ();
-            // } else {
-                // if (Auth::attempt ( array (
-                        
-                //         'name' => $request->get ( 'name' ),
-                //         'password' => $request->get ( 'password' ) 
-                // ) )) {
-                //     session ( [ 
-                            
-                //             'name' => $request->get ('name') 
-                //     ] );
-                //     return view('seller.showProducts');
-                // } else {
-                //     Session::flash ( 'message', "Invalid Credentials , Please try again." );
-                //     return view('seller.showProducts');
-                // }
-            //}
 
-            // $name=$request->get('name');
-            // if (Auth::attempt(['name' => $name]))
-            //  {     
-            //     return view('seller.showProducts');   
-            //  }
-            //  else 
-            //  {
-            //      return Redirect::back();
-            //  }
-            
             Auth::login($seller, true);
 
-            // $this->validate($request,[
-            //     'email' => 'required|email',
-            //     'password' => 'required|min:6'
-            // ]);
-            // //attempt to login the admins in
-            // if (Auth::guard('seller')->attempt(['email' => $request->email, 'password' => $request->password])){
-            //     //if successful redirect to admin dashboard
-            //     return redirect()->intended(route('seller.showProducts'));
-            // }
-            // //if unsuccessfull redirect back to the login for with form data
-            // return redirect()->back()->withInput($request->only('email'));
+         
         }
         public function register(Request $request) {
-            // $rules = array (
-            //         'email' => 'required|unique:sellers|email',
-            //         'name' => 'required|unique:sellers|alpha_num|min:4',
-            //         'company_name' => 'required|unique:companies|alpha_num|min:4',
-            //         'password' => 'required|min:6' 
-            // );
-            // $validator = Validator::make ( Input::all (), $rules );
-            // if ($validator->fails ()) {
-            //     return Redirect::back ()->withErrors ( $validator, 'register' )->withInput ();
-            // } else {
+        
                 $comp=new Company();
                 $comp->company_name=$request->get ( 'company_name' );
                 $comp->save();

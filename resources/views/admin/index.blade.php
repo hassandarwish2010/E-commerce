@@ -72,30 +72,6 @@
                                     <li class="header"><a href="{{route('massages')}}">massages</a></li>
                                   </ul>
                     
-
-                    {{--  <li class="treeview">
-                      <a href="#">
-                        <i class="fa fa-pie-chart"></i>
-                        <span>USERS</span>
-                        <span class="pull-right-container">
-                          <i class="fa fa-angle-left pull-right"></i>
-                        </span>
-                      </a>
-                      <ul class="treeview-menu">
-                        <li><a href="#"><i class="fa fa-circle-o"></i>USERS</a></li>
-                    
-
-                      </ul>
-                    </li>  --}}
-
-
-
-
-
-                  
-
-                    
-              
                                 </section>
     
                  </aside>

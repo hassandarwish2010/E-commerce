@@ -51,7 +51,7 @@ namespace App\Http\Controllers;
          //products
          public function getproducts(){
            
-            $products=Product::all();
+            $products=Product::paginate(10);
             $arr=array('products'=>$products);
             return view('admin.admin_products',$arr);
          }

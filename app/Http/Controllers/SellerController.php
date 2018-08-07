@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 
 use App\Color;
 use App\Category;
+use App\Seller;
+
 use App\Style;
 use App\Group;
 use App\Product;
@@ -13,8 +15,9 @@ use App\Size;
 use App\Product_colors;
 use App\Product_color_sizes;
 use DB;
-
-//use Illuminate\Database\Eloquent\Builder;
+use App\User;
+use App\OrderDetails;
+use Auth;
 
 class SellerController extends Controller
 {
@@ -30,21 +33,30 @@ class SellerController extends Controller
      */
     public function index()
     {
-        //$seller=auth()->guard('admin')->user();
+    //    $seller=Auth::user();
+    //  dd($seller);
         
-            // $name=session('name');
-            // $seller=Seller::where('name','=',$name)->get();
-            // Product::where(['comp_id'=>1])
-            // select count(*) FROM products 
-            // WHERE products.comp_id=1
-            $product_num=DB::table('products')
-            ->where('comp_id','=', 1)->count();
-        $groups =Group::with('categories')->limit(2)->get();
-        // dd($groups);
-            
-
-        
-        return view('seller.sellerHome',compact('groups','product_num'));
+             $name=session('name');
+          
+             $seller=Seller::where('name','=',$name)->first();
+             $seller=$seller->id;
+           //  dd($seller);
+             $product_num=Product::where('comp_id',$seller)->count();
+          
+            $totalPrice=DB::table('order_details')->where('seller_id','=',$seller)
+            ->sum('order_details_price') ;
+       $user=OrderDetails::with('orders')->where('seller_id','=',$seller)->get();
+       $a=$user[0]->orders;
+       
+       $arr_id=[];
+         foreach($user as $orders){
+            $arr_id[]=$orders->orders->user_id;  
+         }
+         $users=User::whereIn('id',$arr_id)->get();
+        // dd($users);
+             $groups =Group::with('categories')->get();
+  
+        return view('seller.sellerHome',compact('groups','product_num','totalPrice','users'));
     }
   
 

@@ -13,146 +13,187 @@ use App\Color;
 use App\Product;
 use App\Company;
 use DB;
+use App\Categ_groups;
 use Illuminate\Http\Request;
 use redirect;
 
 
 class ProductController extends Controller
-{                                                                       
+{                   
+                                                     
     //
-    public function index($categ_name,$group_name)
-    {
-        /*if(!Auth::check()) 
-		{
-            dd('done');
-			//return redirect('welcome');
-		}*/
-       //retrun categries of group
-        $categories=DB::table('categories')
-        ->join('categ_groups','categories.id','=','categ_groups.categ_id')
-        ->join('groups','categ_groups.group_id','=','groups.id')
-        ->select('categories.categ_name AS categ_name')
-        ->when($categ_name, function ($query) use ($group_name) {
-            return $query->where('groups.group_name', $group_name);
-        })
-        ->get();
-       // $categories=Group::with('categories')->select('categories.categ_name')->get();
-       // dd($categories);
+    public function category($group_name){
+        $category_by_group=filter($group_name);
+       $categories=$category_by_group[0]->categories;
+        $arr_id=[];
+        foreach($categories as $category){
+            foreach($category->styles as $styles ){
+                foreach($styles->products as $product){
+                 $arr_id[]=$product->id;     
+                }}
+                }
+    $products=Product::with('images')->whereIn('id',$arr_id)->get();
+    //dd($category_by_group);
+         return view('user.product.show',compact('category_by_group','products'));
        
-        
-        //return styles of category
-        $styles=DB::table('styles')
-        ->join('categories','styles.categ_id','=','categories.id')
-        ->select('styles.style_name AS style_name')
-        ->where('categories.categ_name',$categ_name)
-        ->get();
-      
-        //return brands of category 
-        $brands=DB::table('brands')
-        ->join('group_brands','brands.id','=','group_brands.brand_id')
-        ->join('groups','groups.id','=','group_brands.group_id')
-        ->join('categ_groups','groups.id','=','categ_groups.group_id')
-        ->join('categories','categories.id','=','categ_groups.categ_id')
-        ->select('brands.brand_name AS brand_name')
-        ->where('groups.group_name',$group_name)
-        ->get();
+    }
 
-        //return materials of category
-        $materials=DB::table('groups')
+    public function categ_products($categ_name,$group_name){
+        $category_by_group=filter($group_name);
+
+        $products_filter=Category::where('categ_name',$categ_name)->with('styles')
+       ->with(['groups'=>function($q) use($group_name){
+              $q->where('group_name',$group_name);
+       }])->get();
+
+      $first=$products_filter[0]->styles;
+      $arr_id=[];
+                foreach($first as $styles){
+                    foreach($styles->products as $style ){
+                        $arr_id[]=$style->id;     }
+                        }
+     $products=Product::with('images')->whereIn('id',$arr_id)->get();
+ //dd($products_filter);
+     return view('user.product.show',compact('products','category_by_group'));
+
+    }
+
+    public function brandsProducts($brand_name,$group_name){
+      $category_by_group=filter($group_name);
+
+        $brands_filter=Group::with('categories')
+        ->with(['brands'=>function($q) use($brand_name){
+            $q->where('brand_name',$brand_name);
+        }])->where('group_name',$group_name)->get();
+
+        $category_loop=$brands_filter[0]->categories[0]->styles;
+      //  dd($category_loop);
+        $arr_id=[];
+                 foreach($category_loop as $styles ){
+                  foreach($styles->products as $prodct){
+                        $arr_id[]=$prodct->id;     
+                          }}
+       $productwithbrands=Product::with('images')->whereIn('id',$arr_id)->get();
+       return view('user.product.show',compact('productwithbrands','category_by_group'));
+
+    //  dd($productwithbrands);
+    }
+  
+
+    public function styleswProducts($style_name,$group_name){
+        $category_by_group=filter($group_name);
+
+                 $styles=DB::table('styles')
+                 ->where('style_name',$style_name)
+                 ->join('categories','styles.categ_id','=','categories.id')
+                 ->join('categ_groups','categories.id','=','categ_groups.categ_id')
+                 ->join('groups','categ_groups.group_id','=','groups.id')
+                 ->join('products','styles.id','=','products.style_id')
+                 ->select('products.product_serial_num AS serial')
+                 ->when($style_name, function ($query) use ($group_name) {
+                    return $query->where('groups.group_name', $group_name);
+                })->get();
+                // dd($styles);
+                if(!empty($styles[0])){
+                    $arr_id=[];
+                    foreach($styles as $style ){
+                            $arr_id[]=$style->serial;     
+                             }
+        //$serial_numper=$styles[0]->serial;//or possible can use id of product
+        $productwithstyle=Product::with('images')->whereIn('product_serial_num',$arr_id)->get();}
+        else{
+            echo('No');
+        } 
+       return view('user.product.show',compact('productwithstyle','category_by_group'));  } 
+
+
+    public function material_products($mater_name,$group_name){
+        $category_by_group=filter($group_name);
+    //    $m=Material::where('mater_name',$mater_name)->with('products')->get();
+        $materials=DB::table('materials')
+       ->where('mater_name',$mater_name)
+         ->join('products','products.mater_id','=','materials.id')
+         ->select('products.product_serial_num AS serial')
+         ->join('styles','styles.id','=','products.style_id')
+         ->join('categories','categories.id','=','styles.categ_id')
+         ->join('categ_groups','categories.id','=','categ_groups.categ_id')
+         ->join('groups','categ_groups.group_id','=','groups.id')
+         ->when($mater_name, function ($query) use ($group_name) {
+            return $query->where('groups.group_name', $group_name);
+        })->get();
+        
+        if(!empty($materials[0])){
+            $arr_id=[];
+            foreach($materials as $mater ){
+                    $arr_id[]=$mater->serial;     
+                     }
+    $productwithmaterial=Product::with('images')->whereIn('product_serial_num',$arr_id)->get();}
+    else{
+        echo('No');
+    } 
+    //dd($productwithmaterial);
+    return view('user.product.show',compact('productwithmaterial','category_by_group'));
+
+    }
+
+    public function color_products($color_name,$group_name){
+        $category_by_group=filter($group_name);
+      
+        $colors=DB::table('groups')->where('group_name',$group_name)
         ->join('categ_groups','categ_groups.group_id','=','groups.id')
         ->join('categories','categ_groups.categ_id','=','categories.id')
         ->join('styles','styles.categ_id','=','categories.id')
         ->join('products','styles.id','=','products.style_id')
-        ->join('materials','materials.id','=','products.mater_id')
-        ->select('materials.mater_name AS mater_name')
-        ->when($categ_name, function ($query) use ($group_name) {
-            return $query->where('groups.group_name', $group_name);
-        })
-        ->distinct()
-        ->get();
-
-        //return sizes of category
-        $sizes=DB::table('sizes')
-        ->join('product_color_sizes','sizes.id','=','product_color_sizes.size_id')
-        ->join('product_colors','product_color_sizes.product_colors_id','=','product_colors.id')
-        ->join('products','product_colors.product_id','=','products.id')
-        ->join('styles','styles.id','=','products.style_id')
-        ->join('categories','styles.categ_id','=','categories.id')
-        ->join('categ_groups','categories.id','=','categ_groups.categ_id')
-        ->join('groups','categ_groups.group_id','=','groups.id')
-        ->select('sizes.size_name AS size_name')
-        ->when($categ_name, function ($query) use ($group_name) {
-            return $query->where('groups.group_name', $group_name);
-        })
-        ->distinct()
-        ->get();
-
-        //return colors of category
-        $colors=DB::table('groups')
-        ->join('categ_groups','groups.id','=','categ_groups.group_id')
-        ->join('categories','categ_groups.categ_id','=','categories.id')
-        ->join('styles','categories.id','=','styles.categ_id')
-        ->join('products','products.style_id','=','styles.id')
+        ->select('products.product_serial_num AS serial')
         ->join('product_colors','product_colors.product_id','=','products.id')
-        ->join('colors','product_colors.color_id','=','colors.id')
-        ->select('colors.color_name AS color_name')
-        ->when($categ_name, function ($query) use ($group_name) {
-            return $query->where('groups.group_name', $group_name);
-        })
-        ->distinct()
-        ->get();
-
-        //return all data adout each products
-       /* SELECT colors.color_name, styles.style_name,sizes.size_name,materials.mater_name,products.id
-        from sizes 
-        join product_color_sizes on sizes.id=product_color_sizes.size_id
-        JOIN product_colors ON product_color_sizes.product_colors_id=product_colors.id
-        JOIN colors ON product_colors.color_id=colors.id
-        JOIN products ON product_colors.product_id=products.id
-        join styles ON products.style_id=styles.id
-        join materials ON products.mater_id=materials.id
-        JOIN categories ON categories.id=styles.categ_id
-        JOIN categ_groups ON categ_groups.categ_id=categories.id
-        JOIN groups ON groups.id=categ_groups.group_id
-        WHERE groups.group_name='gro1'
-        AND categories.categ_name='Dresses'
-
-        SELECT products.product_serial_num,products.product_price,products.product_desc,products.id,products.mater_id
-        from products 
-       join materials ON materials.id=products.mater_id
-       
-        join styles on products.style_id=styles.id
-        join categories on categories.id=styles.categ_id
-        JOIN categ_groups ON categories.id=categ_groups.categ_id
-        JOIN groups ON categ_groups.group_id=groups.id
-        WHERE groups.group_name='woman'
-        AND categories.categ_name='Dresses'*/
-        $products=DB::table('products')
-        ->join('styles','products.style_id','=','styles.id')
-        ->join('categories','categories.id','=','styles.categ_id')
-        ->join('categ_groups','categ_groups.categ_id','=','categories.id')
-        ->join('groups','groups.id','=','categ_groups.group_id')
-        ->select('products.product_desc AS desc','products.product_price AS price','products.product_price_sale AS sale','products.id AS id')
-        ->when($categ_name, function ($query) use ($group_name) {
-            return $query->where('groups.group_name', $group_name);
-        })
-        ->get();
-        //return max pric and min price
-        $product=Style::with('products')->with('category')->where('style_name','shirt')->get();
- dd($product);
-        $max_prices=DB::table('groups')
-        ->join('categ_groups','categ_groups.group_id','=','groups.id')
-        ->join('categories','categories.id','=','categ_groups.categ_id')
-        ->join('styles','categories.id','=','styles.categ_id')
-        ->join('products','products.style_id','=','styles.id')
-        ->select('products.product_price')
-        ->where('categories.categ_name',$categ_name)
-        ->max('products.product_price');
-        
-        
-        return view('user.product.show', compact('categories','group_name','styles','brands','max_prices','colors',
-    'materials','sizes','products','categ_name'));
-       /* return view('user.product.show',['categories'=>$categories,'group_name'=>$group_name,'styles'=>$styles,
-        'brands'=>$brands,'materials'=>$materials,'sizes'=>$sizes]);*/
+        ->join('colors','colors.id','=','product_colors.color_id')
+        ->when($color_name, function ($query) use ($color_name) {
+            return $query->where('colors.color_name', $color_name);
+        }) ->get();
+         //dd($colors);
+         if(!empty($colors[0])){
+            $arr_id=[];
+            foreach($colors as $color ){
+                    $arr_id[]=$color->serial;     
+                     }
+    $productwithcolor=Product::with('images')->whereIn('product_serial_num',$arr_id)->get();}
+   
+    
+    return view('user.product.show',compact('productwithcolor','category_by_group'));
+         
+         
     }
+
+    public function size_products($size_name,$group_name){
+        $category_by_group=filter($group_name);
+      
+        $sizes=DB::table('groups')->where('group_name',$group_name)
+        ->join('categ_groups','categ_groups.group_id','=','groups.id')
+        ->join('categories','categ_groups.categ_id','=','categories.id')
+        ->join('styles','styles.categ_id','=','categories.id')
+        ->join('products','styles.id','=','products.style_id')
+        ->select('products.product_serial_num AS serial')
+        ->join('product_colors','product_colors.product_id','=','products.id')
+        ->join('colors','colors.id','=','product_colors.color_id')
+        ->join('product_color_sizes','color_id','=','product_color_sizes.product_colors_id')
+        ->join('sizes','sizes.id','=','product_color_sizes.size_id')
+        ->when($size_name, function ($query) use ($size_name) {
+            return $query->where('sizes.size_name', $size_name);
+        }) ->get();
+       //dd($sizes);
+         if(!empty($sizes[0])){
+            $arr_id=[];
+            foreach($sizes as $size ){
+                    $arr_id[]=$size->serial;     
+                     }
+                     
+    $productwithsize=Product::with('images')->whereIn('product_serial_num',$arr_id)->with('colors')->get();}
+   
+   // dd($productwithsize);
+    return view('user.product.show',compact('productwithsize','category_by_group'));
+         
+         
+    }
+
+
 }

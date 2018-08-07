@@ -48,14 +48,17 @@ class Cart extends Model
    
    
    
-   //   public function updateItem($id){
-   //     $this->items[$id]['qty']++;
+     public function updateItem($id){
+         
+       $this->items[$id]['qty']++;
+     $this->items[$id]['price']=$this->items[$id]['qty']*$this->items[$id]['item']['product_price'];
      
-   //     $this->items[$id]['price'] += $this->items[$id]['item']['price'];
-   //     $this->totalQty++;
-   //     $this->totalPrice += $this->items[$id]['item']['price'];
+     
+       $this->totalQty++;
+     
+       $this->totalPrice+= $this->items[$id]['item']['product_price'];
       
     
    
-   //    }
+      }
 }

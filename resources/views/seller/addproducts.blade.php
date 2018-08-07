@@ -10,6 +10,7 @@
 </style>
 @endsection
 @section('content')
+@include('messages')
 
 <h1 class="text-center">Add Product:</h1>
 <form  action="{{ route('storeproduct') }}" enctype="multipart/form-data" method="POST" class="form-horizontal" onkeypress="return event.keyCode != 13;">
@@ -99,17 +100,19 @@
                 <div class="col-sm-10">
                   <input type="number" class="form-control" id="sale" name="product_price_sale" placeholder="Enter sale For Product" min="0"  step="0.01" title="Currency" pattern="^\d+(?:\.\d{1,2})?$">
                 </div>
-              </div>      
+              </div>
+              <div class="col-md-6 col-sm-12">      
                 <div class="form-group">
                   <div style="position:relative;">
                       <a class='btn btn-primary' href='javascript:;'>
                         Choose File...
-                        <input type="file" multiple name="product_image[]" style='position:absolute;z-index:2;top:0;left:0;filter: alpha(opacity=0);-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";opacity:0;background-color:transparent;color:transparent;' name="file_source" size="40"  onchange='$("#upload-file-info").html($(this).val());'>
+                        <input type="file" multiple='yes' name="product_image[]" style='position:absolute;z-index:2;top:0;left:0;filter: alpha(opacity=0);-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";opacity:0;background-color:transparent;color:transparent;' name="file_source" size="40"  onchange='$("#upload-file-info").html($(this).val());'>
                       </a>
                       &nbsp;
                       <span class='label label-info' id="upload-file-info"></span>
                     </div>
                 </div>
+              </div>
             </div>
           </div>
           <div class="row">
@@ -145,7 +148,7 @@
                   <select class="form-control" id="sleeve" name="sleeve" required>
                   <option value=""></option>
                   @foreach($sleeve_values as $sleeve)
-                    <option value="{{$sleeve->id}}">{{$sleeve->sleeve}}</option>
+                    <option value="{{$sleeve->id}}">{{$sleeve->sleeve}}required</option>
                   @endforeach
                   </select>
                 </div>
@@ -190,7 +193,7 @@
                   <select class="form-control" id="occassion" name="occassion" required>
                   <option value=""></option>
                   @foreach($occassion_values as $occassion)
-                    <option value="{{$occassion->id}}">{{$occassion->occassion}}</option>
+                    <option value="{{$occassion->id}}" required>{{$occassion->occassion}}</option>
                   @endforeach
                   </select>
                 </div>
@@ -218,7 +221,7 @@
                   <select class="form-control" id="color" name="color_id" required>
                     <option value="">choose color:</option>
                     @foreach($colors as $color)
-                      <option value={{$color->id}} style="color:{{$color->color_name}};">{{$color->color_name}} </option><div style="background-color:{{$color->color_name}}; width:1em; heigh:1em;"></div>
+                      <option value={{$color->id}} style="color:{{$color->color_name}};"required>{{$color->color_name}} </option><div style="background-color:{{$color->color_name}}; width:1em; heigh:1em;"></div>
                     @endforeach
                   </select>
                 </div>
@@ -230,7 +233,7 @@
                 <label class="control-label col-sm-2" for="sizes">Sizes:</label>
                 <div class="col-sm-10">
                   @foreach($sizes as $size)
-                    <label class="checkbox-inline"><input type="checkbox" name="size[]" value="{{$size->id}}">{{$size->size_name}}</label>
+                    <label class="checkbox-inline"><input type="checkbox" checked required name="size[]" value="{{$size->id}}">{{$size->size_name}} </label>
                   @endforeach
                 </div>  
               </div>
@@ -238,7 +241,7 @@
                 <label class="control-label col-sm-2" for="sizes">Quantity:</label>
                 <div class="col-sm-10">
                   @foreach($sizes as $size)
-                   <input type="number" name="quan[]" style="width:3.3em;">
+                   <input type="number" name="quan[]" style="width:3.3em;" min='0' required>
                    
                   @endforeach
                 </div>

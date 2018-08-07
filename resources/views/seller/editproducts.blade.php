@@ -10,22 +10,14 @@
 </style>
 @endsection
 @section('content')
+@include('messages')
 
-<h1 class="text-center">Add Product:</h1>
-<form  action="{{ route('storeproduct') }}" enctype="multipart/form-data" method="POST" class="form-horizontal" onkeypress="return event.keyCode != 13;">
+<h1 class="text-center">Edit Product:</h1>
+<form  action="{{ route('updateproduct',array('id'=>$product->id)) }}" enctype="multipart/form-data" method="POST" class="form-horizontal" >
   
   {{ csrf_field() }}
 
-   {{--  @foreach($items as $item)
-      <h1> {{$item->product_serial_num}}</h1>
-        @foreach($item->colors as $color)
-          <div style="background-color:{{$color->color_name}}; width:10%"> {{$color->color_name}}</div>
-          @foreach($color->sizes as $size)
-            <span style="background-color:{{$color->color_name}}; color:white"> {{$size->size_name}}</span>
-          @endforeach
-        @endforeach                    
-  @endforeach  --}}
- 
+
 <input type="hidden" value="{{Auth::guard('seller')->user()->id}}" name="comp_id">
   <div class="row">
   
@@ -40,7 +32,7 @@
                 <label class="control-label col-sm-2" for="style">Style:</label>
                 <div class="col-sm-10">
                   <select class="form-control" id="style" name="style_id" required >
-                    <option value={{$product[0]->style->style_id}} >{{$product[0]->style->style_name}}</option>
+                    <option value={{$product->style->style_id}} >{{$product->style->style_name}}</option>
                     @foreach($styles as $style)
                       <option value={{$style->id}}>{{$style->style_name}}</option>
                     @endforeach
@@ -53,7 +45,7 @@
                 <label class="control-label col-sm-2" for="material">Material:</label>
                 <div class="col-sm-10">
                   <select class="form-control" id="material" name="mater_id" required>
-                    <option value={{$product[0]->mater_id}} >{{$product[0]->material->mater_name}}</option>
+                    <option value={{$product->mater_id}} >{{$product->material->mater_name}}</option>
                     @foreach($materials as $material)
                       <option value={{$material->id}}>{{$material->mater_name}}</option>
                     @endforeach
@@ -68,7 +60,7 @@
               <div class="form-group">
                 <label class="control-label col-sm-2" for="serial">Serial:</label>
                 <div class="col-sm-10">
-                  <input type="text" class="form-control" value={{$product[0]->product_serial_num}} id="serial" name="product_serial_num" placeholder="Enter serial For Product">
+                  <input type="text" class="form-control" value={{$product->product_serial_num}} id="serial" name="product_serial_num" placeholder="Enter serial For Product">
                 </div>
               </div>
             </div>
@@ -76,7 +68,7 @@
               <div class="form-group">
                 <label class="control-label col-sm-2" for="price">Price:</label>
                 <div class="col-sm-10">
-                  <input type="number" class="form-control" value={{$product[0]->product_price}}  id="price" name="product_price" placeholder="Enter price For Product" required  min="0"  step="0.01" title="Currency" pattern="^\d+(?:\.\d{1,2})?$">
+                  <input type="number" class="form-control" value={{$product->product_price}}  id="price" name="product_price" placeholder="Enter price For Product" required  min="0"  step="0.01" title="Currency" pattern="^\d+(?:\.\d{1,2})?$">
                 </div>
               </div>
             </div>
@@ -88,7 +80,7 @@
               <div class="form-group">
                 <label class="control-label col-sm-3" for="desc">Descirption:</label>
                 <div class="col-sm-9">
-                  <textarea value={{$product[0]->product_desc}} rows="4" cols="50" class="form-control" id="desc" name="product_desc" placeholder="Enter Descirption For Product"></textarea>
+                  <textarea value={{$product->product_desc}} rows="4" cols="50" class="form-control" id="desc" name="product_desc" placeholder="Enter Descirption For Product">{{$product->product_desc}}</textarea>
                 </div>
               </div>
             </div>
@@ -97,7 +89,7 @@
               <div class="form-group">
                 <label class="control-label col-sm-2" for="sale">Sale:</label>
                 <div class="col-sm-10">
-                  <input value={{$product[0]->product_price_sale}} type="number" class="form-control" id="sale" name="product_price_sale" placeholder="Enter sale For Product" min="0"  step="0.01" title="Currency" pattern="^\d+(?:\.\d{1,2})?$">
+                  <input value={{$product->product_price_sale}} type="number" class="form-control" id="sale" name="product_price_sale" placeholder="Enter sale For Product" min="0"  step="0.01" title="Currency" pattern="^\d+(?:\.\d{1,2})?$">
                 </div>
               </div>      
                 <div class="form-group">
@@ -117,7 +109,7 @@
               <div class="form-group">
                 <label class="control-label col-sm-1" for="tag">Tags:</label>
                 <div class="col-sm-11">
-                  <input type="text" value="{{$product[0]->tag_word}}" data-role="tagsinput" id="tag" name="tag_word" placeholder="Add tags" />
+                  <input type="text" value="{{$product->tag_word}}" data-role="tagsinput" id="tag" name="tag_word" placeholder="Add tags" />
                 </div>
               </div>
             </div>
@@ -143,7 +135,7 @@
                 <label class="control-label col-sm-2" for="sleeve">Sleeve Length:</label>
                 <div class="col-sm-10">
                   <select class="form-control" id="sleeve" name="sleeve" required>
-                  <option value=""></option>
+                    <option value={{ $style_details->styledetails[0]->style_details_value }}>{{ $style_details->styledetails[0]->style_details_value }}</option>
                   @foreach($sleeve_values as $sleeve)
                     <option value="{{$sleeve->id}}">{{$sleeve->sleeve}}</option>
                   @endforeach
@@ -157,7 +149,7 @@
                 <label class="control-label col-sm-2" for="length">Length:</label>
                 <div class="col-sm-10">
                   <select class="form-control" id="length" name="length" required>
-                  <option value=""></option>
+                  <option value={{ $style_details->styledetails[0]->style_details_type }}>{{ $style_details->styledetails[0]->style_details_type }}</option>
                   @foreach($length_values as $length)
                     <option value="{{$length->id}}">{{$length->length}}</option>
                   @endforeach
@@ -217,9 +209,9 @@
                 <label class="control-label col-sm-2" for="color">Color:</label>
                 <div class="col-sm-10">
                   <select class="form-control" id="color" name="color_id" required>
-                    <option value="">choose color:</option>
+                    <option value={{ $product_color->colors[0]->id}}>{{ $product_color->colors[0]->color_name }}</option>
                     @foreach($colors as $color)
-                      <option value={{$color->id}} style="color:{{$color->color_name}};">{{$color->color_name}} </option><div style="background-color:{{$color->color_name}}; width:1em; heigh:1em;"></div>
+                      <option value={{$color->id}}>{{$color->color_name}} </option>
                     @endforeach
                   </select>
                 </div>

@@ -30,48 +30,23 @@ class ProductsController extends Controller
      */
     public function index($categ_name,$group_name)
     { 
-//   dd($categ_name);
-// $products= Product::with(['style'=>function($query)use ($categ_name){
-//     $query->with(['category'=>function($query2) use ($categ_name){
-//         $query2->where('categ_name','like', 'Shirts');
-//     }]);
-// }])->get();
+         $groups =Group::with('categories')->get();
 
+        $products_filter=Category::where('categ_name',$categ_name)->with('styles')
+       ->with(['groups'=>function($q) use($group_name){
+              $q->where('group_name',$group_name);
+       }])->get();
 
-        $products= Product::with('style')->get();
-        // dd($products);
-        // $products=DB::table('products')
-        //     ->join('styles','styles.id','=','products.style_id')
-        //    ->join('categories','categories.id','=','styles.categ_id')
-        //    ->join('categ_groups','categories.id','=','categ_groups.categ_id')
-        //    ->join('groups','groups.id','=','categ_groups.group_id')
-        //    ->select('products.*','styles.*','categories.*','groups.*')
-        //    ->where('categories.categ_name', '=', $categ_name)->get();
+      $first=$products_filter[0]->styles;
+      $arr_id=[];
+                foreach($first as $styles){
+                    foreach($styles->products as $style ){
+                        $arr_id[]=$style->id;     }
+                        }
+     $products=Product::with('images')->whereIn('id',$arr_id)->get();
 
-        // dd($products);
-        
-        
-
-        $groups =Group::with('categories')->get();
+        return view('seller.showProducts',compact('groups','products','categ_name','group_name'));
      
-    //    $products= DB::table('materials')
-    //    ->join('products','products.mater_id','=','materials.id')
-    //    ->join('styles','styles.id','=','products.style_id')
-    //    ->join('categories','categories.id','=','styles.categ_id')
-    //    ->join('categ_groups','categories.id','=','categ_groups.categ_id')
-    //    ->join('groups','groups.id','=','categ_groups.group_id')
-    //    ->select('products.product_serial_num AS serial','products.product_desc AS desc',
-    //    'products.product_price AS price','products.product_price_sale AS sale',
-    //    'styles.style_name AS style','products.id','products.updated_at AS update','materials.mater_name AS material')
-    
-       
-        
-    // //    ->get();
-    //  dd($products);
-        return view('seller.showProducts',compact('groups','products','categ_name','group_name',
-        'styles','materials'));
-        
-        //return view('test',compact('pro'));
     }
 
     /**
@@ -85,11 +60,12 @@ class ProductsController extends Controller
 
         $materials=Material::all();
  
-        $styles=DB::table('styles')
-        ->join('categories','styles.categ_id','=','categories.id')
-        ->select('styles.id','styles.style_name AS style_name')
-        ->where('categories.categ_name',$categ_name)
-        ->get();
+        // $styles=DB::table('styles')
+        // ->join('categories','styles.categ_id','=','categories.id')
+        // ->select('styles.id','styles.style_name AS style_name')
+        // ->where('categories.categ_name',$categ_name)
+        // ->get();
+       $styles=Style::all();
 
         $length_values=DB::table('style_details')
         ->select('id','style_details.style_details_value AS length')
@@ -138,6 +114,20 @@ class ProductsController extends Controller
         // if ($validator->fails()) {
         //     // return Response::json(array('errors' => $validator->getMessageBag()->toArray()));
         // } else {
+            $this->validate(request(),[
+                'style_id'=>'required',
+                'product_price'=>'required',
+                'product_serial_num'=>'required|unique:products',
+                'product_desc'=>'required',
+                'comp_id'=>'required',
+                'tag_word'=>'required',
+                'product_price_sale'=>'required',
+                'color_id'=>'required',
+                'product_image'=>'required|min:3',
+                'quan'=>'required'
+              
+                
+            ]);
             $product = new Product();
             $product->style_id = $request->style_id;
             $product->product_price = $request->product_price;
@@ -177,7 +167,7 @@ class ProductsController extends Controller
 
         if($request->hasFile('product_image')){
             foreach ($request->file('product_image') as $key => $value) {
-
+               
                 $imageName = time(). $key . '.' . $value->getClientOriginalExtension();
                 $value->move(public_path('images'), $imageName);
                 $media =new Media();
@@ -213,7 +203,7 @@ class ProductsController extends Controller
         }
             
             // return response()->json($product);
-
+            session()->flash("success",'your product has been added');
  return Redirect::back();
        
         // return response()->json(['success'=>'done']);
@@ -233,10 +223,11 @@ class ProductsController extends Controller
        
       
         
-        $product= Product::with('style')->where('id',$id)->get();
-        
-        $style_details= Product::with('styleDetails')->where('id',$id)->get();
-      //  dd($style_details);
+        $product= Product::with('style')->where('id',$id)->first();
+       // dd($product);
+        $style_details= Product::with('styleDetails')->where('id',$id)->first();
+        $product_color= Product::with('colors')->where('id',$id)->first();
+    //  dd($product_color->colors);
         $materials=Material::all();
  
         $styles=DB::table('styles')
@@ -249,6 +240,7 @@ class ProductsController extends Controller
         ->select('id','style_details.style_details_value AS length')
         ->where('style_details.style_details_type','Length')
         ->get();
+       //dd($length_values);
 
         $neck_values=DB::table('style_details')
         ->select('id','style_details.style_details_value AS neck')
@@ -264,13 +256,14 @@ class ProductsController extends Controller
         ->select('id','style_details.style_details_value AS occassion')
         ->where('style_details.style_details_type','Occassion')
         ->get();
+       // dd( $neck_values);
         $sizes  = Size::all();
         $colors = Color::all();
         $groups = Group::with('categories')->get();
         //$productsss =Product::all();
         //$items = Product::with('colors')->get();
 
-       return view('seller.editproducts',compact('product','style_details','groups','colors','sizes','styles','materials','length_values','sleeve_values','neck_values','occassion_values','categ_name','group_name'));
+       return view('seller.editproducts',compact('product_color','product','style_details','groups','colors','sizes','styles','materials','length_values','sleeve_values','neck_values','occassion_values','categ_name','group_name'));
     
          
     }
@@ -282,12 +275,13 @@ class ProductsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
-    {
+    public function update(Request $request, $id){
+    //{dd($request->all());
             
             $product = Product::findOrFail($id);
             $product->update($request->all());
-            return 'success';
+             session()->flash("success",'your product has been Updated');
+             return Redirect::back();
 
     }
   

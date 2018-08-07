@@ -11,6 +11,6 @@ class Brand extends Model
     ['brand_name']; 
     public function groups()
     {
-        return $this->belongsToMany('App\Group','group_brands','group_id','brand_id');
+        return $this->belongsToMany('App\Group','group_brands','group_id','brand_id')->with('categories');
     }
 }

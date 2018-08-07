@@ -5,6 +5,10 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Product;
 use App\Group;
+use App\Category;
+use App\Style;
+use DB;
+use App\Categ_groups;
 
 class HomeController extends Controller
 {
@@ -13,10 +17,7 @@ class HomeController extends Controller
      *
      * @return void
      */
-    // public function __construct()
-    // {
-    //     $this->middleware('auth');
-    // }
+   
 
     /**
      * Show the application dashboard.
@@ -29,17 +30,25 @@ class HomeController extends Controller
     {
         
         // $product=array();
-            $products=Product::with('style')->with('images')->get();
-         //   dd($products);
-          //  dd($products[4]->images[0]->img_name);
-          //$a=($products[5]->style->categ_id);
-          
-        //   $g=Group::with('categories')->where('id', 17)->get();
-        //   dd($g);
-           // $lastproduct=Product::find(13);
-            
-            // $product->products->get();
-            return view('welcome',['products'=>$products]);
+        $products2=Product::with('images')->get();
+           $products=Product::with('images')
+            ->with('style')
+            ->with('material')
+            ->with('company')
+            ->with('colors')
+            ->with('styleDetails')
+           ->paginate(8);
+        
+            $productsDb=DB::table('products')
+            ->join('styles','products.style_id','=','styles.id')
+            ->join('categories','categories.id','=','styles.categ_id')
+            ->join('categ_groups','categ_groups.categ_id','=','categories.id')
+            ->join('groups','groups.id','=','categ_groups.group_id')
+            ->join('brands','brands.id','=','groups.id')
+           
+            ->get();
+        
+            return view('welcome',compact('products','products2','categories'));
            
     }
 

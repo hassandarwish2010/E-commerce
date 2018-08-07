@@ -14,11 +14,12 @@ class Style extends Model
     
     public function category()
     {
-        return $this->belongsTo('App\Category','categ_id')->with('groups');
+        return $this->belongsTo('App\Category','categ_id');
     }
+
     public function products()
     {
-        return $this->hasMany('App\Product','style_id');
+        return $this->hasMany('App\Product','style_id')->with('material')->with('colors');
     }
 
 }

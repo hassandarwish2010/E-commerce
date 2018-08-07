@@ -9,8 +9,6 @@
             <th>ID</th>
             <th>Serial_name</th>
             <th>Price</th>
-            <th>Descreption</th>
-            <th>quntity</th>
             <th>com_id</th>
             <th class="text-center">Action</th>
         </tr>
@@ -22,13 +20,12 @@
                 <td>{{$product->id}}</td>
                 <td>{{$product->product_serial_num}}</td>
                 <td>{{$product->product_price}}</td>
-                <th>{{$product->product_desc}}</th>
-                <th>{{$product->product_quan}}</th>
                 <th>{{$product->comp_id}}</th>
                
                 <td class="text-center"> <a href="{{route('deleteadminprodect',['id'=>$product->id])}}" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span> Del</a></td>
             </tr>
             @endforeach
+            <h6 class="text-center">{!! $products->render() !!}</h6>
     </table>
     </div>
 
